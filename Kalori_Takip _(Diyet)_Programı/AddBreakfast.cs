@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Kalori_Takip___Diyet__Programı
 {
-	public partial class UserHomePage : Form
+	public partial class AddBreakfast : Form
 	{
-		public UserHomePage()
+		public AddBreakfast()
 		{
 			InitializeComponent();
-		}
-
-		private void btnKaloriTakibi_Click(object sender, EventArgs e)
-		{
-			MealTable mealTable = new MealTable();
-			this.Hide();
-			mealTable.ShowDialog();
 		}
 	}
 }

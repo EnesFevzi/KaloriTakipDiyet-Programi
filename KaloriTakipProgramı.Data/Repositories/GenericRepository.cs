@@ -17,6 +17,7 @@ namespace KaloriTakipProgramı.Data.Repositories
 		{
 			_context = new AppDbContext();
 		}
+
 		public void Add(T t)
 		{
 			_context.Add(t);
@@ -54,7 +55,5 @@ namespace KaloriTakipProgramı.Data.Repositories
 			_context.Update(t);
 			_context.SaveChanges();
 		}
-
-
 	}
 }

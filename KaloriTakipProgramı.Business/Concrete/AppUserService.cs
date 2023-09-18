@@ -18,9 +18,9 @@ namespace KaloriTakipProgramı.Business.Concrete
         {
             _repository = new AppUserRepository();
         }
-        public void TAdd(AppUser t)
+        public void TAdd(AppUser appUser)
 		{
-			_repository.Add(t);
+			_repository.Add(appUser);
 		}
 
 		public void TDelete(AppUser t)

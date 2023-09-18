@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KaloriTakipProgramı.Business.Concrete;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace Kalori_Takip___Diyet__Programı
 {
 	public partial class Login : Form
 	{
+		private readonly AppUserService _service;
 		public Login()
 		{
+			_service = new AppUserService();
 			InitializeComponent();
 		}
 
@@ -27,6 +30,11 @@ namespace Kalori_Takip___Diyet__Programı
 			OpeningPage openingPage = new OpeningPage();
 			this.Hide();
 			openingPage.ShowDialog();
+
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
 
 		}
 	}

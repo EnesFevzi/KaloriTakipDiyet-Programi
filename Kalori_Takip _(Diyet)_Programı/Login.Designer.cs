@@ -96,6 +96,7 @@
 			button1.TabIndex = 6;
 			button1.Text = "G İ R İ Ş  Y A P ";
 			button1.UseVisualStyleBackColor = false;
+			button1.Click += button1_Click;
 			// 
 			// grpGirisYap
 			// 

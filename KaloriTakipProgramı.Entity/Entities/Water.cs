@@ -12,8 +12,8 @@ namespace KaloriTakipProgramı.Entity.Entities
         public float WaterQuantity { get; set; }
 		public DateTime ConsumedDate { get; set; }
 
-		//Navigation Property
 
+		//Navigation Property
 		public virtual ICollection<AppUser> AppUsers { get; set; }
 	}
 }

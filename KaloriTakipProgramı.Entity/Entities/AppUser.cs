@@ -35,8 +35,6 @@ namespace KaloriTakipProgramı.Entity.Entities
 		public virtual ICollection<MealOfDay> MealOfDays { get; set; }
 
 
-
-
 		public virtual int WaterID { get; set; }
 		public Water Water { get; set; }
 

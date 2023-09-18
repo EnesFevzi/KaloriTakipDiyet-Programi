@@ -9,9 +9,9 @@ namespace KaloriTakipProgramı.Entity.Entities
 {
 	public class Meal
 	{
+		//Sabah Öğle Akşam Aperatif
         public int MealID { get; set; }
 		public string MealName { get; set; }
-
 		public ICollection<MealOfDay> MealOfDays { get; set; }	
 
 	}

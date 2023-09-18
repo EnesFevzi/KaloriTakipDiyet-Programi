@@ -43,11 +43,11 @@
 			label8 = new Label();
 			label6 = new Label();
 			label3 = new Label();
-			button1 = new Button();
-			button2 = new Button();
-			button3 = new Button();
-			button4 = new Button();
-			button5 = new Button();
+			btnYemekMiKacKolari = new Button();
+			btnHaydiVucutAnalizi = new Button();
+			btnSuTakibi = new Button();
+			btnKaloriTakibi = new Button();
+			btnRaporlar = new Button();
 			pictureBox1 = new PictureBox();
 			pictureBox2 = new PictureBox();
 			groupBox1.SuspendLayout();
@@ -98,7 +98,6 @@
 			groupBox1.TabIndex = 1;
 			groupBox1.TabStop = false;
 			groupBox1.Text = "KişiselBilgiler";
-			groupBox1.Enter += groupBox1_Enter;
 			// 
 			// label9
 			// 
@@ -220,60 +219,61 @@
 			label3.TabIndex = 0;
 			label3.Text = "VKİ";
 			// 
-			// button1
+			// btnYemekMiKacKolari
 			// 
-			button1.BackColor = Color.PeachPuff;
-			button1.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			button1.Location = new Point(691, 18);
-			button1.Name = "button1";
-			button1.Size = new Size(237, 95);
-			button1.TabIndex = 2;
-			button1.Text = "Yemek mi ? Kaç Kalori ?";
-			button1.UseVisualStyleBackColor = false;
+			btnYemekMiKacKolari.BackColor = Color.PeachPuff;
+			btnYemekMiKacKolari.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+			btnYemekMiKacKolari.Location = new Point(691, 18);
+			btnYemekMiKacKolari.Name = "btnYemekMiKacKolari";
+			btnYemekMiKacKolari.Size = new Size(237, 95);
+			btnYemekMiKacKolari.TabIndex = 2;
+			btnYemekMiKacKolari.Text = "Yemek mi ? Kaç Kalori ?";
+			btnYemekMiKacKolari.UseVisualStyleBackColor = false;
 			// 
-			// button2
+			// btnHaydiVucutAnalizi
 			// 
-			button2.BackColor = Color.PeachPuff;
-			button2.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			button2.Location = new Point(691, 113);
-			button2.Name = "button2";
-			button2.Size = new Size(237, 95);
-			button2.TabIndex = 3;
-			button2.Text = "Haydi Vucüt Analizi Yapalım";
-			button2.UseVisualStyleBackColor = false;
+			btnHaydiVucutAnalizi.BackColor = Color.PeachPuff;
+			btnHaydiVucutAnalizi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+			btnHaydiVucutAnalizi.Location = new Point(691, 113);
+			btnHaydiVucutAnalizi.Name = "btnHaydiVucutAnalizi";
+			btnHaydiVucutAnalizi.Size = new Size(237, 95);
+			btnHaydiVucutAnalizi.TabIndex = 3;
+			btnHaydiVucutAnalizi.Text = "Haydi Vucüt Analizi Yapalım";
+			btnHaydiVucutAnalizi.UseVisualStyleBackColor = false;
 			// 
-			// button3
+			// btnSuTakibi
 			// 
-			button3.BackColor = Color.PeachPuff;
-			button3.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			button3.Location = new Point(691, 208);
-			button3.Name = "button3";
-			button3.Size = new Size(237, 95);
-			button3.TabIndex = 2;
-			button3.Text = "Bugün Suyunu İçtin mi ?";
-			button3.UseVisualStyleBackColor = false;
+			btnSuTakibi.BackColor = Color.PeachPuff;
+			btnSuTakibi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+			btnSuTakibi.Location = new Point(691, 208);
+			btnSuTakibi.Name = "btnSuTakibi";
+			btnSuTakibi.Size = new Size(237, 95);
+			btnSuTakibi.TabIndex = 2;
+			btnSuTakibi.Text = "Bugün Suyunu İçtin mi ?";
+			btnSuTakibi.UseVisualStyleBackColor = false;
 			// 
-			// button4
+			// btnKaloriTakibi
 			// 
-			button4.BackColor = Color.PeachPuff;
-			button4.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			button4.Location = new Point(691, 303);
-			button4.Name = "button4";
-			button4.Size = new Size(237, 95);
-			button4.TabIndex = 3;
-			button4.Text = "Kalori Takibi";
-			button4.UseVisualStyleBackColor = false;
+			btnKaloriTakibi.BackColor = Color.PeachPuff;
+			btnKaloriTakibi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+			btnKaloriTakibi.Location = new Point(691, 303);
+			btnKaloriTakibi.Name = "btnKaloriTakibi";
+			btnKaloriTakibi.Size = new Size(237, 95);
+			btnKaloriTakibi.TabIndex = 3;
+			btnKaloriTakibi.Text = "Kalori Takibi";
+			btnKaloriTakibi.UseVisualStyleBackColor = false;
+			btnKaloriTakibi.Click += btnKaloriTakibi_Click;
 			// 
-			// button5
+			// btnRaporlar
 			// 
-			button5.BackColor = Color.PeachPuff;
-			button5.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			button5.Location = new Point(691, 398);
-			button5.Name = "button5";
-			button5.Size = new Size(237, 95);
-			button5.TabIndex = 2;
-			button5.Text = "Raporlar";
-			button5.UseVisualStyleBackColor = false;
+			btnRaporlar.BackColor = Color.PeachPuff;
+			btnRaporlar.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+			btnRaporlar.Location = new Point(691, 398);
+			btnRaporlar.Name = "btnRaporlar";
+			btnRaporlar.Size = new Size(237, 95);
+			btnRaporlar.TabIndex = 2;
+			btnRaporlar.Text = "Raporlar";
+			btnRaporlar.UseVisualStyleBackColor = false;
 			// 
 			// pictureBox1
 			// 
@@ -294,7 +294,6 @@
 			pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
 			pictureBox2.TabIndex = 4;
 			pictureBox2.TabStop = false;
-			pictureBox2.Click += pictureBox2_Click;
 			// 
 			// UserHomePage
 			// 
@@ -304,17 +303,16 @@
 			ClientSize = new Size(940, 504);
 			Controls.Add(pictureBox2);
 			Controls.Add(pictureBox1);
-			Controls.Add(button5);
-			Controls.Add(button4);
-			Controls.Add(button3);
-			Controls.Add(button2);
-			Controls.Add(button1);
+			Controls.Add(btnRaporlar);
+			Controls.Add(btnKaloriTakibi);
+			Controls.Add(btnSuTakibi);
+			Controls.Add(btnHaydiVucutAnalizi);
+			Controls.Add(btnYemekMiKacKolari);
 			Controls.Add(label1);
 			Controls.Add(groupBox1);
 			Controls.Add(lblKisiAdi);
 			Name = "UserHomePage";
 			Text = "UserHomePage";
-			Load += UserHomePage_Load;
 			groupBox1.ResumeLayout(false);
 			groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -338,11 +336,11 @@
 		private Label label5;
 		private Label label6;
 		private Label label3;
-		private Button button1;
-		private Button button2;
-		private Button button3;
-		private Button button4;
-		private Button button5;
+		private Button btnYemekMiKacKolari;
+		private Button btnHaydiVucutAnalizi;
+		private Button btnSuTakibi;
+		private Button btnKaloriTakibi;
+		private Button btnRaporlar;
 		private PictureBox pictureBox1;
 		private PictureBox pictureBox2;
 		private Label label9;

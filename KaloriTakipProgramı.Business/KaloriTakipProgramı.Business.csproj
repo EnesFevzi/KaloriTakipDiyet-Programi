@@ -7,9 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
     <Folder Include="Mapping\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KaloriTakipProgramı.Data\KaloriTakipProgramı.Data.csproj" />
+    <ProjectReference Include="..\KaloriTakipProgramı.Entity\KaloriTakipProgramı.Entity.csproj" />
   </ItemGroup>
 
 </Project>

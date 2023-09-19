@@ -1,4 +1,5 @@
-﻿using KaloriTakipProgramı.Business.Concrete;
+﻿using Kalori_Takip___Diyet__Programı.Extensions;
+using KaloriTakipProgramı.Business.Concrete;
 using KaloriTakipProgramı.Business.Formules;
 using KaloriTakipProgramı.Entity.Entities;
 using Microsoft.VisualBasic.ApplicationServices;
@@ -34,6 +35,12 @@ namespace Kalori_Takip___Diyet__Programı
 		bool islemTamamMi=false;
 		private void btnKaydet_Click(object sender, EventArgs e)
 		{
+			if (Helper.AlanlariKontrolEt(grpKisiselBilgiler.Controls))
+			{
+				MessageBox.Show("Lütfen tüm alanları doldurun.");
+				return;
+			}
+
 			var user = _user;
 			double kilo = (double)nmrKilo.Value;
 			double boy = (double)nmrBoy.Value;

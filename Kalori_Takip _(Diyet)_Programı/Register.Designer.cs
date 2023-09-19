@@ -29,16 +29,21 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
-			groupBox1 = new GroupBox();
+			grpKayitOl = new GroupBox();
 			btnKayitOl = new Button();
 			rdbKadin = new RadioButton();
 			rdbErkek = new RadioButton();
 			label10 = new Label();
+			lblGüvenlikSeviyesi = new Label();
+			lblSifreEslesmeDurumu = new Label();
+			label4 = new Label();
 			label5 = new Label();
 			label1 = new Label();
+			label3 = new Label();
 			label2 = new Label();
 			txtSifreTekrar = new TextBox();
 			txtSifre = new TextBox();
+			txtKullaniciAdi = new TextBox();
 			txtEmail = new TextBox();
 			label7 = new Label();
 			txtAd = new TextBox();
@@ -46,33 +51,38 @@
 			label6 = new Label();
 			pictureBox1 = new PictureBox();
 			btnGeriDon = new Button();
-			groupBox1.SuspendLayout();
+			grpKayitOl.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
 			// 
-			// groupBox1
+			// grpKayitOl
 			// 
-			groupBox1.BackColor = Color.Transparent;
-			groupBox1.Controls.Add(btnKayitOl);
-			groupBox1.Controls.Add(rdbKadin);
-			groupBox1.Controls.Add(rdbErkek);
-			groupBox1.Controls.Add(label10);
-			groupBox1.Controls.Add(label5);
-			groupBox1.Controls.Add(label1);
-			groupBox1.Controls.Add(label2);
-			groupBox1.Controls.Add(txtSifreTekrar);
-			groupBox1.Controls.Add(txtSifre);
-			groupBox1.Controls.Add(txtEmail);
-			groupBox1.Controls.Add(label7);
-			groupBox1.Controls.Add(txtAd);
-			groupBox1.Controls.Add(txtSoyad);
-			groupBox1.Controls.Add(label6);
-			groupBox1.Location = new Point(3, 142);
-			groupBox1.Name = "groupBox1";
-			groupBox1.Size = new Size(359, 361);
-			groupBox1.TabIndex = 9;
-			groupBox1.TabStop = false;
-			groupBox1.Text = "Kayıt Ol";
+			grpKayitOl.BackColor = Color.Transparent;
+			grpKayitOl.Controls.Add(btnKayitOl);
+			grpKayitOl.Controls.Add(rdbKadin);
+			grpKayitOl.Controls.Add(rdbErkek);
+			grpKayitOl.Controls.Add(label10);
+			grpKayitOl.Controls.Add(lblGüvenlikSeviyesi);
+			grpKayitOl.Controls.Add(lblSifreEslesmeDurumu);
+			grpKayitOl.Controls.Add(label4);
+			grpKayitOl.Controls.Add(label5);
+			grpKayitOl.Controls.Add(label1);
+			grpKayitOl.Controls.Add(label3);
+			grpKayitOl.Controls.Add(label2);
+			grpKayitOl.Controls.Add(txtSifreTekrar);
+			grpKayitOl.Controls.Add(txtSifre);
+			grpKayitOl.Controls.Add(txtKullaniciAdi);
+			grpKayitOl.Controls.Add(txtEmail);
+			grpKayitOl.Controls.Add(label7);
+			grpKayitOl.Controls.Add(txtAd);
+			grpKayitOl.Controls.Add(txtSoyad);
+			grpKayitOl.Controls.Add(label6);
+			grpKayitOl.Location = new Point(3, 142);
+			grpKayitOl.Name = "grpKayitOl";
+			grpKayitOl.Size = new Size(359, 454);
+			grpKayitOl.TabIndex = 9;
+			grpKayitOl.TabStop = false;
+			grpKayitOl.Text = "Kayıt Ol";
 			// 
 			// btnKayitOl
 			// 
@@ -80,17 +90,18 @@
 			btnKayitOl.FlatStyle = FlatStyle.Popup;
 			btnKayitOl.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			btnKayitOl.ForeColor = Color.AliceBlue;
-			btnKayitOl.Location = new Point(66, 292);
+			btnKayitOl.Location = new Point(66, 391);
 			btnKayitOl.Name = "btnKayitOl";
 			btnKayitOl.Size = new Size(224, 32);
 			btnKayitOl.TabIndex = 21;
 			btnKayitOl.Text = "K A Y I T   O L";
 			btnKayitOl.UseVisualStyleBackColor = false;
+			btnKayitOl.Click += btnKayitOl_Click;
 			// 
 			// rdbKadin
 			// 
 			rdbKadin.AutoSize = true;
-			rdbKadin.Location = new Point(219, 247);
+			rdbKadin.Location = new Point(219, 346);
 			rdbKadin.Name = "rdbKadin";
 			rdbKadin.Size = new Size(55, 19);
 			rdbKadin.TabIndex = 24;
@@ -101,7 +112,7 @@
 			// rdbErkek
 			// 
 			rdbErkek.AutoSize = true;
-			rdbErkek.Location = new Point(141, 247);
+			rdbErkek.Location = new Point(141, 346);
 			rdbErkek.Name = "rdbErkek";
 			rdbErkek.Size = new Size(53, 19);
 			rdbErkek.TabIndex = 23;
@@ -115,7 +126,7 @@
 			label10.BackColor = Color.Transparent;
 			label10.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			label10.ForeColor = Color.Transparent;
-			label10.Location = new Point(24, 242);
+			label10.Location = new Point(24, 341);
 			label10.Name = "label10";
 			label10.Size = new Size(60, 25);
 			label10.TabIndex = 22;
@@ -123,13 +134,53 @@
 			label10.TextAlign = ContentAlignment.MiddleCenter;
 			label10.UseCompatibleTextRendering = true;
 			// 
+			// lblGüvenlikSeviyesi
+			// 
+			lblGüvenlikSeviyesi.AutoSize = true;
+			lblGüvenlikSeviyesi.BackColor = Color.Transparent;
+			lblGüvenlikSeviyesi.Font = new Font("Calibri", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			lblGüvenlikSeviyesi.ForeColor = Color.Transparent;
+			lblGüvenlikSeviyesi.Location = new Point(221, 225);
+			lblGüvenlikSeviyesi.Name = "lblGüvenlikSeviyesi";
+			lblGüvenlikSeviyesi.Size = new Size(0, 17);
+			lblGüvenlikSeviyesi.TabIndex = 11;
+			lblGüvenlikSeviyesi.TextAlign = ContentAlignment.MiddleCenter;
+			lblGüvenlikSeviyesi.UseCompatibleTextRendering = true;
+			// 
+			// lblSifreEslesmeDurumu
+			// 
+			lblSifreEslesmeDurumu.AutoSize = true;
+			lblSifreEslesmeDurumu.BackColor = Color.Red;
+			lblSifreEslesmeDurumu.Font = new Font("Calibri", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			lblSifreEslesmeDurumu.ForeColor = Color.Transparent;
+			lblSifreEslesmeDurumu.Location = new Point(114, 280);
+			lblSifreEslesmeDurumu.Name = "lblSifreEslesmeDurumu";
+			lblSifreEslesmeDurumu.Size = new Size(0, 17);
+			lblSifreEslesmeDurumu.TabIndex = 11;
+			lblSifreEslesmeDurumu.TextAlign = ContentAlignment.MiddleCenter;
+			lblSifreEslesmeDurumu.UseCompatibleTextRendering = true;
+			// 
+			// label4
+			// 
+			label4.AutoSize = true;
+			label4.BackColor = Color.Transparent;
+			label4.Font = new Font("Calibri", 9F, FontStyle.Regular, GraphicsUnit.Point);
+			label4.ForeColor = Color.Transparent;
+			label4.Location = new Point(114, 227);
+			label4.Name = "label4";
+			label4.Size = new Size(91, 20);
+			label4.TabIndex = 11;
+			label4.Text = "Güvenlik Seviyesi";
+			label4.TextAlign = ContentAlignment.MiddleCenter;
+			label4.UseCompatibleTextRendering = true;
+			// 
 			// label5
 			// 
 			label5.AutoSize = true;
 			label5.BackColor = Color.Transparent;
 			label5.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			label5.ForeColor = Color.Transparent;
-			label5.Location = new Point(24, 199);
+			label5.Location = new Point(24, 254);
 			label5.Name = "label5";
 			label5.Size = new Size(85, 25);
 			label5.TabIndex = 11;
@@ -143,13 +194,27 @@
 			label1.BackColor = Color.Transparent;
 			label1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			label1.ForeColor = Color.Transparent;
-			label1.Location = new Point(24, 156);
+			label1.Location = new Point(24, 201);
 			label1.Name = "label1";
 			label1.Size = new Size(37, 25);
 			label1.TabIndex = 12;
 			label1.Text = "Şifre";
 			label1.TextAlign = ContentAlignment.MiddleCenter;
 			label1.UseCompatibleTextRendering = true;
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.BackColor = Color.Transparent;
+			label3.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
+			label3.ForeColor = Color.Transparent;
+			label3.Location = new Point(24, 159);
+			label3.Name = "label3";
+			label3.Size = new Size(76, 25);
+			label3.TabIndex = 13;
+			label3.Text = "Username";
+			label3.TextAlign = ContentAlignment.MiddleCenter;
+			label3.UseCompatibleTextRendering = true;
 			// 
 			// label2
 			// 
@@ -169,19 +234,30 @@
 			// 
 			txtSifreTekrar.BackColor = Color.White;
 			txtSifreTekrar.BorderStyle = BorderStyle.FixedSingle;
-			txtSifreTekrar.Location = new Point(114, 199);
+			txtSifreTekrar.Location = new Point(114, 254);
 			txtSifreTekrar.Name = "txtSifreTekrar";
 			txtSifreTekrar.Size = new Size(219, 23);
 			txtSifreTekrar.TabIndex = 16;
+			txtSifreTekrar.TextChanged += txtSifreTekrar_TextChanged;
 			// 
 			// txtSifre
 			// 
 			txtSifre.BackColor = Color.White;
 			txtSifre.BorderStyle = BorderStyle.FixedSingle;
-			txtSifre.Location = new Point(114, 156);
+			txtSifre.Location = new Point(114, 201);
 			txtSifre.Name = "txtSifre";
 			txtSifre.Size = new Size(219, 23);
 			txtSifre.TabIndex = 17;
+			txtSifre.TextChanged += txtSifre_TextChanged;
+			// 
+			// txtKullaniciAdi
+			// 
+			txtKullaniciAdi.BackColor = Color.White;
+			txtKullaniciAdi.BorderStyle = BorderStyle.FixedSingle;
+			txtKullaniciAdi.Location = new Point(114, 159);
+			txtKullaniciAdi.Name = "txtKullaniciAdi";
+			txtKullaniciAdi.Size = new Size(219, 23);
+			txtKullaniciAdi.TabIndex = 18;
 			// 
 			// txtEmail
 			// 
@@ -268,20 +344,20 @@
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(374, 515);
+			ClientSize = new Size(374, 608);
 			Controls.Add(btnGeriDon);
 			Controls.Add(pictureBox1);
-			Controls.Add(groupBox1);
+			Controls.Add(grpKayitOl);
 			Name = "Register";
 			Text = "Register";
-			groupBox1.ResumeLayout(false);
-			groupBox1.PerformLayout();
+			grpKayitOl.ResumeLayout(false);
+			grpKayitOl.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 		}
 
 		#endregion
-		private GroupBox groupBox1;
+		private GroupBox grpKayitOl;
 		private Button btnKayitOl;
 		private RadioButton rdbKadin;
 		private RadioButton rdbErkek;
@@ -298,5 +374,10 @@
 		private Label label6;
 		private PictureBox pictureBox1;
 		private Button btnGeriDon;
+		private Label label3;
+		private TextBox txtKullaniciAdi;
+		private Label lblGüvenlikSeviyesi;
+		private Label label4;
+		private Label lblSifreEslesmeDurumu;
 	}
 }

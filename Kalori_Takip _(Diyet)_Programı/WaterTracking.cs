@@ -29,9 +29,7 @@ namespace Kalori_Takip___Diyet__Programı
 
 		private void btnGeriDon_Click(object sender, EventArgs e)
 		{
-			UserHomePage userHomePage = new UserHomePage();
-			this.Hide();
-			userHomePage.ShowDialog();
+				this.Close();
 		}
 	}
 }

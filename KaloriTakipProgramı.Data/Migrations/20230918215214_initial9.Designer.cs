@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KaloriTakipProgramı.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230917142948_initial")]
-    partial class initial
+    [Migration("20230918215214_initial9")]
+    partial class initial9
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,21 @@ namespace KaloriTakipProgramı.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("FoodMealOfDay", b =>
+                {
+                    b.Property<int>("FoodsFoodID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MealOfDaysMealOfDayID")
+                        .HasColumnType("int");
+
+                    b.HasKey("FoodsFoodID", "MealOfDaysMealOfDayID");
+
+                    b.HasIndex("MealOfDaysMealOfDayID");
+
+                    b.ToTable("FoodMealOfDay");
+                });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.AppRole", b =>
                 {
@@ -38,7 +53,14 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasKey("RoleID");
 
-                    b.ToTable("AppRole");
+                    b.ToTable("AppRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            RoleID = 1,
+                            RoleName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.AppUser", b =>
@@ -49,14 +71,17 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AppUserID"), 1L, 1);
 
-                    b.Property<int>("Age")
+                    b.Property<int?>("Age")
                         .HasColumnType("int");
 
-                    b.Property<int>("AppRoleRoleID")
-                        .HasColumnType("int");
+                    b.Property<double?>("BMH")
+                        .HasColumnType("float");
 
-                    b.Property<float>("BMH")
-                        .HasColumnType("real");
+                    b.Property<double?>("BasinCircle")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("ChestCircle")
+                        .HasColumnType("float");
 
                     b.Property<string>("ConfirmPassword")
                         .IsRequired()
@@ -76,8 +101,8 @@ namespace KaloriTakipProgramı.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Height")
-                        .HasColumnType("int");
+                    b.Property<double?>("Height")
+                        .HasColumnType("float");
 
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
@@ -90,7 +115,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RoleID")
+                    b.Property<int?>("RoleID")
                         .HasColumnType("int");
 
                     b.Property<bool>("Status")
@@ -100,21 +125,28 @@ namespace KaloriTakipProgramı.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("VKI")
-                        .HasColumnType("real");
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("VYO")
-                        .HasColumnType("real");
+                    b.Property<double?>("VKI")
+                        .HasColumnType("float");
 
-                    b.Property<int>("WaterID")
+                    b.Property<double?>("VYO")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("WaistCircle")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("WaterID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Weight")
-                        .HasColumnType("int");
+                    b.Property<double?>("Weight")
+                        .HasColumnType("float");
 
                     b.HasKey("AppUserID");
 
-                    b.HasIndex("AppRoleRoleID");
+                    b.HasIndex("RoleID");
 
                     b.HasIndex("WaterID");
 
@@ -128,9 +160,6 @@ namespace KaloriTakipProgramı.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FoodID"), 1L, 1);
-
-                    b.Property<int?>("AppUserID")
-                        .HasColumnType("int");
 
                     b.Property<float>("Calories")
                         .HasColumnType("real");
@@ -157,9 +186,6 @@ namespace KaloriTakipProgramı.Data.Migrations
                     b.Property<int?>("MacroFoodReportReportID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MealOfDayID")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
@@ -174,11 +200,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasKey("FoodID");
 
-                    b.HasIndex("AppUserID");
-
                     b.HasIndex("MacroFoodReportReportID");
-
-                    b.HasIndex("MealOfDayID");
 
                     b.ToTable("Foods");
                 });
@@ -287,19 +309,30 @@ namespace KaloriTakipProgramı.Data.Migrations
                     b.ToTable("Waters");
                 });
 
+            modelBuilder.Entity("FoodMealOfDay", b =>
+                {
+                    b.HasOne("KaloriTakipProgramı.Entity.Entities.Food", null)
+                        .WithMany()
+                        .HasForeignKey("FoodsFoodID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KaloriTakipProgramı.Entity.Entities.MealOfDay", null)
+                        .WithMany()
+                        .HasForeignKey("MealOfDaysMealOfDayID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.AppUser", b =>
                 {
                     b.HasOne("KaloriTakipProgramı.Entity.Entities.AppRole", "AppRole")
                         .WithMany("AppUsers")
-                        .HasForeignKey("AppRoleRoleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RoleID");
 
                     b.HasOne("KaloriTakipProgramı.Entity.Entities.Water", "Water")
                         .WithMany("AppUsers")
-                        .HasForeignKey("WaterID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("WaterID");
 
                     b.Navigation("AppRole");
 
@@ -308,21 +341,9 @@ namespace KaloriTakipProgramı.Data.Migrations
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Food", b =>
                 {
-                    b.HasOne("KaloriTakipProgramı.Entity.Entities.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserID");
-
                     b.HasOne("KaloriTakipProgramı.Entity.Entities.MacroFoodReport", null)
                         .WithMany("Foods")
                         .HasForeignKey("MacroFoodReportReportID");
-
-                    b.HasOne("KaloriTakipProgramı.Entity.Entities.MealOfDay", "MealOfDay")
-                        .WithMany("Foods")
-                        .HasForeignKey("MealOfDayID");
-
-                    b.Navigation("AppUser");
-
-                    b.Navigation("MealOfDay");
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.MacroFoodReport", b =>
@@ -375,11 +396,6 @@ namespace KaloriTakipProgramı.Data.Migrations
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Meal", b =>
                 {
                     b.Navigation("MealOfDays");
-                });
-
-            modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.MealOfDay", b =>
-                {
-                    b.Navigation("Foods");
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Water", b =>

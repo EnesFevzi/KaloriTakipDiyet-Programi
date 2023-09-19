@@ -15,10 +15,26 @@ namespace KaloriTakipProgramı.Data.Context
 		public DbSet<Meal> Meals { get; set; }
 		public DbSet<MealOfDay> MealOfDays { get; set; }
 		public DbSet<Water> Waters { get; set; }
+		public DbSet<AppRole> AppRoles { get; set; }
+
+
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB;database=DietDB;integrated security=true");
+		}
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<AppRole>().HasData(
+				new AppRole()
+				{
+					RoleID = 1,
+					RoleName = "Admin",
+
+				});
+
+			base.OnModelCreating(modelBuilder);
 		}
 	}
 }

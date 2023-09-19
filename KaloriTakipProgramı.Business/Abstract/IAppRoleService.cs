@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace KaloriTakipProgramı.Business.Abstract
 {
-	public interface IAppUserService:IGenericService<AppUser>
+	public interface IAppRoleService:IGenericService<AppRole>
 	{
-		bool TIsEmailExist(string email);
-		bool TUserExists(string username, string password);
+		int TGetRoleIDByName(string roleName);
 	}
 }

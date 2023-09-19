@@ -159,8 +159,6 @@ namespace KaloriTakipProgramı.Data.Migrations
                     Protein = table.Column<float>(type: "real", nullable: false),
                     Fat = table.Column<float>(type: "real", nullable: false),
                     TotalCalories = table.Column<float>(type: "real", nullable: false),
-                    AppUserID = table.Column<int>(type: "int", nullable: true),
-                    MealOfDayID = table.Column<int>(type: "int", nullable: true),
                     MacroFoodReportReportID = table.Column<int>(type: "int", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -171,20 +169,34 @@ namespace KaloriTakipProgramı.Data.Migrations
                 {
                     table.PrimaryKey("PK_Foods", x => x.FoodID);
                     table.ForeignKey(
-                        name: "FK_Foods_AppUsers_AppUserID",
-                        column: x => x.AppUserID,
-                        principalTable: "AppUsers",
-                        principalColumn: "AppUserID");
-                    table.ForeignKey(
                         name: "FK_Foods_MacroFoodReport_MacroFoodReportReportID",
                         column: x => x.MacroFoodReportReportID,
                         principalTable: "MacroFoodReport",
                         principalColumn: "ReportID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FoodMealOfDay",
+                columns: table => new
+                {
+                    FoodsFoodID = table.Column<int>(type: "int", nullable: false),
+                    MealOfDaysMealOfDayID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FoodMealOfDay", x => new { x.FoodsFoodID, x.MealOfDaysMealOfDayID });
                     table.ForeignKey(
-                        name: "FK_Foods_MealOfDays_MealOfDayID",
-                        column: x => x.MealOfDayID,
+                        name: "FK_FoodMealOfDay_Foods_FoodsFoodID",
+                        column: x => x.FoodsFoodID,
+                        principalTable: "Foods",
+                        principalColumn: "FoodID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_FoodMealOfDay_MealOfDays_MealOfDaysMealOfDayID",
+                        column: x => x.MealOfDaysMealOfDayID,
                         principalTable: "MealOfDays",
-                        principalColumn: "MealOfDayID");
+                        principalColumn: "MealOfDayID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -198,19 +210,14 @@ namespace KaloriTakipProgramı.Data.Migrations
                 column: "WaterID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Foods_AppUserID",
-                table: "Foods",
-                column: "AppUserID");
+                name: "IX_FoodMealOfDay_MealOfDaysMealOfDayID",
+                table: "FoodMealOfDay",
+                column: "MealOfDaysMealOfDayID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Foods_MacroFoodReportReportID",
                 table: "Foods",
                 column: "MacroFoodReportReportID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Foods_MealOfDayID",
-                table: "Foods",
-                column: "MealOfDayID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MacroFoodReport_AppUserID",
@@ -231,19 +238,22 @@ namespace KaloriTakipProgramı.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Foods");
+                name: "FoodMealOfDay");
 
             migrationBuilder.DropTable(
-                name: "MacroFoodReport");
+                name: "Foods");
 
             migrationBuilder.DropTable(
                 name: "MealOfDays");
 
             migrationBuilder.DropTable(
-                name: "AppUsers");
+                name: "MacroFoodReport");
 
             migrationBuilder.DropTable(
                 name: "Meals");
+
+            migrationBuilder.DropTable(
+                name: "AppUsers");
 
             migrationBuilder.DropTable(
                 name: "AppRole");

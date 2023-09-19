@@ -4,6 +4,7 @@ using KaloriTakipProgramı.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KaloriTakipProgramı.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230918114743_initial6")]
+    partial class initial6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,14 +74,8 @@ namespace KaloriTakipProgramı.Data.Migrations
                     b.Property<int?>("Age")
                         .HasColumnType("int");
 
-                    b.Property<double?>("BMH")
-                        .HasColumnType("float");
-
-                    b.Property<double?>("BasinCircle")
-                        .HasColumnType("float");
-
-                    b.Property<double?>("ChestCircle")
-                        .HasColumnType("float");
+                    b.Property<float?>("BMH")
+                        .HasColumnType("real");
 
                     b.Property<string>("ConfirmPassword")
                         .IsRequired()
@@ -99,11 +95,8 @@ namespace KaloriTakipProgramı.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Height")
-                        .HasColumnType("float");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("Height")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
@@ -130,20 +123,17 @@ namespace KaloriTakipProgramı.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("VKI")
-                        .HasColumnType("float");
+                    b.Property<float?>("VKI")
+                        .HasColumnType("real");
 
-                    b.Property<double?>("VYO")
-                        .HasColumnType("float");
-
-                    b.Property<double?>("WaistCircle")
-                        .HasColumnType("float");
+                    b.Property<float?>("VYO")
+                        .HasColumnType("real");
 
                     b.Property<int?>("WaterID")
                         .HasColumnType("int");
 
-                    b.Property<double?>("Weight")
-                        .HasColumnType("float");
+                    b.Property<int?>("Weight")
+                        .HasColumnType("int");
 
                     b.HasKey("AppUserID");
 

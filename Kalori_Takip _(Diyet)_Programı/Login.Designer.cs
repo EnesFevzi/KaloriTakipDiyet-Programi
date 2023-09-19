@@ -31,9 +31,9 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
 			label2 = new Label();
 			label1 = new Label();
-			textBox1 = new TextBox();
-			textBox2 = new TextBox();
-			button1 = new Button();
+			txtKullaniciAdi = new TextBox();
+			txtSifre = new TextBox();
+			btnGirisYap = new Button();
 			grpGirisYap = new GroupBox();
 			label3 = new Label();
 			btnHesapOlustur = new Button();
@@ -70,33 +70,33 @@
 			label1.TextAlign = ContentAlignment.MiddleCenter;
 			label1.UseCompatibleTextRendering = true;
 			// 
-			// textBox1
+			// txtKullaniciAdi
 			// 
-			textBox1.Location = new Point(73, 51);
-			textBox1.Name = "textBox1";
-			textBox1.Size = new Size(224, 23);
-			textBox1.TabIndex = 5;
+			txtKullaniciAdi.Location = new Point(73, 51);
+			txtKullaniciAdi.Name = "txtKullaniciAdi";
+			txtKullaniciAdi.Size = new Size(224, 23);
+			txtKullaniciAdi.TabIndex = 5;
 			// 
-			// textBox2
+			// txtSifre
 			// 
-			textBox2.Location = new Point(73, 119);
-			textBox2.Name = "textBox2";
-			textBox2.Size = new Size(224, 23);
-			textBox2.TabIndex = 5;
+			txtSifre.Location = new Point(73, 119);
+			txtSifre.Name = "txtSifre";
+			txtSifre.Size = new Size(224, 23);
+			txtSifre.TabIndex = 5;
 			// 
-			// button1
+			// btnGirisYap
 			// 
-			button1.BackColor = Color.Transparent;
-			button1.FlatStyle = FlatStyle.Popup;
-			button1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
-			button1.ForeColor = SystemColors.ActiveCaptionText;
-			button1.Location = new Point(73, 159);
-			button1.Name = "button1";
-			button1.Size = new Size(224, 32);
-			button1.TabIndex = 6;
-			button1.Text = "G İ R İ Ş  Y A P ";
-			button1.UseVisualStyleBackColor = false;
-			button1.Click += button1_Click;
+			btnGirisYap.BackColor = Color.Transparent;
+			btnGirisYap.FlatStyle = FlatStyle.Popup;
+			btnGirisYap.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
+			btnGirisYap.ForeColor = SystemColors.ActiveCaptionText;
+			btnGirisYap.Location = new Point(73, 159);
+			btnGirisYap.Name = "btnGirisYap";
+			btnGirisYap.Size = new Size(224, 32);
+			btnGirisYap.TabIndex = 6;
+			btnGirisYap.Text = "G İ R İ Ş  Y A P ";
+			btnGirisYap.UseVisualStyleBackColor = false;
+			btnGirisYap.Click += btnGirisYap_Click;
 			// 
 			// grpGirisYap
 			// 
@@ -104,10 +104,10 @@
 			grpGirisYap.Controls.Add(label3);
 			grpGirisYap.Controls.Add(label1);
 			grpGirisYap.Controls.Add(btnHesapOlustur);
-			grpGirisYap.Controls.Add(button1);
+			grpGirisYap.Controls.Add(btnGirisYap);
 			grpGirisYap.Controls.Add(label2);
-			grpGirisYap.Controls.Add(textBox2);
-			grpGirisYap.Controls.Add(textBox1);
+			grpGirisYap.Controls.Add(txtSifre);
+			grpGirisYap.Controls.Add(txtKullaniciAdi);
 			grpGirisYap.Location = new Point(2, 80);
 			grpGirisYap.Name = "grpGirisYap";
 			grpGirisYap.Size = new Size(370, 287);
@@ -142,6 +142,7 @@
 			btnHesapOlustur.TabIndex = 6;
 			btnHesapOlustur.Text = "Hesap Oluştur";
 			btnHesapOlustur.UseVisualStyleBackColor = false;
+			btnHesapOlustur.Click += btnHesapOlustur_Click;
 			// 
 			// label4
 			// 
@@ -193,9 +194,9 @@
 
 		private Label label2;
 		private Label label1;
-		private TextBox textBox1;
-		private TextBox textBox2;
-		private Button button1;
+		private TextBox txtKullaniciAdi;
+		private TextBox txtSifre;
+		private Button btnGirisYap;
 		private GroupBox grpGirisYap;
 		private Label label3;
 		private Button btnHesapOlustur;

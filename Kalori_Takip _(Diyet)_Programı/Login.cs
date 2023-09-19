@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static KaloriTakipProgramı.Data.Concrete.EF.AppUserRepository;
 
 namespace Kalori_Takip___Diyet__Programı
 {
@@ -33,9 +34,46 @@ namespace Kalori_Takip___Diyet__Programı
 
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+
+
+		private void btnHesapOlustur_Click(object sender, EventArgs e)
 		{
+			Register register = new Register();
+			this.Hide();
+			register.ShowDialog();
+			this.Show();
+		}
+
+		private void btnGirisYap_Click(object sender, EventArgs e)
+		{
+			var result = _service.AuthenticateUser(txtKullaniciAdi.Text, _service.SifreyiKodla(txtSifre.Text));
+			var user = _service.TGetByFilter(X => X.Username == txtKullaniciAdi.Text && X.Password == _service.SifreyiKodla(txtSifre.Text));
+			if (result == "Giriş Başarılı")
+			{
+				if (user.ModifiedDate == null)
+				{
+					Introduce introduce = new Introduce(user);
+					this.Hide();
+					introduce.ShowDialog();
+				}
+				else
+				{
+					UserHomePage userHomePage = new UserHomePage(user);
+					this.Hide();
+					userHomePage.ShowDialog();
+				}
+				
+			}
+			if (result == "Şifre Yanlış")
+			{
+				MessageBox.Show("Lütfen şifrenizi kontrol ediniz");
+			}
+			if (result == "Kullanıcı Bulunamadı")
+			{
+				MessageBox.Show("Böyle bir kullanıcı bulunamadı");
+			}
 
 		}
 	}
 }
+

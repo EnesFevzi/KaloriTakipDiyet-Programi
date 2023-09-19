@@ -1,4 +1,5 @@
 ﻿using KaloriTakipProgramı.Business.Concrete;
+using KaloriTakipProgramı.Business.Formules;
 using KaloriTakipProgramı.Entity.Entities;
 using System;
 using System.Collections.Generic;
@@ -41,16 +42,27 @@ namespace Kalori_Takip___Diyet__Programı
 			kilo = (double)_user.Weight;
 
 			lblKilo.Text = kilo.ToString();
+			double sulitresi = Formul.HesaplaGunlukSuIhtiyaci(kilo);
+			lblİcmenizGerekenSuMiktari.Text = $"Bugün İçmeniz Gereken Su Miktarı {(sulitresi / 1000)} Litredir.";
+
+			#region Daha Sonra Bakılacak
+			//flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+			//for (int i = 0; i < suMiktari.WaterQuantity; i++)
+			//{
+
+			//	PictureBox bardakPictureBox = new PictureBox();
+			//	bardakPictureBox.Image = pbxSuBardagi.Image;
+			//	flowLayoutPanel1.Controls.Add(bardakPictureBox);
+			//}
+			#endregion
+
 		}
 
-		private void label4_Click(object sender, EventArgs e)
-		{
 
-		}
 		Water guncellenecekWater;
 		private void btnSuEkle_Click(object sender, EventArgs e)
 		{
-			if (!_user.LastWaterAdditionDate.HasValue || _user.LastWaterAdditionDate.Value > DateTime.Now)
+			if (!_user.LastWaterAdditionDate.HasValue || _user.LastWaterAdditionDate.Value.Date < DateTime.Now.Date)
 			{
 				_water = new Water()
 				{
@@ -65,7 +77,7 @@ namespace Kalori_Takip___Diyet__Programı
 			}
 			else
 			{
-				guncellenecekWater = _waterService.TGetByFilter(x => x.AppUserID == _user.AppUserID && x.ModifiedDate2.Value.Date == DateTime.Now.Date);
+				guncellenecekWater = _waterService.GetWaterByUserIdAndDate(_user.AppUserID, DateTime.Now.Date);
 				guncellenecekWater.WaterQuantity += (float)nmrSuMiktari.Value;
 				guncellenecekWater.ModifiedDate2 = DateTime.Now;
 				_user.LastWaterAdditionDate = DateTime.Now;
@@ -77,11 +89,11 @@ namespace Kalori_Takip___Diyet__Programı
 
 		}
 
+		Water suMiktari;
 		private void dtSuTarih_ValueChanged(object sender, EventArgs e)
 		{
-			var suMiktari = _waterService.TGetByFilter(x => x.AppUserID == _user.AppUserID && x.ModifiedDate2.Value.Date == dtSuTarih.Value.Date);
-
-			label6.Text = suMiktari.WaterQuantity.ToString();
+			suMiktari = _waterService.GetWaterByUserIdAndDate(_user.AppUserID, dtSuTarih.Value.Date);
+			lblGecmisİcilmisSu.Text = $"İçtiğiniz su {suMiktari.WaterQuantity} bardaktır";
 		}
 	}
 }

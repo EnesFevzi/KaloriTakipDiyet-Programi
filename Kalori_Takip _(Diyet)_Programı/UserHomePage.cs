@@ -76,5 +76,17 @@ namespace Kalori_Takip___Diyet__Programı
 			this.Hide();
 			waterTracking.ShowDialog();
 		}
+
+		private void btnHaydiVucutAnalizi_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnAyarlar_Click(object sender, EventArgs e)
+		{
+			UserSettings userSettings = new UserSettings(_user);
+			this.Hide();
+			userSettings.ShowDialog();
+		}
 	}
 }

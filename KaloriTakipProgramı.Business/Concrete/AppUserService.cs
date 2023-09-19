@@ -132,5 +132,18 @@ namespace KaloriTakipProgramı.Business.Concrete
 		{
 			return _repository.UserAuthenticationResult(username, password);
 		}
+
+		public bool BelBoyunKontrol(double bel, double boyun)
+		{
+			if (boyun >= bel)
+			{
+
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
 	}
 }

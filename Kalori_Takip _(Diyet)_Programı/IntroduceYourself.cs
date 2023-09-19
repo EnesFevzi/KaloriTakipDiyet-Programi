@@ -32,10 +32,10 @@ namespace Kalori_Takip___Diyet__Programı
 		{
 
 		}
-		bool islemTamamMi=false;
+		bool islemTamamMi = false;
 		private void btnKaydet_Click(object sender, EventArgs e)
 		{
-			if (Helper.AlanlariKontrolEt(grpKisiselBilgiler.Controls))
+			if (Helper.AlanlariKontrolEtInroduce(grpKisiselBilgiler.Controls))
 			{
 				MessageBox.Show("Lütfen tüm alanları doldurun.");
 				return;
@@ -61,34 +61,39 @@ namespace Kalori_Takip___Diyet__Programı
 			_user.BMH = Formul.HesaplaBMR(cinsiyet, kilo, boy, yas);
 			_userService.TUpdate(user);
 			islemTamamMi = true;
-
-			if (islemTamamMi)
+			if (_userService.BelBoyunKontrol(belcevresi, boyunCevresi))
 			{
-				if (_user.ModifiedDate2 == null)
+
+
+				if (islemTamamMi)
 				{
-					MessageBox.Show("Bilgiler Kaydedildi");
-					IntroduceYourselfActıvıty introduceYourselfActıvıty = new IntroduceYourselfActıvıty(_user);
-					this.Hide();
-					introduceYourselfActıvıty.ShowDialog();
-					this.Show();
+
+					if (_user.ModifiedDate2 == null)
+					{
+						MessageBox.Show("Bilgiler Kaydedildi");
+						IntroduceYourselfActıvıty introduceYourselfActıvıty = new IntroduceYourselfActıvıty(_user);
+						this.Hide();
+						introduceYourselfActıvıty.ShowDialog();
+						this.Show();
+					}
+					else
+					{
+						UserHomePage userHomePage = new UserHomePage(_user);
+						this.Hide();
+						userHomePage.ShowDialog();
+						this.Show();
+					}
+
 				}
 				else
 				{
-					UserHomePage userHomePage = new UserHomePage(_user);
-					this.Hide();
-					userHomePage.ShowDialog();
-					this.Show();
+					MessageBox.Show("Kaydetme Başarısız");
 				}
-				
 			}
 			else
 			{
-				MessageBox.Show("Kaydetme Başarısız");
+				MessageBox.Show("Boyun Çevresi Bel Çevresinden Büyük Olamaz");
 			}
-			
-
-			
-
 		}
 
 		private void btnResimEkle_Click(object sender, EventArgs e)

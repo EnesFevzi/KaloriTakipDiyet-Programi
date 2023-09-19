@@ -335,8 +335,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasKey("WaterID");
 
-                    b.HasIndex("AppUserID")
-                        .IsUnique();
+                    b.HasIndex("AppUserID");
 
                     b.ToTable("Waters");
                 });
@@ -405,8 +404,8 @@ namespace KaloriTakipProgramı.Data.Migrations
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Water", b =>
                 {
                     b.HasOne("KaloriTakipProgramı.Entity.Entities.AppUser", "AppUser")
-                        .WithOne("Water")
-                        .HasForeignKey("KaloriTakipProgramı.Entity.Entities.Water", "AppUserID")
+                        .WithMany("Waters")
+                        .HasForeignKey("AppUserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -424,8 +423,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.Navigation("MealOfDays");
 
-                    b.Navigation("Water")
-                        .IsRequired();
+                    b.Navigation("Waters");
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.MacroFoodReport", b =>

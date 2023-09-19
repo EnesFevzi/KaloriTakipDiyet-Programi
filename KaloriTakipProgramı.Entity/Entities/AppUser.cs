@@ -50,8 +50,8 @@ namespace KaloriTakipProgramı.Entity.Entities
 
 		public virtual ICollection<MealOfDay>? MealOfDays { get; set; }
 
-		//public virtual ICollection<Water> Waters { get; set; }
-		public Water Water { get; set; }
+		public virtual ICollection<Water> Waters { get; set; }
+		//public Water Water { get; set; }
 
 
 		/// <summary>

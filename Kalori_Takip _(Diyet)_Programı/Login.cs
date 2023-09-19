@@ -1,4 +1,5 @@
-﻿using KaloriTakipProgramı.Business.Concrete;
+﻿using Kalori_Takip___Diyet__Programı.Extensions;
+using KaloriTakipProgramı.Business.Concrete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,40 +47,54 @@ namespace Kalori_Takip___Diyet__Programı
 
 		private void btnGirisYap_Click(object sender, EventArgs e)
 		{
+			if (Helper.AlanlariKontrolEtLogin(grpGirisYap.Controls))
+			{
+				MessageBox.Show("Lütfen tüm alanları doldurun.");
+				return;
+			}
+
 			var result = _service.AuthenticateUser(txtKullaniciAdi.Text, _service.SifreyiKodla(txtSifre.Text));
 			var user = _service.TGetByFilter(X => X.Username == txtKullaniciAdi.Text && X.Password == _service.SifreyiKodla(txtSifre.Text));
-			if (result == "Giriş Başarılı")
+			if (user != null)
 			{
-				if (user.ModifiedDate == null)
+				if (result == "Giriş Başarılı")
 				{
-					IntroduceYourself introduce = new IntroduceYourself(user);
-					this.Hide();
-					introduce.ShowDialog();
-					
-				}
-				else if (user.ModifiedDate2 == null)
-				{
-					IntroduceYourselfActıvıty introduceYourselfActıvıty = new IntroduceYourselfActıvıty(user);
-					this.Hide();
-					introduceYourselfActıvıty.ShowDialog();
-				}
-				else
-				{
-					UserHomePage userHomePage = new UserHomePage(user);
-					this.Hide();
-					userHomePage.ShowDialog();
-				}
+					if (user.ModifiedDate == null)
+					{
+						IntroduceYourself introduce = new IntroduceYourself(user);
+						this.Hide();
+						introduce.ShowDialog();
 
-				
+					}
+					else if (user.ModifiedDate2 == null)
+					{
+						IntroduceYourselfActıvıty introduceYourselfActıvıty = new IntroduceYourselfActıvıty(user);
+						this.Hide();
+						introduceYourselfActıvıty.ShowDialog();
+					}
+					else
+					{
+						UserHomePage userHomePage = new UserHomePage(user);
+						this.Hide();
+						userHomePage.ShowDialog();
+					}
+
+
+				}
+				if (result == "Şifre Yanlış")
+				{
+					MessageBox.Show("Lütfen şifrenizi kontrol ediniz");
+				}
+				if (result == "Kullanıcı Bulunamadı")
+				{
+					MessageBox.Show("Böyle bir kullanıcı bulunamadı");
+				}
 			}
-			if (result == "Şifre Yanlış")
+			else
 			{
-				MessageBox.Show("Lütfen şifrenizi kontrol ediniz");
+				MessageBox.Show("Kullanıcı Bulunamadı");
 			}
-			if (result == "Kullanıcı Bulunamadı")
-			{
-				MessageBox.Show("Böyle bir kullanıcı bulunamadı");
-			}
+
 
 		}
 	}

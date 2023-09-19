@@ -50,7 +50,7 @@ namespace Kalori_Takip___Diyet__Programı.Extensions
 				}
 				else if (control is NumericUpDown nud)
 				{
-					nud.Value = default;
+					nud.Value = 1;
 				}
 
 				else if (control is ListBox list)
@@ -83,7 +83,7 @@ namespace Kalori_Takip___Diyet__Programı.Extensions
 					bosAlanVar = true;
 					break;
 				}
-				
+
 				else if (control is ComboBox comboBox && comboBox.SelectedIndex == -1)
 				{
 					bosAlanVar = true;
@@ -121,6 +121,61 @@ namespace Kalori_Takip___Diyet__Programı.Extensions
 			}
 
 			return bosAlanVar;
+		}
+
+		public static bool AlanlariKontrolEtInroduce(Control.ControlCollection controls)
+		{
+			bool bosAlanVar = false;
+			foreach (Control control in controls)
+			{
+
+				if (control is NumericUpDown nud && nud.Value == default)
+				{
+					bosAlanVar = true;
+					break;
+				}
+
+				if (control is PictureBox pictureBox && pictureBox == null)
+				{
+					bosAlanVar = true;
+					break;
+				}
+				else if (control is GroupBox groupBox)
+				{
+					if (AlanlariKontrolEtInroduce(groupBox.Controls))
+					{
+						bosAlanVar = true;
+						break;
+					}
+				}
+
+
+			}
+			return bosAlanVar;
+		}
+
+		public static bool AlanlariKontrolEtLogin(Control.ControlCollection controls)
+		{
+			bool bosAlanVar = false;
+			foreach (Control control in controls)
+			{
+				if (control is TextBox textBox && string.IsNullOrEmpty(textBox.Text))
+				{
+					bosAlanVar = true;
+					break;
+				}
+				else if (control is GroupBox groupBox)
+				{
+					if (AlanlariKontrolEtInroduce(groupBox.Controls))
+					{
+						bosAlanVar = true;
+						break;
+					}
+				}
+			}
+
+			return bosAlanVar;
+
 		}
 	}
 }

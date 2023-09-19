@@ -51,5 +51,9 @@ namespace KaloriTakipProgramı.Business.Concrete
 		{
 			_waterRepository.Update(t);
 		}
+		public Water GetWaterByUserIdAndDate(int userId, DateTime tarih)
+		{
+			return _waterRepository.GetByFilter(x => x.AppUserID == userId && x.ModifiedDate2.Value.Date == tarih.Date);
+		}
 	}
 }

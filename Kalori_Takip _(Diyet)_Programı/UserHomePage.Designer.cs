@@ -55,10 +55,9 @@
 			btnKaloriTakibi = new Button();
 			btnRaporlar = new Button();
 			pbxUserImage = new PictureBox();
-			pictureBox2 = new PictureBox();
+			btnAyarlar = new Button();
 			groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pbxUserImage).BeginInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
 			SuspendLayout();
 			// 
 			// label1
@@ -66,7 +65,7 @@
 			label1.AutoSize = true;
 			label1.BackColor = Color.Transparent;
 			label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-			label1.Location = new Point(12, 18);
+			label1.Location = new Point(2, 9);
 			label1.Name = "label1";
 			label1.Size = new Size(351, 23);
 			label1.TabIndex = 0;
@@ -77,7 +76,7 @@
 			lblKisiAdi.AutoSize = true;
 			lblKisiAdi.BackColor = Color.Transparent;
 			lblKisiAdi.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-			lblKisiAdi.Location = new Point(393, 18);
+			lblKisiAdi.Location = new Point(359, 9);
 			lblKisiAdi.Name = "lblKisiAdi";
 			lblKisiAdi.Size = new Size(20, 23);
 			lblKisiAdi.TabIndex = 0;
@@ -106,7 +105,7 @@
 			groupBox1.Controls.Add(label3);
 			groupBox1.Location = new Point(12, 170);
 			groupBox1.Name = "groupBox1";
-			groupBox1.Size = new Size(243, 323);
+			groupBox1.Size = new Size(243, 253);
 			groupBox1.TabIndex = 1;
 			groupBox1.TabStop = false;
 			groupBox1.Text = "KişiselBilgiler";
@@ -296,7 +295,7 @@
 			// 
 			btnYemekMiKacKolari.BackColor = Color.PeachPuff;
 			btnYemekMiKacKolari.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnYemekMiKacKolari.Location = new Point(691, 18);
+			btnYemekMiKacKolari.Location = new Point(691, 44);
 			btnYemekMiKacKolari.Name = "btnYemekMiKacKolari";
 			btnYemekMiKacKolari.Size = new Size(237, 95);
 			btnYemekMiKacKolari.TabIndex = 2;
@@ -307,18 +306,19 @@
 			// 
 			btnHaydiVucutAnalizi.BackColor = Color.PeachPuff;
 			btnHaydiVucutAnalizi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnHaydiVucutAnalizi.Location = new Point(691, 113);
+			btnHaydiVucutAnalizi.Location = new Point(691, 139);
 			btnHaydiVucutAnalizi.Name = "btnHaydiVucutAnalizi";
 			btnHaydiVucutAnalizi.Size = new Size(237, 95);
 			btnHaydiVucutAnalizi.TabIndex = 3;
 			btnHaydiVucutAnalizi.Text = "Haydi Vucüt Analizi Yapalım";
 			btnHaydiVucutAnalizi.UseVisualStyleBackColor = false;
+			btnHaydiVucutAnalizi.Click += btnHaydiVucutAnalizi_Click;
 			// 
 			// btnSuTakibi
 			// 
 			btnSuTakibi.BackColor = Color.PeachPuff;
 			btnSuTakibi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnSuTakibi.Location = new Point(691, 208);
+			btnSuTakibi.Location = new Point(691, 234);
 			btnSuTakibi.Name = "btnSuTakibi";
 			btnSuTakibi.Size = new Size(237, 95);
 			btnSuTakibi.TabIndex = 2;
@@ -330,7 +330,7 @@
 			// 
 			btnKaloriTakibi.BackColor = Color.PeachPuff;
 			btnKaloriTakibi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnKaloriTakibi.Location = new Point(691, 303);
+			btnKaloriTakibi.Location = new Point(691, 329);
 			btnKaloriTakibi.Name = "btnKaloriTakibi";
 			btnKaloriTakibi.Size = new Size(237, 95);
 			btnKaloriTakibi.TabIndex = 3;
@@ -342,7 +342,7 @@
 			// 
 			btnRaporlar.BackColor = Color.PeachPuff;
 			btnRaporlar.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnRaporlar.Location = new Point(691, 398);
+			btnRaporlar.Location = new Point(691, 420);
 			btnRaporlar.Name = "btnRaporlar";
 			btnRaporlar.Size = new Size(237, 95);
 			btnRaporlar.TabIndex = 2;
@@ -352,31 +352,34 @@
 			// pbxUserImage
 			// 
 			pbxUserImage.BackColor = Color.Transparent;
-			pbxUserImage.Location = new Point(12, 44);
+			pbxUserImage.Location = new Point(75, 44);
 			pbxUserImage.Name = "pbxUserImage";
 			pbxUserImage.Size = new Size(100, 120);
 			pbxUserImage.SizeMode = PictureBoxSizeMode.StretchImage;
 			pbxUserImage.TabIndex = 4;
 			pbxUserImage.TabStop = false;
 			// 
-			// pictureBox2
+			// btnAyarlar
 			// 
-			pictureBox2.BackColor = Color.Transparent;
-			pictureBox2.Image = Properties.Resources.user_profile;
-			pictureBox2.Location = new Point(118, 134);
-			pictureBox2.Name = "pictureBox2";
-			pictureBox2.Size = new Size(30, 30);
-			pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-			pictureBox2.TabIndex = 4;
-			pictureBox2.TabStop = false;
+			btnAyarlar.BackColor = Color.DarkSeaGreen;
+			btnAyarlar.BackgroundImage = Properties.Resources.user_profile;
+			btnAyarlar.BackgroundImageLayout = ImageLayout.Stretch;
+			btnAyarlar.FlatAppearance.BorderSize = 0;
+			btnAyarlar.FlatStyle = FlatStyle.Popup;
+			btnAyarlar.Location = new Point(181, 111);
+			btnAyarlar.Name = "btnAyarlar";
+			btnAyarlar.Size = new Size(50, 53);
+			btnAyarlar.TabIndex = 5;
+			btnAyarlar.UseVisualStyleBackColor = false;
+			btnAyarlar.Click += btnAyarlar_Click;
 			// 
 			// UserHomePage
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(940, 505);
-			Controls.Add(pictureBox2);
+			ClientSize = new Size(940, 621);
+			Controls.Add(btnAyarlar);
 			Controls.Add(pbxUserImage);
 			Controls.Add(btnRaporlar);
 			Controls.Add(btnKaloriTakibi);
@@ -392,7 +395,6 @@
 			groupBox1.ResumeLayout(false);
 			groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pbxUserImage).EndInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -418,7 +420,6 @@
 		private Button btnKaloriTakibi;
 		private Button btnRaporlar;
 		private PictureBox pbxUserImage;
-		private PictureBox pictureBox2;
 		private Label lblSuMiktari;
 		private Label label8;
 		private Label lblBazalMetabolizma;
@@ -427,5 +428,6 @@
 		private Label label7;
 		private Label lblAlinmasiGerekenKalori;
 		private Label label9;
+		private Button btnAyarlar;
 	}
 }

@@ -48,15 +48,45 @@ namespace KaloriTakipProgramı.Business.Formules
 			if (cinsiyet.Equals("Erkek", StringComparison.OrdinalIgnoreCase))
 			{
 				// Erkekler için BMR hesaplama formülü (Harris-Benedict formülü)
-				bmr = 88.362 + (13.397 * kilo) + (4.799 * boy * 100) - (5.677 * yas);
+				//bmr = 88.362 + (13.397 * kilo) + (4.799 * boy * 100) - (5.677 * yas);
+				bmr = 66 + (13.7 * kilo) + (5 * boy * 100) - (6.8 * yas);
+				
 			}
 			else if (cinsiyet.Equals("Kadın", StringComparison.OrdinalIgnoreCase))
 			{
 				// Kadınlar için BMR hesaplama formülü (Harris-Benedict formülü)
-				bmr = 447.593 + (9.247 * kilo) + (3.098 * boy * 100) - (4.330 * yas);
+				//bmr = 447.593 + (9.247 * kilo) + (3.098 * boy * 100) - (4.330 * yas);
+				bmr = 655 + (9.6 * kilo) + (1.85 * boy * 100) - (4.7 * yas);
 			}
 			bmr = Math.Round(bmr, 2);
 			return bmr;
+		}
+
+		public static double HesaplaGunlukKaloriIhtiyaci(string cinsiyet, double kilo, double boy, int yas, double aktiviteFaktoru)
+		{
+			double gunlukKaloriIhtiyaci = 0.0;
+
+			if (cinsiyet.Equals("Erkek", StringComparison.OrdinalIgnoreCase))
+			{
+				// Erkekler için Mifflin-St Jeor Denklemi
+				gunlukKaloriIhtiyaci = (10 * kilo) + (6.25 * boy) - (5 * yas) + 5;
+			}
+			else if (cinsiyet.Equals("Kadın", StringComparison.OrdinalIgnoreCase))
+			{
+				// Kadınlar için Mifflin-St Jeor Denklemi
+				gunlukKaloriIhtiyaci = (10 * kilo) + (6.25 * boy) - (5 * yas) - 161;
+			}
+
+			// Aktivite faktörünü hesaplamaya dahil edin
+			gunlukKaloriIhtiyaci = gunlukKaloriIhtiyaci * aktiviteFaktoru;
+
+			gunlukKaloriIhtiyaci = Math.Round(gunlukKaloriIhtiyaci, 2);
+			return gunlukKaloriIhtiyaci;
+		}
+
+		public static double HesaplaGunlukSuIhtiyaci(double kilo)
+		{
+			return kilo * 30;
 		}
 	}
 }

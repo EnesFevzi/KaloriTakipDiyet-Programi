@@ -105,6 +105,9 @@ namespace KaloriTakipProgramı.Data.Migrations
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("LastWaterAdditionDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
@@ -145,17 +148,12 @@ namespace KaloriTakipProgramı.Data.Migrations
                     b.Property<double?>("WaistCircle")
                         .HasColumnType("float");
 
-                    b.Property<int?>("WaterID")
-                        .HasColumnType("int");
-
                     b.Property<double?>("Weight")
                         .HasColumnType("float");
 
                     b.HasKey("AppUserID");
 
                     b.HasIndex("RoleID");
-
-                    b.HasIndex("WaterID");
 
                     b.ToTable("AppUsers");
                 });
@@ -311,13 +309,34 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WaterID"), 1L, 1);
 
+                    b.Property<int>("AppUserID")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("ConsumedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModifiedDate2")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<float>("WaterQuantity")
                         .HasColumnType("real");
 
                     b.HasKey("WaterID");
+
+                    b.HasIndex("AppUserID")
+                        .IsUnique();
 
                     b.ToTable("Waters");
                 });
@@ -343,13 +362,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                         .WithMany("AppUsers")
                         .HasForeignKey("RoleID");
 
-                    b.HasOne("KaloriTakipProgramı.Entity.Entities.Water", "Water")
-                        .WithMany("AppUsers")
-                        .HasForeignKey("WaterID");
-
                     b.Navigation("AppRole");
-
-                    b.Navigation("Water");
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Food", b =>
@@ -389,6 +402,17 @@ namespace KaloriTakipProgramı.Data.Migrations
                     b.Navigation("Meal");
                 });
 
+            modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Water", b =>
+                {
+                    b.HasOne("KaloriTakipProgramı.Entity.Entities.AppUser", "AppUser")
+                        .WithOne("Water")
+                        .HasForeignKey("KaloriTakipProgramı.Entity.Entities.Water", "AppUserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.AppRole", b =>
                 {
                     b.Navigation("AppUsers");
@@ -399,6 +423,9 @@ namespace KaloriTakipProgramı.Data.Migrations
                     b.Navigation("MacroFoodReports");
 
                     b.Navigation("MealOfDays");
+
+                    b.Navigation("Water")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.MacroFoodReport", b =>
@@ -409,11 +436,6 @@ namespace KaloriTakipProgramı.Data.Migrations
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Meal", b =>
                 {
                     b.Navigation("MealOfDays");
-                });
-
-            modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Water", b =>
-                {
-                    b.Navigation("AppUsers");
                 });
 #pragma warning restore 612, 618
         }

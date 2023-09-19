@@ -35,6 +35,7 @@ namespace KaloriTakipProgramı.Entity.Entities
 		public double? NeckCircle { get; set; }
 		public double? WaistCircle { get; set; }
 		public double? ActivityValue { get; set; }
+		public DateTime? LastWaterAdditionDate { get; set; }
 
 		public double? VKI { get; set; }
 		public double? VYO { get; set; }
@@ -49,8 +50,7 @@ namespace KaloriTakipProgramı.Entity.Entities
 
 		public virtual ICollection<MealOfDay>? MealOfDays { get; set; }
 
-
-		public virtual int? WaterID { get; set; }
+		//public virtual ICollection<Water> Waters { get; set; }
 		public Water Water { get; set; }
 
 

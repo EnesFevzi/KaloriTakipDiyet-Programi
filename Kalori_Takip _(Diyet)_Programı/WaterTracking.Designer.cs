@@ -39,10 +39,16 @@
 			groupBox2 = new GroupBox();
 			btnGeriDon = new Button();
 			label4 = new Label();
+			btnSuEkle = new Button();
+			label5 = new Label();
+			nmrSuMiktari = new NumericUpDown();
+			dtSuTarih = new DateTimePicker();
+			label6 = new Label();
 			groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
 			groupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)nmrSuMiktari).BeginInit();
 			SuspendLayout();
 			// 
 			// label1
@@ -55,7 +61,6 @@
 			label1.Size = new Size(86, 23);
 			label1.TabIndex = 1;
 			label1.Text = "SU TAKİBİ";
-			label1.Click += label1_Click;
 			// 
 			// groupBox1
 			// 
@@ -99,7 +104,6 @@
 			label3.Size = new Size(515, 15);
 			label3.TabIndex = 1;
 			label3.Text = "Güncel kilonuz ile günlük tüketmeniz gereken su miktarını otomatik olarak hesaplanmaktadır.";
-			label3.Click += label1_Click;
 			// 
 			// pictureBox1
 			// 
@@ -126,9 +130,9 @@
 			// 
 			groupBox2.BackColor = Color.Transparent;
 			groupBox2.Controls.Add(pictureBox2);
-			groupBox2.Location = new Point(12, 207);
+			groupBox2.Location = new Point(8, 250);
 			groupBox2.Name = "groupBox2";
-			groupBox2.Size = new Size(643, 140);
+			groupBox2.Size = new Size(647, 140);
 			groupBox2.TabIndex = 6;
 			groupBox2.TabStop = false;
 			groupBox2.Text = "Su Miktarı";
@@ -152,33 +156,89 @@
 			label4.AutoSize = true;
 			label4.BackColor = Color.Transparent;
 			label4.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label4.Location = new Point(8, 426);
+			label4.Location = new Point(12, 402);
 			label4.Name = "label4";
 			label4.Size = new Size(196, 15);
 			label4.TabIndex = 1;
 			label4.Text = "Bir bardak 250 ml su içermektedir.";
-			label4.Click += label1_Click;
+			label4.Click += label4_Click;
+			// 
+			// btnSuEkle
+			// 
+			btnSuEkle.Location = new Point(47, 221);
+			btnSuEkle.Name = "btnSuEkle";
+			btnSuEkle.Size = new Size(75, 23);
+			btnSuEkle.TabIndex = 8;
+			btnSuEkle.Text = "Ekle";
+			btnSuEkle.UseVisualStyleBackColor = true;
+			btnSuEkle.Click += btnSuEkle_Click;
+			// 
+			// label5
+			// 
+			label5.AutoSize = true;
+			label5.BackColor = Color.Transparent;
+			label5.Font = new Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+			label5.Location = new Point(2, 142);
+			label5.Name = "label5";
+			label5.Size = new Size(57, 18);
+			label5.TabIndex = 1;
+			label5.Text = "Su İçtim";
+			label5.Click += label4_Click;
+			// 
+			// nmrSuMiktari
+			// 
+			nmrSuMiktari.Location = new Point(2, 192);
+			nmrSuMiktari.Name = "nmrSuMiktari";
+			nmrSuMiktari.Size = new Size(120, 23);
+			nmrSuMiktari.TabIndex = 9;
+			// 
+			// dtSuTarih
+			// 
+			dtSuTarih.Location = new Point(2, 163);
+			dtSuTarih.Name = "dtSuTarih";
+			dtSuTarih.Size = new Size(200, 23);
+			dtSuTarih.TabIndex = 10;
+			dtSuTarih.ValueChanged += dtSuTarih_ValueChanged;
+			// 
+			// label6
+			// 
+			label6.AutoSize = true;
+			label6.BackColor = Color.Transparent;
+			label6.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			label6.Location = new Point(2, 536);
+			label6.Name = "label6";
+			label6.Size = new Size(196, 15);
+			label6.TabIndex = 1;
+			label6.Text = "Bir bardak 250 ml su içermektedir.";
+			label6.Click += label4_Click;
 			// 
 			// WaterTracking
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(667, 450);
+			ClientSize = new Size(667, 560);
+			Controls.Add(dtSuTarih);
+			Controls.Add(nmrSuMiktari);
+			Controls.Add(btnSuEkle);
 			Controls.Add(btnGeriDon);
 			Controls.Add(groupBox2);
 			Controls.Add(pictureBox1);
 			Controls.Add(groupBox1);
+			Controls.Add(label5);
+			Controls.Add(label6);
 			Controls.Add(label4);
 			Controls.Add(label3);
 			Controls.Add(label1);
 			Name = "WaterTracking";
 			Text = "WaterTracking";
+			Load += WaterTracking_Load;
 			groupBox1.ResumeLayout(false);
 			groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
 			groupBox2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)nmrSuMiktari).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -194,5 +254,10 @@
 		private GroupBox groupBox2;
 		private Button btnGeriDon;
 		private Label label4;
+		private Button btnSuEkle;
+		private Label label5;
+		private NumericUpDown nmrSuMiktari;
+		private DateTimePicker dtSuTarih;
+		private Label label6;
 	}
 }

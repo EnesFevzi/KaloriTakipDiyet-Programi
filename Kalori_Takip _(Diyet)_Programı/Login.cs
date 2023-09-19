@@ -52,7 +52,7 @@ namespace Kalori_Takip___Diyet__Programı
 			{
 				if (user.ModifiedDate == null)
 				{
-					Introduce introduce = new Introduce(user);
+					IntroduceYourself introduce = new IntroduceYourself(user);
 					this.Hide();
 					introduce.ShowDialog();
 				}

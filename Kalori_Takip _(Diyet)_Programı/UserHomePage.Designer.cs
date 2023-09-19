@@ -98,7 +98,7 @@
 			groupBox1.Controls.Add(label3);
 			groupBox1.Location = new Point(12, 170);
 			groupBox1.Name = "groupBox1";
-			groupBox1.Size = new Size(243, 228);
+			groupBox1.Size = new Size(243, 323);
 			groupBox1.TabIndex = 1;
 			groupBox1.TabStop = false;
 			groupBox1.Text = "KişiselBilgiler";
@@ -108,7 +108,7 @@
 			// 
 			lblSuMiktari.AutoSize = true;
 			lblSuMiktari.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblSuMiktari.Location = new Point(195, 175);
+			lblSuMiktari.Location = new Point(179, 175);
 			lblSuMiktari.Name = "lblSuMiktari";
 			lblSuMiktari.Size = new Size(14, 15);
 			lblSuMiktari.TabIndex = 0;
@@ -118,7 +118,7 @@
 			// 
 			lblBazalMetabolizma.AutoSize = true;
 			lblBazalMetabolizma.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblBazalMetabolizma.Location = new Point(195, 149);
+			lblBazalMetabolizma.Location = new Point(179, 149);
 			lblBazalMetabolizma.Name = "lblBazalMetabolizma";
 			lblBazalMetabolizma.Size = new Size(14, 15);
 			lblBazalMetabolizma.TabIndex = 0;
@@ -128,7 +128,7 @@
 			// 
 			lblYagOrani.AutoSize = true;
 			lblYagOrani.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblYagOrani.Location = new Point(195, 123);
+			lblYagOrani.Location = new Point(179, 123);
 			lblYagOrani.Name = "lblYagOrani";
 			lblYagOrani.Size = new Size(14, 15);
 			lblYagOrani.TabIndex = 0;
@@ -138,7 +138,7 @@
 			// 
 			lblVki.AutoSize = true;
 			lblVki.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblVki.Location = new Point(195, 97);
+			lblVki.Location = new Point(179, 97);
 			lblVki.Name = "lblVki";
 			lblVki.Size = new Size(14, 15);
 			lblVki.TabIndex = 0;
@@ -148,7 +148,7 @@
 			// 
 			lblKilo.AutoSize = true;
 			lblKilo.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblKilo.Location = new Point(195, 71);
+			lblKilo.Location = new Point(179, 71);
 			lblKilo.Name = "lblKilo";
 			lblKilo.Size = new Size(14, 15);
 			lblKilo.TabIndex = 0;
@@ -158,7 +158,7 @@
 			// 
 			lblBoy.AutoSize = true;
 			lblBoy.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblBoy.Location = new Point(195, 45);
+			lblBoy.Location = new Point(179, 45);
 			lblBoy.Name = "lblBoy";
 			lblBoy.Size = new Size(14, 15);
 			lblBoy.TabIndex = 0;
@@ -168,7 +168,7 @@
 			// 
 			lblYas.AutoSize = true;
 			lblYas.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblYas.Location = new Point(195, 19);
+			lblYas.Location = new Point(179, 19);
 			lblYas.Name = "lblYas";
 			lblYas.Size = new Size(14, 15);
 			lblYas.TabIndex = 0;

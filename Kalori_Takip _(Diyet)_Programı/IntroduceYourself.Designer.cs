@@ -1,6 +1,6 @@
 ﻿namespace Kalori_Takip___Diyet__Programı
 {
-	partial class Introduce
+	partial class IntroduceYourself
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Introduce));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IntroduceYourself));
 			btnGeriDon = new Button();
 			btnKaydet = new Button();
 			grpKisiselBilgiler = new GroupBox();

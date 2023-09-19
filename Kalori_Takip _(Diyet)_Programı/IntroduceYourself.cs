@@ -15,11 +15,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace Kalori_Takip___Diyet__Programı
 {
-	public partial class Introduce : Form
+	public partial class IntroduceYourself : Form
 	{
 		private readonly AppUser _user;
 		private readonly AppUserService _userService;
-		public Introduce(AppUser user)
+		public IntroduceYourself(AppUser user)
 		{
 			InitializeComponent();
 			_user = user;
@@ -31,13 +31,10 @@ namespace Kalori_Takip___Diyet__Programı
 		{
 
 		}
-
+		bool islemTamamMi=false;
 		private void btnKaydet_Click(object sender, EventArgs e)
 		{
 			var user = _user;
-
-
-
 			double kilo = (double)nmrKilo.Value;
 			double boy = (double)nmrBoy.Value;
 			string cinsiyet = _user.Gender.ToString();
@@ -48,7 +45,7 @@ namespace Kalori_Takip___Diyet__Programı
 			_user.Height = (double)nmrBoy.Value;
 			_user.Weight = (double)nmrKilo.Value;
 			_user.Age = (int)nmrYas.Value;
-			_user.ChestCircle = boyunCevresi;
+			_user.NeckCircle = boyunCevresi;
 			_user.BasinCircle = basenCevresi;
 			_user.WaistCircle = belcevresi;
 			_user.ModifiedDate = DateTime.Now;
@@ -56,6 +53,34 @@ namespace Kalori_Takip___Diyet__Programı
 			_user.VYO = Formul.HesaplaVucutYagOrani(cinsiyet, kilo, boy, yas, belcevresi, boyunCevresi, basenCevresi);
 			_user.BMH = Formul.HesaplaBMR(cinsiyet, kilo, boy, yas);
 			_userService.TUpdate(user);
+			islemTamamMi = true;
+
+			if (islemTamamMi)
+			{
+				if (_user.ModifiedDate2 == null)
+				{
+					MessageBox.Show("Bilgiler Kaydedildi");
+					IntroduceYourselfActıvıty introduceYourselfActıvıty = new IntroduceYourselfActıvıty(_user);
+					this.Hide();
+					introduceYourselfActıvıty.ShowDialog();
+					this.Show();
+				}
+				else
+				{
+					UserHomePage userHomePage = new UserHomePage(_user);
+					this.Hide();
+					userHomePage.ShowDialog();
+					this.Show();
+				}
+				
+			}
+			else
+			{
+				MessageBox.Show("Kaydetme Başarısız");
+			}
+			
+
+			
 
 		}
 

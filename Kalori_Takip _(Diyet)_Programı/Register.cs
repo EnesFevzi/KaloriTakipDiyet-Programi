@@ -60,19 +60,18 @@ namespace Kalori_Takip___Diyet__Programı
 						Status = true,
 						CreatedDate = DateTime.Now,
 						RoleID = role.RoleID
-					};
-					_userService.SifreyiKodla(user.Password);
-					_userService.SifreyiKodla(user.ConfirmPassword);
+					};					
 					AppUserValidator _rules = new AppUserValidator();
 					ValidationResult result = _rules.Validate(user);
-
+					user.Password = _userService.SifreyiKodla(user.Password);
+					user.ConfirmPassword = _userService.SifreyiKodla(user.ConfirmPassword);
 					if (result.IsValid)
 					{
 						_userService.TAdd(user);
 						MessageBox.Show("Tebrikler Kayıt İşleminiz Başarılı");
 						Helper.Temizle(grpKayitOl.Controls);
-						lblGüvenlikSeviyesi.Text=string.Empty;
-						lblSifreEslesmeDurumu.Text=string.Empty;
+						lblGüvenlikSeviyesi.Text = string.Empty;
+						lblSifreEslesmeDurumu.Text = string.Empty;
 					}
 					else
 					{

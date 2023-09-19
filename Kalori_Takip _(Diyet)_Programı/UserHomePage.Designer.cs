@@ -52,6 +52,10 @@
 			btnRaporlar = new Button();
 			pbxUserImage = new PictureBox();
 			pictureBox2 = new PictureBox();
+			label7 = new Label();
+			lblAktiviteDuzeyi = new Label();
+			label9 = new Label();
+			lblAlinmasiGerekenKalori = new Label();
 			groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pbxUserImage).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -82,7 +86,9 @@
 			// groupBox1
 			// 
 			groupBox1.BackColor = Color.Transparent;
+			groupBox1.Controls.Add(lblAlinmasiGerekenKalori);
 			groupBox1.Controls.Add(lblSuMiktari);
+			groupBox1.Controls.Add(lblAktiviteDuzeyi);
 			groupBox1.Controls.Add(lblBazalMetabolizma);
 			groupBox1.Controls.Add(lblYagOrani);
 			groupBox1.Controls.Add(lblVki);
@@ -92,7 +98,9 @@
 			groupBox1.Controls.Add(label2);
 			groupBox1.Controls.Add(label4);
 			groupBox1.Controls.Add(label5);
+			groupBox1.Controls.Add(label9);
 			groupBox1.Controls.Add(label8);
+			groupBox1.Controls.Add(label7);
 			groupBox1.Controls.Add(llll);
 			groupBox1.Controls.Add(label6);
 			groupBox1.Controls.Add(label3);
@@ -108,7 +116,7 @@
 			// 
 			lblSuMiktari.AutoSize = true;
 			lblSuMiktari.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblSuMiktari.Location = new Point(179, 175);
+			lblSuMiktari.Location = new Point(179, 199);
 			lblSuMiktari.Name = "lblSuMiktari";
 			lblSuMiktari.Size = new Size(14, 15);
 			lblSuMiktari.TabIndex = 0;
@@ -208,7 +216,7 @@
 			// 
 			label8.AutoSize = true;
 			label8.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label8.Location = new Point(6, 175);
+			label8.Location = new Point(6, 199);
 			label8.Name = "label8";
 			label8.Size = new Size(157, 15);
 			label8.TabIndex = 0;
@@ -321,12 +329,52 @@
 			pictureBox2.TabIndex = 4;
 			pictureBox2.TabStop = false;
 			// 
+			// label7
+			// 
+			label7.AutoSize = true;
+			label7.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			label7.Location = new Point(6, 173);
+			label7.Name = "label7";
+			label7.Size = new Size(86, 15);
+			label7.TabIndex = 0;
+			label7.Text = "Aktivite Düzeyi";
+			// 
+			// lblAktiviteDuzeyi
+			// 
+			lblAktiviteDuzeyi.AutoSize = true;
+			lblAktiviteDuzeyi.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			lblAktiviteDuzeyi.Location = new Point(179, 173);
+			lblAktiviteDuzeyi.Name = "lblAktiviteDuzeyi";
+			lblAktiviteDuzeyi.Size = new Size(14, 15);
+			lblAktiviteDuzeyi.TabIndex = 0;
+			lblAktiviteDuzeyi.Text = "0";
+			// 
+			// label9
+			// 
+			label9.AutoSize = true;
+			label9.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			label9.Location = new Point(6, 228);
+			label9.Name = "label9";
+			label9.Size = new Size(138, 15);
+			label9.TabIndex = 0;
+			label9.Text = "Alınması Gereken Kalori";
+			// 
+			// lblAlinmasiGerekenKalori
+			// 
+			lblAlinmasiGerekenKalori.AutoSize = true;
+			lblAlinmasiGerekenKalori.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			lblAlinmasiGerekenKalori.Location = new Point(179, 228);
+			lblAlinmasiGerekenKalori.Name = "lblAlinmasiGerekenKalori";
+			lblAlinmasiGerekenKalori.Size = new Size(14, 15);
+			lblAlinmasiGerekenKalori.TabIndex = 0;
+			lblAlinmasiGerekenKalori.Text = "0";
+			// 
 			// UserHomePage
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(940, 504);
+			ClientSize = new Size(940, 505);
 			Controls.Add(pictureBox2);
 			Controls.Add(pbxUserImage);
 			Controls.Add(btnRaporlar);
@@ -374,5 +422,9 @@
 		private Label label8;
 		private Label lblBazalMetabolizma;
 		private Label llll;
+		private Label lblAktiviteDuzeyi;
+		private Label label7;
+		private Label lblAlinmasiGerekenKalori;
+		private Label label9;
 	}
 }

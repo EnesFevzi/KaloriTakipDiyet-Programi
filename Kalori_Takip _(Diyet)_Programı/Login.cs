@@ -55,6 +55,13 @@ namespace Kalori_Takip___Diyet__Programı
 					IntroduceYourself introduce = new IntroduceYourself(user);
 					this.Hide();
 					introduce.ShowDialog();
+					
+				}
+				else if (user.ModifiedDate2 == null)
+				{
+					IntroduceYourselfActıvıty introduceYourselfActıvıty = new IntroduceYourselfActıvıty(user);
+					this.Hide();
+					introduceYourselfActıvıty.ShowDialog();
 				}
 				else
 				{
@@ -62,6 +69,7 @@ namespace Kalori_Takip___Diyet__Programı
 					this.Hide();
 					userHomePage.ShowDialog();
 				}
+
 				
 			}
 			if (result == "Şifre Yanlış")

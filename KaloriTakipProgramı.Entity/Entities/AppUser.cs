@@ -32,8 +32,9 @@ namespace KaloriTakipProgramı.Entity.Entities
 		public double? Height { get; set; }
 		public double? Weight { get; set; }
 		public double? BasinCircle { get; set; }
-		public double? ChestCircle { get; set; }
+		public double? NeckCircle { get; set; }
 		public double? WaistCircle { get; set; }
+		public double? ActivityValue { get; set; }
 
 		public double? VKI { get; set; }
 		public double? VYO { get; set; }

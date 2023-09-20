@@ -10,5 +10,18 @@ namespace KaloriTakipProgramı.Data.Concrete.EntityFramework
 {
 	public class WaterRepository:GenericRepository<Water>
 	{
+		public Water GetWaterByUserIdAndDate(int userId, DateTime tarih)
+		{
+			var entity = _context.Waters.First(x => x.AppUserID == userId && x.ModifiedDate2.Value.Date == tarih.Date);
+			if (entity != null)
+			{
+				return entity;
+			}
+			else
+			{
+				throw new Exception("Veri bulunamadı.");
+			}
+
+		}
 	}
 }

@@ -121,6 +121,7 @@
 			btnRaporlar.TabIndex = 2;
 			btnRaporlar.Text = "Raporlar";
 			btnRaporlar.UseVisualStyleBackColor = false;
+			btnRaporlar.Click += btnRaporlar_Click;
 			// 
 			// pbxUserImage
 			// 

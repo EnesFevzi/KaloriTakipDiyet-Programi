@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace KaloriTakipProgramı.Data.Concrete.EF
 {
-	public class AppUserRepository:GenericRepository<AppUser>
+	public class AppUserRepository : GenericRepository<AppUser>
 	{
 		public bool IsEmailExist(string email)
 		{
@@ -26,11 +26,11 @@ namespace KaloriTakipProgramı.Data.Concrete.EF
 		}
 		public string UserAuthenticationResult(string username, string password)
 		{
-			var user = _context.AppUsers.SingleOrDefault(u => u.Username == username);
+			var userExists = _context.AppUsers.First(u => u.Username == username);
 
-			if (user != null)
+			if (userExists != null)
 			{
-				if (user.Password == password)
+				if (userExists.Password == password)
 				{
 					return "Giriş Başarılı";
 				}
@@ -45,7 +45,7 @@ namespace KaloriTakipProgramı.Data.Concrete.EF
 			}
 		}
 
-		
+
 
 	}
 }

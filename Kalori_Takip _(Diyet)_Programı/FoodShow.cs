@@ -1,0 +1,87 @@
+﻿using KaloriTakipProgramı.Business.Concrete;
+using KaloriTakipProgramı.Entity.Entities;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Kalori_Takip___Diyet__Programı
+{
+	public partial class FoodShow : Form
+	{
+
+		private DateTime _date;
+		private Meal _result;
+		private readonly ConsumeFoodService _foodService;
+
+
+
+		public FoodShow(Meal result, DateTime date)
+		{
+			InitializeComponent();
+			_result = result;
+			_date = date;
+			_foodService = new ConsumeFoodService();
+		}
+
+		private void FoodShow_Load(object sender, EventArgs e)
+		{
+			lstKaydedilenUrunler.Items.Clear();
+			var tuketilenUrunler = _foodService.TGetConsumeFood(_result.MealID, _date);
+			foreach (ConsumeFood food in tuketilenUrunler)
+			{
+
+				ListViewItem item = new ListViewItem(food.ConsumeFoodName.ToString());
+				item.SubItems.Add(food.GramCompensation.ToString());
+				item.SubItems.Add(food.Calories.ToString());
+				item.SubItems.Add(food.Protein.ToString());
+				item.SubItems.Add(food.Fat.ToString());
+				item.SubItems.Add(food.Carbohydrate.ToString());
+				item.Tag = food;
+				lstKaydedilenUrunler.Items.Add(item);
+
+			}
+			if (_result.MealID == 1)
+			{
+				lblGosterBaslik.Text = $"{_date.Date} Tarihinde Sabah Öğününde Tüketilen Yiyecek Listesi";
+			}
+			else if (_result.MealID == 2)
+			{
+				lblGosterBaslik.Text = $"{_date.Date} Tarihinde Öğle Öğününde Tüketilen Yiyecek Listesi";
+			}
+			else if (_result.MealID == 3)
+			{
+				lblGosterBaslik.Text = $"{_date.Date.Date} Tarihinde Akşam Öğününde Tüketilen Yiyecek Listesi";
+			}
+			else
+			{
+				lblGosterBaslik.Text = $"{_date.Date.Date} Tarihinde Aperatif Olarak Tüketilen Yiyecek Listesi";
+			}
+		}
+
+		private void btnSil_Click(object sender, EventArgs e)
+		//{
+		//	if (lstKaydedilenUrunler.SelectedItems.Count == 0)
+		//	{
+		//		MessageBox.Show("Lütfen silmek istediğiniz ürünü seçiniz");
+		//	}
+		//	else
+		//	{
+		//		int silinecekConsumeFoodID = Convert.ToInt32(lstKaydedilenUrunler.SelectedItems[0].Text);
+		//		var silinecekConsumeFood = context.ConsumeFoods.FirstOrDefault(x => x.ConsumeFoodID == silinecekConsumeFoodID);
+		//		context.ConsumeFoods.Remove(silinecekConsumeFood);
+		//		context.SaveChanges();
+		//		int index = lstKaydedilenUrunler.SelectedIndices[0];
+		//		ListViewItem selectedItem = lstKaydedilenUrunler.SelectedItems[0];
+		//		lstKaydedilenUrunler.Items.RemoveAt(index);
+		//		lstKaydedilenUrunler.Refresh();
+		//		MessageBox.Show("Ürün veritabanından başarıyla silindi");
+		//	}
+		}
+	}
+}

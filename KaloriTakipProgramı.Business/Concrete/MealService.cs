@@ -1,6 +1,7 @@
 ﻿using KaloriTakipProgramı.Business.Abstract;
 using KaloriTakipProgramı.Data.Concrete.EntityFramework;
 using KaloriTakipProgramı.Entity.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +14,34 @@ namespace KaloriTakipProgramı.Business.Concrete
 	public class MealService : IMealService
 	{
 		private readonly MealRepository _MealRepository;
-        public MealService()
-        {
-            _MealRepository = new MealRepository();
-        }
-        public void TAdd(Meal t)
+		public MealService()
 		{
-		_MealRepository.Add(t);
+			_MealRepository = new MealRepository();
+		}
+
+		public Meal TGetByMealIDBreakfast()
+		{
+			return _MealRepository.GetByMealIDBreakfast();
+		}
+
+		public Meal TGetByMealIDBrunch()
+		{
+			return _MealRepository.GetByMealIDBrunch() ;
+		}
+
+		public Meal TGetByMealIDDinner()
+		{
+			return _MealRepository.GetByMealIDDinner();
+		}
+
+		public Meal TGetByMealIDSnack()
+		{
+			return _MealRepository.GetByMealIDSnack();
+		}
+
+		public void TAdd(Meal t)
+		{
+			_MealRepository.Add(t);
 		}
 
 		public void TDelete(Meal t)
@@ -51,5 +73,8 @@ namespace KaloriTakipProgramı.Business.Concrete
 		{
 			_MealRepository.Update(t);
 		}
+		
+
+
 	}
 }

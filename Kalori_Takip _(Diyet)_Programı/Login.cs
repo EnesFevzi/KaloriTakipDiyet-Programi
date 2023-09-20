@@ -54,11 +54,13 @@ namespace Kalori_Takip___Diyet__Programı
 			}
 
 			var result = _service.AuthenticateUser(txtKullaniciAdi.Text, _service.SifreyiKodla(txtSifre.Text));
-			var user = _service.TGetByFilter(X => X.Username == txtKullaniciAdi.Text && X.Password == _service.SifreyiKodla(txtSifre.Text));
-			if (user != null)
+
+			if (result == "Giriş Başarılı")
 			{
-				if (result == "Giriş Başarılı")
+				var user = _service.TGetByFilter(X => X.Username == txtKullaniciAdi.Text && X.Password == _service.SifreyiKodla(txtSifre.Text));
+				if (user != null)
 				{
+
 					if (user.ModifiedDate == null)
 					{
 						IntroduceYourself introduce = new IntroduceYourself(user);
@@ -66,7 +68,7 @@ namespace Kalori_Takip___Diyet__Programı
 						introduce.ShowDialog();
 
 					}
-					else if (user.ModifiedDate2 == null)
+					if (user.ModifiedDate2 == null)
 					{
 						IntroduceYourselfActıvıty introduceYourselfActıvıty = new IntroduceYourselfActıvıty(user);
 						this.Hide();
@@ -76,25 +78,30 @@ namespace Kalori_Takip___Diyet__Programı
 					{
 						UserHomePage userHomePage = new UserHomePage(user);
 						this.Hide();
-						userHomePage.ShowDialog();
+						userHomePage.Show();
 					}
+				}
 
 
-				}
-				if (result == "Şifre Yanlış")
-				{
-					MessageBox.Show("Lütfen şifrenizi kontrol ediniz");
-				}
-				if (result == "Kullanıcı Bulunamadı")
-				{
-					MessageBox.Show("Böyle bir kullanıcı bulunamadı");
-				}
 			}
-			else
+			if (result == "Şifre Yanlış")
 			{
-				MessageBox.Show("Kullanıcı Bulunamadı");
+				MessageBox.Show("Lütfen şifrenizi kontrol ediniz");
+
+			}
+			if (result == "Kullanıcı Bulunamadı")
+			{
+				MessageBox.Show("Böyle bir kullanıcı bulunamadı");
+
 			}
 
+
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			txtKullaniciAdi.Text = "enes6161";
+			txtSifre.Text = "*123456ASas*";
 
 		}
 	}

@@ -28,138 +28,209 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDinner));
 			btnSil = new Button();
-			btnKaydet = new Button();
-			grpOgleYemegiEkle = new GroupBox();
-			label1 = new Label();
+			btnEkle = new Button();
+			grpAksamYemegiEkle = new GroupBox();
 			label2 = new Label();
-			label4 = new Label();
+			label5 = new Label();
+			label6 = new Label();
+			btnKaydet = new Button();
+			label1 = new Label();
 			lstEklenenUrunler = new ListView();
-			label3 = new Label();
+			columnHeader2 = new ColumnHeader();
+			columnHeader3 = new ColumnHeader();
+			columnHeader4 = new ColumnHeader();
+			columnHeader5 = new ColumnHeader();
+			columnHeader6 = new ColumnHeader();
+			columnHeader7 = new ColumnHeader();
 			lstUrunler = new ListView();
+			columnHeader1 = new ColumnHeader();
 			txtUrunAra = new TextBox();
 			txtMiktar = new TextBox();
-			grpOgleYemegiEkle.SuspendLayout();
+			grpAksamYemegiEkle.SuspendLayout();
 			SuspendLayout();
 			// 
 			// btnSil
 			// 
-			btnSil.Location = new Point(714, 317);
+			btnSil.BackColor = Color.DarkSeaGreen;
+			btnSil.BackgroundImage = (Image)resources.GetObject("btnSil.BackgroundImage");
+			btnSil.BackgroundImageLayout = ImageLayout.Stretch;
+			btnSil.FlatAppearance.BorderSize = 0;
+			btnSil.FlatStyle = FlatStyle.Popup;
+			btnSil.Location = new Point(283, 264);
 			btnSil.Name = "btnSil";
-			btnSil.Size = new Size(75, 23);
+			btnSil.Size = new Size(33, 30);
 			btnSil.TabIndex = 20;
-			btnSil.Text = "SİL";
-			btnSil.UseVisualStyleBackColor = true;
+			btnSil.UseVisualStyleBackColor = false;
+			btnSil.Click += btnSil_Click;
+			// 
+			// btnEkle
+			// 
+			btnEkle.BackColor = Color.DarkSeaGreen;
+			btnEkle.BackgroundImage = (Image)resources.GetObject("btnEkle.BackgroundImage");
+			btnEkle.BackgroundImageLayout = ImageLayout.Stretch;
+			btnEkle.FlatAppearance.BorderSize = 0;
+			btnEkle.FlatStyle = FlatStyle.Popup;
+			btnEkle.Location = new Point(283, 209);
+			btnEkle.Name = "btnEkle";
+			btnEkle.Size = new Size(33, 30);
+			btnEkle.TabIndex = 21;
+			btnEkle.UseVisualStyleBackColor = false;
+			btnEkle.Click += btnEkle_Click;
+			// 
+			// grpAksamYemegiEkle
+			// 
+			grpAksamYemegiEkle.Controls.Add(label2);
+			grpAksamYemegiEkle.Controls.Add(label5);
+			grpAksamYemegiEkle.Controls.Add(label6);
+			grpAksamYemegiEkle.Controls.Add(btnKaydet);
+			grpAksamYemegiEkle.Controls.Add(btnSil);
+			grpAksamYemegiEkle.Controls.Add(label1);
+			grpAksamYemegiEkle.Controls.Add(btnEkle);
+			grpAksamYemegiEkle.Controls.Add(lstEklenenUrunler);
+			grpAksamYemegiEkle.Controls.Add(lstUrunler);
+			grpAksamYemegiEkle.Controls.Add(txtUrunAra);
+			grpAksamYemegiEkle.Controls.Add(txtMiktar);
+			grpAksamYemegiEkle.Location = new Point(-8, 68);
+			grpAksamYemegiEkle.Name = "grpAksamYemegiEkle";
+			grpAksamYemegiEkle.Size = new Size(787, 504);
+			grpAksamYemegiEkle.TabIndex = 19;
+			grpAksamYemegiEkle.TabStop = false;
+			grpAksamYemegiEkle.Text = "AKŞAM YEMEĞİ";
+			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.BackColor = Color.Transparent;
+			label2.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+			label2.Location = new Point(407, 105);
+			label2.Name = "label2";
+			label2.Size = new Size(42, 19);
+			label2.TabIndex = 22;
+			label2.Text = "gram";
+			// 
+			// label5
+			// 
+			label5.AutoSize = true;
+			label5.BackColor = Color.Transparent;
+			label5.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+			label5.Location = new Point(283, 79);
+			label5.Name = "label5";
+			label5.Size = new Size(51, 19);
+			label5.TabIndex = 22;
+			label5.Text = "Miktar";
+			// 
+			// label6
+			// 
+			label6.AutoSize = true;
+			label6.BackColor = Color.Transparent;
+			label6.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+			label6.Location = new Point(6, 79);
+			label6.Name = "label6";
+			label6.Size = new Size(158, 19);
+			label6.TabIndex = 23;
+			label6.Text = "Buradan Arayabilirsiniz";
 			// 
 			// btnKaydet
 			// 
-			btnKaydet.Location = new Point(633, 317);
+			btnKaydet.BackColor = Color.DarkSeaGreen;
+			btnKaydet.BackgroundImage = (Image)resources.GetObject("btnKaydet.BackgroundImage");
+			btnKaydet.BackgroundImageLayout = ImageLayout.Stretch;
+			btnKaydet.FlatAppearance.BorderSize = 0;
+			btnKaydet.FlatStyle = FlatStyle.Popup;
+			btnKaydet.Location = new Point(746, 264);
 			btnKaydet.Name = "btnKaydet";
-			btnKaydet.Size = new Size(75, 23);
-			btnKaydet.TabIndex = 21;
-			btnKaydet.Text = "KAYDET";
-			btnKaydet.UseVisualStyleBackColor = true;
-			// 
-			// grpOgleYemegiEkle
-			// 
-			grpOgleYemegiEkle.Controls.Add(label1);
-			grpOgleYemegiEkle.Controls.Add(label2);
-			grpOgleYemegiEkle.Controls.Add(label4);
-			grpOgleYemegiEkle.Controls.Add(lstEklenenUrunler);
-			grpOgleYemegiEkle.Controls.Add(label3);
-			grpOgleYemegiEkle.Controls.Add(lstUrunler);
-			grpOgleYemegiEkle.Controls.Add(txtUrunAra);
-			grpOgleYemegiEkle.Controls.Add(txtMiktar);
-			grpOgleYemegiEkle.Location = new Point(2, 12);
-			grpOgleYemegiEkle.Name = "grpOgleYemegiEkle";
-			grpOgleYemegiEkle.Size = new Size(797, 299);
-			grpOgleYemegiEkle.TabIndex = 19;
-			grpOgleYemegiEkle.TabStop = false;
-			grpOgleYemegiEkle.Text = "AKŞAM YEMEĞİ";
+			btnKaydet.Size = new Size(33, 30);
+			btnKaydet.TabIndex = 20;
+			btnKaydet.UseVisualStyleBackColor = false;
+			btnKaydet.Click += btnKaydet_Click;
 			// 
 			// label1
 			// 
 			label1.AutoSize = true;
 			label1.BackColor = Color.Transparent;
 			label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-			label1.Location = new Point(6, 19);
+			label1.Location = new Point(6, 42);
 			label1.Name = "label1";
 			label1.Size = new Size(176, 23);
 			label1.TabIndex = 2;
 			label1.Text = "AKŞAM YEMEĞİ EKLE";
 			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.BackColor = Color.Transparent;
-			label2.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-			label2.ForeColor = Color.Black;
-			label2.Location = new Point(6, 266);
-			label2.Name = "label2";
-			label2.Size = new Size(62, 29);
-			label2.TabIndex = 11;
-			label2.Text = "Miktar";
-			label2.TextAlign = ContentAlignment.MiddleCenter;
-			label2.UseCompatibleTextRendering = true;
-			// 
-			// label4
-			// 
-			label4.AutoSize = true;
-			label4.BackColor = Color.Transparent;
-			label4.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-			label4.ForeColor = Color.Black;
-			label4.Location = new Point(6, 63);
-			label4.Name = "label4";
-			label4.Size = new Size(78, 29);
-			label4.TabIndex = 11;
-			label4.Text = "Ürün ara";
-			label4.TextAlign = ContentAlignment.MiddleCenter;
-			label4.UseCompatibleTextRendering = true;
-			// 
 			// lstEklenenUrunler
 			// 
+			lstEklenenUrunler.BackColor = Color.PaleGoldenrod;
+			lstEklenenUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
+			lstEklenenUrunler.FullRowSelect = true;
 			lstEklenenUrunler.GridLines = true;
-			lstEklenenUrunler.Location = new Point(296, 95);
+			lstEklenenUrunler.Location = new Point(6, 300);
 			lstEklenenUrunler.Name = "lstEklenenUrunler";
-			lstEklenenUrunler.Size = new Size(486, 164);
+			lstEklenenUrunler.Size = new Size(775, 198);
 			lstEklenenUrunler.TabIndex = 13;
 			lstEklenenUrunler.UseCompatibleStateImageBehavior = false;
 			lstEklenenUrunler.View = View.Details;
 			// 
-			// label3
+			// columnHeader2
 			// 
-			label3.AutoSize = true;
-			label3.BackColor = Color.Transparent;
-			label3.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-			label3.ForeColor = Color.Black;
-			label3.Location = new Point(198, 266);
-			label3.Name = "label3";
-			label3.Size = new Size(49, 29);
-			label3.TabIndex = 11;
-			label3.Text = "gram";
-			label3.TextAlign = ContentAlignment.MiddleCenter;
-			label3.UseCompatibleTextRendering = true;
+			columnHeader2.Text = "Ürün Adı";
+			columnHeader2.Width = 125;
+			// 
+			// columnHeader3
+			// 
+			columnHeader3.Text = "Miktar";
+			columnHeader3.Width = 125;
+			// 
+			// columnHeader4
+			// 
+			columnHeader4.Text = "Kalori";
+			columnHeader4.Width = 125;
+			// 
+			// columnHeader5
+			// 
+			columnHeader5.Text = "Protein";
+			columnHeader5.Width = 125;
+			// 
+			// columnHeader6
+			// 
+			columnHeader6.Text = "Yağ";
+			columnHeader6.Width = 125;
+			// 
+			// columnHeader7
+			// 
+			columnHeader7.Text = "Karbonhidrat";
+			columnHeader7.Width = 125;
 			// 
 			// lstUrunler
 			// 
+			lstUrunler.BackColor = Color.PaleGoldenrod;
+			lstUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
+			lstUrunler.FullRowSelect = true;
 			lstUrunler.GridLines = true;
-			lstUrunler.Location = new Point(6, 95);
+			lstUrunler.Location = new Point(6, 130);
 			lstUrunler.Name = "lstUrunler";
-			lstUrunler.Size = new Size(284, 164);
+			lstUrunler.Size = new Size(271, 164);
 			lstUrunler.TabIndex = 13;
 			lstUrunler.UseCompatibleStateImageBehavior = false;
 			lstUrunler.View = View.Details;
 			// 
+			// columnHeader1
+			// 
+			columnHeader1.Text = "Ürün Adı";
+			columnHeader1.Width = 260;
+			// 
 			// txtUrunAra
 			// 
-			txtUrunAra.Location = new Point(90, 66);
+			txtUrunAra.BackColor = Color.PaleGoldenrod;
+			txtUrunAra.Location = new Point(6, 101);
 			txtUrunAra.Name = "txtUrunAra";
-			txtUrunAra.Size = new Size(200, 23);
+			txtUrunAra.Size = new Size(271, 23);
 			txtUrunAra.TabIndex = 12;
+			txtUrunAra.TextChanged += txtUrunAra_TextChanged;
 			// 
 			// txtMiktar
 			// 
-			txtMiktar.Location = new Point(74, 268);
+			txtMiktar.BackColor = Color.PaleGoldenrod;
+			txtMiktar.Location = new Point(283, 101);
 			txtMiktar.Name = "txtMiktar";
 			txtMiktar.Size = new Size(118, 23);
 			txtMiktar.TabIndex = 12;
@@ -169,29 +240,35 @@
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(800, 353);
-			Controls.Add(btnSil);
-			Controls.Add(btnKaydet);
-			Controls.Add(grpOgleYemegiEkle);
+			ClientSize = new Size(783, 580);
+			Controls.Add(grpAksamYemegiEkle);
 			Name = "AddDinner";
 			Text = "AddDinner";
-			grpOgleYemegiEkle.ResumeLayout(false);
-			grpOgleYemegiEkle.PerformLayout();
+			grpAksamYemegiEkle.ResumeLayout(false);
+			grpAksamYemegiEkle.PerformLayout();
 			ResumeLayout(false);
 		}
 
 		#endregion
 
 		private Button btnSil;
-		private Button btnKaydet;
-		private GroupBox grpOgleYemegiEkle;
+		private Button btnEkle;
+		private GroupBox grpAksamYemegiEkle;
 		private Label label1;
-		private Label label2;
-		private Label label4;
 		private ListView lstEklenenUrunler;
-		private Label label3;
 		private ListView lstUrunler;
 		private TextBox txtUrunAra;
 		private TextBox txtMiktar;
+		private ColumnHeader columnHeader2;
+		private ColumnHeader columnHeader3;
+		private ColumnHeader columnHeader4;
+		private ColumnHeader columnHeader5;
+		private ColumnHeader columnHeader6;
+		private ColumnHeader columnHeader7;
+		private ColumnHeader columnHeader1;
+		private Label label5;
+		private Label label6;
+		private Label label2;
+		private Button btnKaydet;
 	}
 }

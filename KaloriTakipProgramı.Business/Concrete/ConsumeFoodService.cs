@@ -1,10 +1,12 @@
 ﻿using KaloriTakipProgramı.Business.Abstract;
 using KaloriTakipProgramı.Data.Concrete.EntityFramework;
 using KaloriTakipProgramı.Entity.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,10 +53,31 @@ namespace KaloriTakipProgramı.Business.Concrete
 		{
 			_consumeFoodRepository.Update(t);
 		}
-		//2 tarih arasında yenen en çok yiyecekler
-		public List<ConsumeFood> GetMostConsumedFoodsByDate(DateTime startDate, DateTime endDate)
+		public List<ConsumeFood> TGetConsumeFoodByValue(DateTime secilenTarih)
 		{
-			return _consumeFoodRepository.GetByFilterList(cf => cf.CreatedDate >= startDate && cf.CreatedDate <= endDate)
+			return _consumeFoodRepository.GetConsumeFoodByValue(secilenTarih);
+		}
+		public List<ConsumeFood> TGetConsumeFoodByMealID(string mealName, DateTime tarih)
+		{
+			return _consumeFoodRepository.GetConsumeFoodByMealID(mealName, tarih);
+		}
+		public List<ConsumeFood> TGetConsumeFood(int id, DateTime tarih)
+		{
+			return _consumeFoodRepository.GetConsumeFood(id, tarih);
+		}
+
+
+
+
+
+
+		//2 tarih arasında yenen en çok yiyecekler
+		public List<ConsumeFood> GetMostConsumedFoodsByDateWeek(DateTime dateTime)
+		{
+			DateTime startTime = dateTime.AddDays(-7).Date;
+			DateTime endTime = dateTime.Date;
+
+			return _consumeFoodRepository.GetByFilterList(cf => cf.CreatedDate >= startTime && cf.CreatedDate <= endTime)
 						.GroupBy(cf => cf.ConsumeFoodName)
 						.Select(g => new ConsumeFood
 						{
@@ -65,18 +88,50 @@ namespace KaloriTakipProgramı.Business.Concrete
 						.ToList();
 		}
 		//2 tarih arasında kulalncıya göre yenen yiyecekler
-		public List<ConsumeFood> GetMostConsumedFoodsByUserAndDate(int UserID,DateTime startDate, DateTime endDate)
+		public List<ConsumeFood> GetMostConsumedFoodsByUserAndDateWeek(int UserID,DateTime dateTime)
 		{
-			return _consumeFoodRepository.GetByFilterList(x=>x.AppUserID==UserID && x.CreatedDate >= startDate && x.CreatedDate <= endDate)
+			DateTime startTime = dateTime.AddDays(-7).Date;
+			DateTime endTime = dateTime.Date;
+			return _consumeFoodRepository.GetByFilterList(x=>x.AppUserID==UserID && x.CreatedDate >= startTime && x.CreatedDate <= endTime)
 						.GroupBy(cf => cf.ConsumeFoodName)
 						.Select(g => new ConsumeFood
 						{
 							ConsumeFoodName = g.Key,
-							GramCompensation = g.Sum(cf => cf.GramCompensation)
+							Value = g.Sum(cf => cf.Value)
 						})
-						.OrderByDescending(cf => cf.GramCompensation)
+						.OrderByDescending(cf => cf.Value)
 						.ToList();
 		}
+		public List<ConsumeFood> GetMostConsumedFoodsByUserAndDateMonth(int UserID, DateTime dateTime)
+		{
+			DateTime startTime = dateTime.AddDays(-7).Date;
+			DateTime endTime = dateTime.Date;
+			return _consumeFoodRepository.GetByFilterList(x => x.AppUserID == UserID && x.CreatedDate >= startTime && x.CreatedDate <= endTime)
+						.GroupBy(cf => cf.ConsumeFoodName)
+						.Select(g => new ConsumeFood
+						{
+							ConsumeFoodName = g.Key,
+							Value = g.Sum(cf => cf.Value)
+						})
+						.OrderByDescending(cf => cf.Value)
+						.ToList();
+		}
+		public List<ConsumeFood> GetMostConsumedFoodsByUserAndDateMonth( DateTime dateTime)
+		{
+			DateTime time = dateTime.Date;
+			return _consumeFoodRepository.GetByFilterList(x => x.CreatedDate.Month == time.Date.Month)
+						.GroupBy(cf => cf.ConsumeFoodName)
+						.Select(g => new ConsumeFood
+						{
+							ConsumeFoodName = g.Key,
+							Value = g.Sum(cf => cf.Value)
+						})
+						.OrderByDescending(cf => cf.Value)
+						.ToList();
+		}
+
+
+
 		//2 tarih arasında yenen en çok yiyeceğin kategorileri
 		//public List<ConsumeFood> GetMostConsumedFoodsByCategoryAndDate(DateTime startDate, DateTime endDate)
 		//{
@@ -91,5 +146,9 @@ namespace KaloriTakipProgramı.Business.Concrete
 		//				.OrderByDescending(cf => cf.Value)
 		//				.ToList();
 		//}
+
+
+
+
 	}
 }

@@ -9,5 +9,6 @@ namespace KaloriTakipProgramı.Business.Abstract
 {
 	internal interface IWaterService : IGenericService<Water>
 	{
+		Water TGetWaterByUserIdAndDate(int userId, DateTime tarih);
 	}
 }

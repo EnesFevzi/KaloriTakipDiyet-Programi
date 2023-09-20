@@ -10,5 +10,17 @@ namespace KaloriTakipProgramı.Data.Concrete.EntityFramework
 {
 	public class ConsumeFoodRepository:GenericRepository<ConsumeFood>
 	{
+		public List<ConsumeFood> GetConsumeFoodByValue(DateTime secilenTarih)
+		{
+			return _context.ConsumeFoods.Where(x => x.CreatedDate.Date == secilenTarih.Date).ToList();
+		}
+		public List<ConsumeFood> GetConsumeFoodByMealID(string mealName, DateTime tarih)
+		{
+			return _context.ConsumeFoods.Where(x => x.Meal.MealName == mealName && x.CreatedDate.Date == tarih.Date).ToList();
+		}
+		public List<ConsumeFood> GetConsumeFood(int id, DateTime tarih)
+		{
+			return _context.ConsumeFoods.Where(x => x.Meal.MealID == id && x.CreatedDate.Date == tarih.Date).ToList();
+		}
 	}
 }

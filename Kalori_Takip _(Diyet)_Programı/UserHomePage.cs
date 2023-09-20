@@ -24,7 +24,7 @@ namespace Kalori_Takip___Diyet__Programı
 
 		private void btnKaloriTakibi_Click(object sender, EventArgs e)
 		{
-			MealTable mealTable = new MealTable();
+			MealTable mealTable = new MealTable(_user);
 			this.Hide();
 			mealTable.ShowDialog();
 		}
@@ -86,6 +86,14 @@ namespace Kalori_Takip___Diyet__Programı
 			HowManyCalories howManyCalories = new HowManyCalories();
 			this.Hide();
 			howManyCalories.ShowDialog();
+			this.Show();
+		}
+
+		private void btnRaporlar_Click(object sender, EventArgs e)
+		{
+			ReportConsumeFood reportConsumeFood = new ReportConsumeFood(_user);
+			this.Hide();
+			reportConsumeFood.ShowDialog();
 			this.Show();
 		}
 	}

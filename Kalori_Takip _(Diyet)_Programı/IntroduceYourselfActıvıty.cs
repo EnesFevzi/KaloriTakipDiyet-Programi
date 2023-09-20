@@ -68,5 +68,10 @@ namespace Kalori_Takip___Diyet__Programı
 				return;
 			}
 		}
+
+		private void IntroduceYourselfActıvıty_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

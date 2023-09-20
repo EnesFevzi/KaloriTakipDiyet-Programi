@@ -68,22 +68,22 @@ namespace Kalori_Takip___Diyet__Programı
 				_water = new Water()
 				{
 					WaterQuantity = (float)nmrSuMiktari.Value,
-					ConsumedDate = DateTime.Now,
+					ConsumedDate = DateTime.Now.Date,
 					AppUserID = _user.AppUserID,
-					ModifiedDate2 = DateTime.Now,
+					ModifiedDate2 = DateTime.Now.Date,
 				};
 				_waterService.TAdd(_water);
-				_user.LastWaterAdditionDate = DateTime.Now;
+				_user.LastWaterAdditionDate = DateTime.Now.Date;
 				_userService.TUpdate(_user);
 				MessageBox.Show("Ekleme İşlemi Başarılı");
 				Helper.Temizle(grpSuMiktariGir.Controls);
 			}
 			else
 			{
-				guncellenecekWater = _waterService.GetWaterByUserIdAndDate(_user.AppUserID, DateTime.Now.Date);
+				guncellenecekWater = _waterService.TGetWaterByUserIdAndDate(_user.AppUserID, dtSuTarih.Value.Date);
 				guncellenecekWater.WaterQuantity += (float)nmrSuMiktari.Value;
-				guncellenecekWater.ModifiedDate2 = DateTime.Now;
-				_user.LastWaterAdditionDate = DateTime.Now;
+				guncellenecekWater.ModifiedDate2 = DateTime.Now.Date;
+				_user.LastWaterAdditionDate = DateTime.Now.Date;
 				_userService.TUpdate(_user);
 				_waterService.TUpdate(guncellenecekWater);
 				MessageBox.Show("Güncelleme İşlemi Başarılı");
@@ -99,13 +99,30 @@ namespace Kalori_Takip___Diyet__Programı
 			if (dtSuTarih.Value.Date<DateTime.Now.Date)
 			{
 				btnSuEkle.Enabled = false;
+				suMiktari = _waterService.TGetWaterByUserIdAndDate(_user.AppUserID, dtSuTarih.Value.Date);
+				if (suMiktari ==null)
+				{
+					MessageBox.Show("Bu tarihte bir veri bulunamadı");
+				}
+				else
+				{
+					lblGecmisİcilmisSu.Text = $"İçtiğiniz su {suMiktari.WaterQuantity} bardaktır";
+				}
+				
+
 			}
-			else
+			if (dtSuTarih.Value.Date== DateTime.Now.Date)
 			{
 				btnSuEkle.Enabled = true;
 			}
-			suMiktari = _waterService.GetWaterByUserIdAndDate(_user.AppUserID, dtSuTarih.Value.Date);
-			lblGecmisİcilmisSu.Text = $"İçtiğiniz su {suMiktari.WaterQuantity} bardaktır";
+			else
+			{
+				MessageBox.Show("Bu tarihte bir veri bulunamadı");
+				btnSuEkle.Enabled = false;
+			}
+
+			
+
 		}
 	}
 }

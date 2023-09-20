@@ -39,6 +39,7 @@
 			btnHesapOlustur = new Button();
 			label4 = new Label();
 			btnGeriDon = new Button();
+			button1 = new Button();
 			grpGirisYap.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -104,6 +105,7 @@
 			grpGirisYap.Controls.Add(label3);
 			grpGirisYap.Controls.Add(label1);
 			grpGirisYap.Controls.Add(btnHesapOlustur);
+			grpGirisYap.Controls.Add(button1);
 			grpGirisYap.Controls.Add(btnGirisYap);
 			grpGirisYap.Controls.Add(label2);
 			grpGirisYap.Controls.Add(txtSifre);
@@ -172,6 +174,20 @@
 			btnGeriDon.UseVisualStyleBackColor = false;
 			btnGeriDon.Click += btnGeriDon_Click;
 			// 
+			// button1
+			// 
+			button1.BackColor = Color.Transparent;
+			button1.FlatStyle = FlatStyle.Popup;
+			button1.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
+			button1.ForeColor = SystemColors.ActiveCaptionText;
+			button1.Location = new Point(10, 84);
+			button1.Name = "button1";
+			button1.Size = new Size(74, 32);
+			button1.TabIndex = 6;
+			button1.Text = "G İ R İ Ş  Y A P ";
+			button1.UseVisualStyleBackColor = false;
+			button1.Click += button1_Click;
+			// 
 			// Login
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -202,5 +218,6 @@
 		private Button btnHesapOlustur;
 		private Label label4;
 		private Button btnGeriDon;
+		private Button button1;
 	}
 }

@@ -9,5 +9,9 @@ namespace KaloriTakipProgramı.Business.Abstract
 {
 	public interface IMealService:IGenericService<Meal>
 	{
+		Meal TGetByMealIDBreakfast();
+		Meal TGetByMealIDBrunch();
+		Meal TGetByMealIDDinner();
+		Meal TGetByMealIDSnack();
 	}
 }

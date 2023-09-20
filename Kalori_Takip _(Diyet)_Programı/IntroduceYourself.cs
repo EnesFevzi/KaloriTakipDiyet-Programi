@@ -44,7 +44,7 @@ namespace Kalori_Takip___Diyet__Programı
 			var user = _user;
 			double kilo = (double)nmrKilo.Value;
 			double boy = (double)nmrBoy.Value;
-			string cinsiyet = _user.Gender.ToString();
+			string cinsiyet = _user.Gender;
 			int yas = (int)nmrYas.Value;
 			double belcevresi = (double)nmrBelCevresi.Value;
 			double boyunCevresi = (double)nmrBoyunCevresi.Value;

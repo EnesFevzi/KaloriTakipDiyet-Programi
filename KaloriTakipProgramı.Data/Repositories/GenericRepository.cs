@@ -33,6 +33,7 @@ namespace KaloriTakipProgramı.Data.Repositories
 		public T GetByFilter(Expression<Func<T, bool>> filter)
 		{
 			return _context.Set<T>().FirstOrDefault(filter);
+
 		}
 
 		public List<T> GetByFilterList(Expression<Func<T, bool>> filter)

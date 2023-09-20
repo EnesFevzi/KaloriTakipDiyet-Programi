@@ -323,6 +323,7 @@
 			Controls.Add(pictureBox2);
 			Name = "IntroduceYourselfActıvıty";
 			Text = "IntroduceYourselfActıvıty";
+			Load += IntroduceYourselfActıvıty_Load;
 			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

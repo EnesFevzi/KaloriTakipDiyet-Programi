@@ -13,6 +13,7 @@ namespace KaloriTakipProgramı.Data.Context
 	{
 		public DbSet<AppUser> AppUsers { get; set; }
 		public DbSet<Food> Foods { get; set; }
+		public DbSet<ConsumeFood> ConsumeFoods { get; set; }
 		public DbSet<Meal> Meals { get; set; }
 		public DbSet<Category> Categories { get; set; }
 		public DbSet<Water> Waters { get; set; }
@@ -33,10 +34,39 @@ namespace KaloriTakipProgramı.Data.Context
 				{
 					RoleID = 1,
 					RoleName = "Admin",
+					
 
 				});
 			modelBuilder.SeedData();
 
+			modelBuilder.Entity<Meal>().HasData(
+				new Meal()
+				{
+					MealID = 1,
+					MealName = "Sabah",
+					
+				});
+			modelBuilder.Entity<Meal>().HasData(
+				new Meal()
+				{
+					MealID = 2,
+					MealName = "Öğle",
+
+				});
+			modelBuilder.Entity<Meal>().HasData(
+				new Meal()
+				{
+					MealID = 3,
+					MealName = "Akşam",
+
+				});
+			modelBuilder.Entity<Meal>().HasData(
+				new Meal()
+				{
+					MealID = 4,
+					MealName = "Snack",
+
+				});
 
 			modelBuilder.Entity<ConsumeFood>().HasData(
 				new ConsumeFood()

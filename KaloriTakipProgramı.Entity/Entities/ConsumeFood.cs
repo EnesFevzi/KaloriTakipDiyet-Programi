@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace KaloriTakipProgramı.Entity.Entities
 {
-	public class Food : BaseEntity
+	public class ConsumeFood : BaseEntity
 	{
-        public Food()
-        {
-			ConsumeFoods = new List<ConsumeFood>();
+		public ConsumeFood()
+		{
+			Foods = new List<Food>();
 		}
-        public int FoodID { get; set; }
-		public string FoodName { get; set; }
+		public int ConsumeFoodID { get; set; }
+		public string? ConsumeFoodName { get; set; }
 		public float GramCompensation { get; set; }
 		public float Calories { get; set; }
 		public float Carbohydrate { get; set; }
 		public float Protein { get; set; }
 		public float Fat { get; set; }
-		public float TotalCalories { get; set; }
+		public int AppUserID { get; set; }
+		public AppUser AppUser { get; set; }
+		public List<Food> Foods { get; set; }
+
+		public int MealID { get; set; }
+		public Meal Meal { get; set; }
 
 
-		//Navigation Property
-
-		public int? CategoryID { get; set; }
-		public Category? Category { get; set; }
-		public ICollection<ConsumeFood> ConsumeFoods { get; set; }
 	}
 }

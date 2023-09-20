@@ -14,8 +14,9 @@ namespace KaloriTakipProgramı.Entity.Entities
 
         public AppUser()
         {
-			MealOfDays = new List<MealOfDay>();
+			Meals = new List<Meal>();
 			MacroFoodReports= new List<MacroFoodReport>();
+			Waters = new List<Water>();
 
 		}
         [Key]
@@ -48,15 +49,10 @@ namespace KaloriTakipProgramı.Entity.Entities
         public virtual int? RoleID { get; set; }
         public AppRole AppRole  { get; set; }
 
-		public virtual ICollection<MealOfDay>? MealOfDays { get; set; }
+		public virtual ICollection<Meal>? Meals { get; set; }
 
 		public virtual ICollection<Water> Waters { get; set; }
-		//public Water Water { get; set; }
 
-
-		/// <summary>
-		/// Bir kişinin birden fazla makro besin raporu olabilir.
-		/// </summary>
 		public virtual ICollection<MacroFoodReport>? MacroFoodReports { get; set; }
 	}
 }

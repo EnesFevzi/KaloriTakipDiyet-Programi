@@ -33,6 +33,9 @@
 			label2 = new Label();
 			lstUrunler = new ListView();
 			lstEklenenUrunler = new ListView();
+			columnHeader1 = new ColumnHeader();
+			columnHeader2 = new ColumnHeader();
+			columnHeader3 = new ColumnHeader();
 			txtMiktar = new TextBox();
 			label3 = new Label();
 			label4 = new Label();
@@ -86,6 +89,7 @@
 			// 
 			// lstEklenenUrunler
 			// 
+			lstEklenenUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
 			lstEklenenUrunler.GridLines = true;
 			lstEklenenUrunler.Location = new Point(296, 95);
 			lstEklenenUrunler.Name = "lstEklenenUrunler";
@@ -163,6 +167,7 @@
 			grpKahvaltiEkle.TabIndex = 15;
 			grpKahvaltiEkle.TabStop = false;
 			grpKahvaltiEkle.Text = "KAHVALTI EKLE";
+			grpKahvaltiEkle.Enter += grpKahvaltiEkle_Enter;
 			// 
 			// AddBreakfast
 			// 
@@ -175,6 +180,7 @@
 			Controls.Add(btnKaydet);
 			Name = "AddBreakfast";
 			Text = "AddBreakfast";
+			Load += AddBreakfast_Load;
 			grpKahvaltiEkle.ResumeLayout(false);
 			grpKahvaltiEkle.PerformLayout();
 			ResumeLayout(false);
@@ -193,5 +199,8 @@
 		private Button btnKaydet;
 		private Button btnSil;
 		private GroupBox grpKahvaltiEkle;
+		private ColumnHeader columnHeader1;
+		private ColumnHeader columnHeader2;
+		private ColumnHeader columnHeader3;
 	}
 }

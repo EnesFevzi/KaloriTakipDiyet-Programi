@@ -7,12 +7,24 @@ using System.Threading.Tasks;
 
 namespace KaloriTakipProgramı.Entity.Entities
 {
-	public class Meal
+	public class Meal:BaseEntity
 	{
-		//Sabah Öğle Akşam Aperatif
+        public Meal()
+        {
+			ConsumeFoods= new List<ConsumeFood>();
+
+
+		}
+        //Sabah Öğle Akşam Aperatif
         public int MealID { get; set; }
 		public string MealName { get; set; }
-		public ICollection<MealOfDay> MealOfDays { get; set; }	
+		public ICollection<ConsumeFood> ConsumeFoods { get; set; }
+
+
+		public override string ToString()
+		{
+			return $"{MealName}";
+		}
 
 	}
 }

@@ -1,4 +1,5 @@
-﻿using KaloriTakipProgramı.Business.Concrete;
+﻿using Kalori_Takip___Diyet__Programı.Extensions;
+using KaloriTakipProgramı.Business.Concrete;
 using KaloriTakipProgramı.Business.Formules;
 using KaloriTakipProgramı.Entity.Entities;
 using System;
@@ -34,7 +35,7 @@ namespace Kalori_Takip___Diyet__Programı
 
 		private void btnGeriDon_Click(object sender, EventArgs e)
 		{
-			this.Close();
+			this.Hide();
 		}
 		double kilo;
 		private void WaterTracking_Load(object sender, EventArgs e)
@@ -74,6 +75,8 @@ namespace Kalori_Takip___Diyet__Programı
 				_waterService.TAdd(_water);
 				_user.LastWaterAdditionDate = DateTime.Now;
 				_userService.TUpdate(_user);
+				MessageBox.Show("Ekleme İşlemi Başarılı");
+				Helper.Temizle(grpSuMiktariGir.Controls);
 			}
 			else
 			{
@@ -83,6 +86,7 @@ namespace Kalori_Takip___Diyet__Programı
 				_user.LastWaterAdditionDate = DateTime.Now;
 				_userService.TUpdate(_user);
 				_waterService.TUpdate(guncellenecekWater);
+				MessageBox.Show("Güncelleme İşlemi Başarılı");
 			}
 
 
@@ -92,6 +96,14 @@ namespace Kalori_Takip___Diyet__Programı
 		Water suMiktari;
 		private void dtSuTarih_ValueChanged(object sender, EventArgs e)
 		{
+			if (dtSuTarih.Value.Date<DateTime.Now.Date)
+			{
+				btnSuEkle.Enabled = false;
+			}
+			else
+			{
+				btnSuEkle.Enabled = true;
+			}
 			suMiktari = _waterService.GetWaterByUserIdAndDate(_user.AppUserID, dtSuTarih.Value.Date);
 			lblGecmisİcilmisSu.Text = $"İçtiğiniz su {suMiktari.WaterQuantity} bardaktır";
 		}

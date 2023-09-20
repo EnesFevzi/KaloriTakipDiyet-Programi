@@ -21,7 +21,8 @@ namespace KaloriTakipProgramı.Entity.Entities
 
 		//Navigation Property
 
-
+		public int? CategoryID { get; set; }
+		public Category? Category { get; set; }
 		public ICollection<MealOfDay> MealOfDays { get; set; }
 	}
 }

@@ -40,7 +40,7 @@ namespace Kalori_Takip___Diyet__Programı
 			boy = (double)_user.Height;
 			yas = (int)_user.Age;
 			activityValue = (double)_user.ActivityValue;
-
+			lblKisiAdi.Text = $"{_user.Name} {_user.Surname}";
 
 			string imagePath = Path.Combine(Application.StartupPath, "UserImage", _user.ImagePath);
 
@@ -55,14 +55,7 @@ namespace Kalori_Takip___Diyet__Programı
 			{
 				MessageBox.Show("Resim bulunamadı.");
 			}
-			lblKisiAdi.Text = $"{_user.Name} {_user.Surname}";
-			lblYas.Text = _user.Age.ToString();
-			lblBoy.Text = boy.ToString();
-			lblKilo.Text = kilo.ToString();
-			lblVki.Text = _user.VKI.ToString();
-			lblBazalMetabolizma.Text = _user.BMH.ToString();
-			lblYagOrani.Text = _user.VYO.ToString();
-			lblAlinmasiGerekenKalori.Text = Formul.HesaplaGunlukKaloriIhtiyaci(cinsiyet, kilo, boy, yas, activityValue).ToString();
+
 		}
 
 		private void groupBox1_Enter(object sender, EventArgs e)
@@ -75,18 +68,25 @@ namespace Kalori_Takip___Diyet__Programı
 			WaterTracking waterTracking = new WaterTracking(_user);
 			this.Hide();
 			waterTracking.ShowDialog();
+			this.Show();
 		}
 
-		private void btnHaydiVucutAnalizi_Click(object sender, EventArgs e)
-		{
 
-		}
 
-		private void btnAyarlar_Click(object sender, EventArgs e)
+		private void btnProfil_Click(object sender, EventArgs e)
 		{
-			UserSettings userSettings = new UserSettings(_user);
+			UserInformatıons userInformatıons = new UserInformatıons(_user);
 			this.Hide();
-			userSettings.ShowDialog();
+			userInformatıons.ShowDialog();
+			this.Show();
+		}
+
+		private void btnYemekMiKacKolari_Click(object sender, EventArgs e)
+		{
+			HowManyCalories howManyCalories = new HowManyCalories();
+			this.Hide();
+			howManyCalories.ShowDialog();
+			this.Show();
 		}
 	}
 }

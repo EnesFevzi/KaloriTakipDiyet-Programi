@@ -4,6 +4,7 @@ using KaloriTakipProgramı.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KaloriTakipProgramı.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230919193958_mig_add_f")]
+    partial class mig_add_f
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +36,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasIndex("MealOfDaysMealOfDayID");
 
-                    b.ToTable("FoodMealOfDay", (string)null);
+                    b.ToTable("FoodMealOfDay");
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.AppRole", b =>
@@ -51,7 +53,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasKey("RoleID");
 
-                    b.ToTable("AppRoles", (string)null);
+                    b.ToTable("AppRoles");
 
                     b.HasData(
                         new
@@ -155,7 +157,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasIndex("RoleID");
 
-                    b.ToTable("AppUsers", (string)null);
+                    b.ToTable("AppUsers");
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Category", b =>
@@ -187,7 +189,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasKey("CategoryID");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
 
                     b.HasData(
                         new
@@ -256,7 +258,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasIndex("MacroFoodReportReportID");
 
-                    b.ToTable("Foods", (string)null);
+                    b.ToTable("Foods");
 
                     b.HasData(
                         new
@@ -431,7 +433,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasIndex("AppUserID");
 
-                    b.ToTable("MacroFoodReport", (string)null);
+                    b.ToTable("MacroFoodReport");
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Meal", b =>
@@ -448,7 +450,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasKey("MealID");
 
-                    b.ToTable("Meals", (string)null);
+                    b.ToTable("Meals");
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.MealOfDay", b =>
@@ -486,7 +488,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasIndex("MealID");
 
-                    b.ToTable("MealOfDays", (string)null);
+                    b.ToTable("MealOfDays");
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Water", b =>
@@ -525,7 +527,7 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     b.HasIndex("AppUserID");
 
-                    b.ToTable("Waters", (string)null);
+                    b.ToTable("Waters");
                 });
 
             modelBuilder.Entity("FoodMealOfDay", b =>

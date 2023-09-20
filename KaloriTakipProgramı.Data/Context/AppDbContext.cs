@@ -1,4 +1,5 @@
-﻿using KaloriTakipProgramı.Entity.Entities;
+﻿using KaloriTakipProgramı.Data.Extensions;
+using KaloriTakipProgramı.Entity.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace KaloriTakipProgramı.Data.Context
 					RoleName = "Admin",
 
 				});
-
+			modelBuilder.SeedData();
 			base.OnModelCreating(modelBuilder);
 		}
 	}

@@ -52,7 +52,7 @@ namespace Kalori_Takip___Diyet__Programı
 					kullanici.Name = txtAd.Text;
 					kullanici.Surname = txtSoyad.Text;
 					kullanici.Age = (int)nmrYas.Value;
-					kullanici.Height = (int)nmrBoy.Value;
+					kullanici.Height = (double)nmrBoy.Value;
 					kullanici.Weight = (int)nmrKilo.Value;
 					kullanici.BasinCircle = (double)nmrBasenCevresi.Value;
 					kullanici.WaistCircle = (double)nmrBelCevresi.Value;
@@ -70,6 +70,7 @@ namespace Kalori_Takip___Diyet__Programı
 					_userService.TUpdate(kullanici);
 					MessageBox.Show("Güncelleme İşlemi Başarılı");
 					Helper.Temizle(grpKisiselBilgiler.Controls);
+					this.Hide();
 				}
 				else
 				{
@@ -85,6 +86,11 @@ namespace Kalori_Takip___Diyet__Programı
 			{
 				MessageBox.Show("Şifreler Eşleşmiyor");
 			}
+		}
+
+		private void btnGeriDon_Click(object sender, EventArgs e)
+		{
+			this.Hide();
 		}
 	}
 }

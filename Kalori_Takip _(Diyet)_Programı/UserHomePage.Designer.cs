@@ -28,36 +28,19 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserHomePage));
 			label1 = new Label();
 			lblKisiAdi = new Label();
-			groupBox1 = new GroupBox();
-			lblAlinmasiGerekenKalori = new Label();
-			lblSuMiktari = new Label();
-			lblAktiviteDuzeyi = new Label();
-			lblBazalMetabolizma = new Label();
-			lblYagOrani = new Label();
-			lblVki = new Label();
-			lblKilo = new Label();
-			lblBoy = new Label();
-			lblYas = new Label();
-			label2 = new Label();
-			label4 = new Label();
-			label5 = new Label();
-			label9 = new Label();
-			label8 = new Label();
-			label7 = new Label();
-			llll = new Label();
-			label6 = new Label();
-			label3 = new Label();
 			btnYemekMiKacKolari = new Button();
 			btnHaydiVucutAnalizi = new Button();
 			btnSuTakibi = new Button();
 			btnKaloriTakibi = new Button();
 			btnRaporlar = new Button();
 			pbxUserImage = new PictureBox();
-			btnAyarlar = new Button();
-			groupBox1.SuspendLayout();
+			btnProfil = new Button();
+			pictureBox1 = new PictureBox();
 			((System.ComponentModel.ISupportInitialize)pbxUserImage).BeginInit();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
 			// 
 			// label1
@@ -65,262 +48,52 @@
 			label1.AutoSize = true;
 			label1.BackColor = Color.Transparent;
 			label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-			label1.Location = new Point(2, 9);
+			label1.Location = new Point(12, 9);
 			label1.Name = "label1";
-			label1.Size = new Size(351, 23);
+			label1.Size = new Size(117, 23);
 			label1.TabIndex = 0;
-			label1.Text = "KULLANICI YÖNETİM PANELİNE HOŞGELDİN";
+			label1.Text = "HOŞGELDİNİZ";
 			// 
 			// lblKisiAdi
 			// 
 			lblKisiAdi.AutoSize = true;
 			lblKisiAdi.BackColor = Color.Transparent;
 			lblKisiAdi.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-			lblKisiAdi.Location = new Point(359, 9);
+			lblKisiAdi.Location = new Point(167, 9);
 			lblKisiAdi.Name = "lblKisiAdi";
-			lblKisiAdi.Size = new Size(20, 23);
+			lblKisiAdi.Size = new Size(0, 23);
 			lblKisiAdi.TabIndex = 0;
-			lblKisiAdi.Text = "0";
-			// 
-			// groupBox1
-			// 
-			groupBox1.BackColor = Color.Transparent;
-			groupBox1.Controls.Add(lblAlinmasiGerekenKalori);
-			groupBox1.Controls.Add(lblSuMiktari);
-			groupBox1.Controls.Add(lblAktiviteDuzeyi);
-			groupBox1.Controls.Add(lblBazalMetabolizma);
-			groupBox1.Controls.Add(lblYagOrani);
-			groupBox1.Controls.Add(lblVki);
-			groupBox1.Controls.Add(lblKilo);
-			groupBox1.Controls.Add(lblBoy);
-			groupBox1.Controls.Add(lblYas);
-			groupBox1.Controls.Add(label2);
-			groupBox1.Controls.Add(label4);
-			groupBox1.Controls.Add(label5);
-			groupBox1.Controls.Add(label9);
-			groupBox1.Controls.Add(label8);
-			groupBox1.Controls.Add(label7);
-			groupBox1.Controls.Add(llll);
-			groupBox1.Controls.Add(label6);
-			groupBox1.Controls.Add(label3);
-			groupBox1.Location = new Point(12, 170);
-			groupBox1.Name = "groupBox1";
-			groupBox1.Size = new Size(243, 253);
-			groupBox1.TabIndex = 1;
-			groupBox1.TabStop = false;
-			groupBox1.Text = "KişiselBilgiler";
-			groupBox1.Enter += groupBox1_Enter;
-			// 
-			// lblAlinmasiGerekenKalori
-			// 
-			lblAlinmasiGerekenKalori.AutoSize = true;
-			lblAlinmasiGerekenKalori.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblAlinmasiGerekenKalori.Location = new Point(179, 228);
-			lblAlinmasiGerekenKalori.Name = "lblAlinmasiGerekenKalori";
-			lblAlinmasiGerekenKalori.Size = new Size(14, 15);
-			lblAlinmasiGerekenKalori.TabIndex = 0;
-			lblAlinmasiGerekenKalori.Text = "0";
-			// 
-			// lblSuMiktari
-			// 
-			lblSuMiktari.AutoSize = true;
-			lblSuMiktari.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblSuMiktari.Location = new Point(179, 199);
-			lblSuMiktari.Name = "lblSuMiktari";
-			lblSuMiktari.Size = new Size(14, 15);
-			lblSuMiktari.TabIndex = 0;
-			lblSuMiktari.Text = "0";
-			// 
-			// lblAktiviteDuzeyi
-			// 
-			lblAktiviteDuzeyi.AutoSize = true;
-			lblAktiviteDuzeyi.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblAktiviteDuzeyi.Location = new Point(179, 173);
-			lblAktiviteDuzeyi.Name = "lblAktiviteDuzeyi";
-			lblAktiviteDuzeyi.Size = new Size(14, 15);
-			lblAktiviteDuzeyi.TabIndex = 0;
-			lblAktiviteDuzeyi.Text = "0";
-			// 
-			// lblBazalMetabolizma
-			// 
-			lblBazalMetabolizma.AutoSize = true;
-			lblBazalMetabolizma.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblBazalMetabolizma.Location = new Point(179, 149);
-			lblBazalMetabolizma.Name = "lblBazalMetabolizma";
-			lblBazalMetabolizma.Size = new Size(14, 15);
-			lblBazalMetabolizma.TabIndex = 0;
-			lblBazalMetabolizma.Text = "0";
-			// 
-			// lblYagOrani
-			// 
-			lblYagOrani.AutoSize = true;
-			lblYagOrani.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblYagOrani.Location = new Point(179, 123);
-			lblYagOrani.Name = "lblYagOrani";
-			lblYagOrani.Size = new Size(14, 15);
-			lblYagOrani.TabIndex = 0;
-			lblYagOrani.Text = "0";
-			// 
-			// lblVki
-			// 
-			lblVki.AutoSize = true;
-			lblVki.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblVki.Location = new Point(179, 97);
-			lblVki.Name = "lblVki";
-			lblVki.Size = new Size(14, 15);
-			lblVki.TabIndex = 0;
-			lblVki.Text = "0";
-			// 
-			// lblKilo
-			// 
-			lblKilo.AutoSize = true;
-			lblKilo.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblKilo.Location = new Point(179, 71);
-			lblKilo.Name = "lblKilo";
-			lblKilo.Size = new Size(14, 15);
-			lblKilo.TabIndex = 0;
-			lblKilo.Text = "0";
-			// 
-			// lblBoy
-			// 
-			lblBoy.AutoSize = true;
-			lblBoy.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblBoy.Location = new Point(179, 45);
-			lblBoy.Name = "lblBoy";
-			lblBoy.Size = new Size(14, 15);
-			lblBoy.TabIndex = 0;
-			lblBoy.Text = "0";
-			// 
-			// lblYas
-			// 
-			lblYas.AutoSize = true;
-			lblYas.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			lblYas.Location = new Point(179, 19);
-			lblYas.Name = "lblYas";
-			lblYas.Size = new Size(14, 15);
-			lblYas.TabIndex = 0;
-			lblYas.Text = "0";
-			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label2.Location = new Point(6, 71);
-			label2.Name = "label2";
-			label2.Size = new Size(29, 15);
-			label2.TabIndex = 0;
-			label2.Text = "Kilo";
-			// 
-			// label4
-			// 
-			label4.AutoSize = true;
-			label4.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label4.Location = new Point(6, 45);
-			label4.Name = "label4";
-			label4.Size = new Size(27, 15);
-			label4.TabIndex = 0;
-			label4.Text = "Boy";
-			// 
-			// label5
-			// 
-			label5.AutoSize = true;
-			label5.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label5.Location = new Point(6, 19);
-			label5.Name = "label5";
-			label5.Size = new Size(24, 15);
-			label5.TabIndex = 0;
-			label5.Text = "Yaş";
-			// 
-			// label9
-			// 
-			label9.AutoSize = true;
-			label9.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label9.Location = new Point(6, 228);
-			label9.Name = "label9";
-			label9.Size = new Size(138, 15);
-			label9.TabIndex = 0;
-			label9.Text = "Alınması Gereken Kalori";
-			// 
-			// label8
-			// 
-			label8.AutoSize = true;
-			label8.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label8.Location = new Point(6, 199);
-			label8.Name = "label8";
-			label8.Size = new Size(157, 15);
-			label8.TabIndex = 0;
-			label8.Text = "İçilmesi Gereken Su Miktarı";
-			// 
-			// label7
-			// 
-			label7.AutoSize = true;
-			label7.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label7.Location = new Point(6, 173);
-			label7.Name = "label7";
-			label7.Size = new Size(86, 15);
-			label7.TabIndex = 0;
-			label7.Text = "Aktivite Düzeyi";
-			// 
-			// llll
-			// 
-			llll.AutoSize = true;
-			llll.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			llll.Location = new Point(6, 149);
-			llll.Name = "llll";
-			llll.Size = new Size(112, 15);
-			llll.TabIndex = 0;
-			llll.Text = "Bazal Metabolizma";
-			// 
-			// label6
-			// 
-			label6.AutoSize = true;
-			label6.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label6.Location = new Point(6, 123);
-			label6.Name = "label6";
-			label6.Size = new Size(59, 15);
-			label6.TabIndex = 0;
-			label6.Text = "Yağ Oranı";
-			// 
-			// label3
-			// 
-			label3.AutoSize = true;
-			label3.Font = new Font("Calibri", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label3.Location = new Point(6, 97);
-			label3.Name = "label3";
-			label3.Size = new Size(25, 15);
-			label3.TabIndex = 0;
-			label3.Text = "VKİ";
 			// 
 			// btnYemekMiKacKolari
 			// 
-			btnYemekMiKacKolari.BackColor = Color.PeachPuff;
+			btnYemekMiKacKolari.BackColor = Color.PaleGoldenrod;
 			btnYemekMiKacKolari.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnYemekMiKacKolari.Location = new Point(691, 44);
+			btnYemekMiKacKolari.Location = new Point(101, 224);
 			btnYemekMiKacKolari.Name = "btnYemekMiKacKolari";
-			btnYemekMiKacKolari.Size = new Size(237, 95);
+			btnYemekMiKacKolari.Size = new Size(174, 58);
 			btnYemekMiKacKolari.TabIndex = 2;
 			btnYemekMiKacKolari.Text = "Yemek mi ? Kaç Kalori ?";
 			btnYemekMiKacKolari.UseVisualStyleBackColor = false;
+			btnYemekMiKacKolari.Click += btnYemekMiKacKolari_Click;
 			// 
 			// btnHaydiVucutAnalizi
 			// 
-			btnHaydiVucutAnalizi.BackColor = Color.PeachPuff;
+			btnHaydiVucutAnalizi.BackColor = Color.PaleGoldenrod;
 			btnHaydiVucutAnalizi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnHaydiVucutAnalizi.Location = new Point(691, 139);
+			btnHaydiVucutAnalizi.Location = new Point(101, 288);
 			btnHaydiVucutAnalizi.Name = "btnHaydiVucutAnalizi";
-			btnHaydiVucutAnalizi.Size = new Size(237, 95);
+			btnHaydiVucutAnalizi.Size = new Size(174, 58);
 			btnHaydiVucutAnalizi.TabIndex = 3;
 			btnHaydiVucutAnalizi.Text = "Haydi Vucüt Analizi Yapalım";
 			btnHaydiVucutAnalizi.UseVisualStyleBackColor = false;
-			btnHaydiVucutAnalizi.Click += btnHaydiVucutAnalizi_Click;
 			// 
 			// btnSuTakibi
 			// 
-			btnSuTakibi.BackColor = Color.PeachPuff;
+			btnSuTakibi.BackColor = Color.PaleGoldenrod;
 			btnSuTakibi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnSuTakibi.Location = new Point(691, 234);
+			btnSuTakibi.Location = new Point(101, 352);
 			btnSuTakibi.Name = "btnSuTakibi";
-			btnSuTakibi.Size = new Size(237, 95);
+			btnSuTakibi.Size = new Size(174, 58);
 			btnSuTakibi.TabIndex = 2;
 			btnSuTakibi.Text = "Bugün Suyunu İçtin mi ?";
 			btnSuTakibi.UseVisualStyleBackColor = false;
@@ -328,11 +101,11 @@
 			// 
 			// btnKaloriTakibi
 			// 
-			btnKaloriTakibi.BackColor = Color.PeachPuff;
+			btnKaloriTakibi.BackColor = Color.PaleGoldenrod;
 			btnKaloriTakibi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnKaloriTakibi.Location = new Point(691, 329);
+			btnKaloriTakibi.Location = new Point(101, 416);
 			btnKaloriTakibi.Name = "btnKaloriTakibi";
-			btnKaloriTakibi.Size = new Size(237, 95);
+			btnKaloriTakibi.Size = new Size(174, 58);
 			btnKaloriTakibi.TabIndex = 3;
 			btnKaloriTakibi.Text = "Kalori Takibi";
 			btnKaloriTakibi.UseVisualStyleBackColor = false;
@@ -340,11 +113,11 @@
 			// 
 			// btnRaporlar
 			// 
-			btnRaporlar.BackColor = Color.PeachPuff;
+			btnRaporlar.BackColor = Color.PaleGoldenrod;
 			btnRaporlar.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnRaporlar.Location = new Point(691, 420);
+			btnRaporlar.Location = new Point(101, 480);
 			btnRaporlar.Name = "btnRaporlar";
-			btnRaporlar.Size = new Size(237, 95);
+			btnRaporlar.Size = new Size(174, 58);
 			btnRaporlar.TabIndex = 2;
 			btnRaporlar.Text = "Raporlar";
 			btnRaporlar.UseVisualStyleBackColor = false;
@@ -352,34 +125,45 @@
 			// pbxUserImage
 			// 
 			pbxUserImage.BackColor = Color.Transparent;
-			pbxUserImage.Location = new Point(75, 44);
+			pbxUserImage.Location = new Point(116, 50);
 			pbxUserImage.Name = "pbxUserImage";
-			pbxUserImage.Size = new Size(100, 120);
+			pbxUserImage.Size = new Size(138, 155);
 			pbxUserImage.SizeMode = PictureBoxSizeMode.StretchImage;
 			pbxUserImage.TabIndex = 4;
 			pbxUserImage.TabStop = false;
 			// 
-			// btnAyarlar
+			// btnProfil
 			// 
-			btnAyarlar.BackColor = Color.DarkSeaGreen;
-			btnAyarlar.BackgroundImage = Properties.Resources.user_profile;
-			btnAyarlar.BackgroundImageLayout = ImageLayout.Stretch;
-			btnAyarlar.FlatAppearance.BorderSize = 0;
-			btnAyarlar.FlatStyle = FlatStyle.Popup;
-			btnAyarlar.Location = new Point(181, 111);
-			btnAyarlar.Name = "btnAyarlar";
-			btnAyarlar.Size = new Size(50, 53);
-			btnAyarlar.TabIndex = 5;
-			btnAyarlar.UseVisualStyleBackColor = false;
-			btnAyarlar.Click += btnAyarlar_Click;
+			btnProfil.BackColor = Color.DarkSeaGreen;
+			btnProfil.BackgroundImage = (Image)resources.GetObject("btnProfil.BackgroundImage");
+			btnProfil.BackgroundImageLayout = ImageLayout.Stretch;
+			btnProfil.FlatAppearance.BorderSize = 0;
+			btnProfil.FlatStyle = FlatStyle.Popup;
+			btnProfil.Location = new Point(310, 9);
+			btnProfil.Name = "btnProfil";
+			btnProfil.Size = new Size(50, 53);
+			btnProfil.TabIndex = 5;
+			btnProfil.UseVisualStyleBackColor = false;
+			btnProfil.Click += btnProfil_Click;
+			// 
+			// pictureBox1
+			// 
+			pictureBox1.Image = Properties.Resources._80787692;
+			pictureBox1.Location = new Point(310, 513);
+			pictureBox1.Name = "pictureBox1";
+			pictureBox1.Size = new Size(61, 61);
+			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+			pictureBox1.TabIndex = 6;
+			pictureBox1.TabStop = false;
 			// 
 			// UserHomePage
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(940, 621);
-			Controls.Add(btnAyarlar);
+			ClientSize = new Size(372, 577);
+			Controls.Add(pictureBox1);
+			Controls.Add(btnProfil);
 			Controls.Add(pbxUserImage);
 			Controls.Add(btnRaporlar);
 			Controls.Add(btnKaloriTakibi);
@@ -387,14 +171,12 @@
 			Controls.Add(btnHaydiVucutAnalizi);
 			Controls.Add(btnYemekMiKacKolari);
 			Controls.Add(label1);
-			Controls.Add(groupBox1);
 			Controls.Add(lblKisiAdi);
 			Name = "UserHomePage";
 			Text = "UserHomePage";
 			Load += UserHomePage_Load;
-			groupBox1.ResumeLayout(false);
-			groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pbxUserImage).EndInit();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -403,31 +185,13 @@
 
 		private Label label1;
 		private Label lblKisiAdi;
-		private GroupBox groupBox1;
-		private Label lblYagOrani;
-		private Label lblVki;
-		private Label lblKilo;
-		private Label lblBoy;
-		private Label lblYas;
-		private Label label2;
-		private Label label4;
-		private Label label5;
-		private Label label6;
-		private Label label3;
 		private Button btnYemekMiKacKolari;
 		private Button btnHaydiVucutAnalizi;
 		private Button btnSuTakibi;
 		private Button btnKaloriTakibi;
 		private Button btnRaporlar;
 		private PictureBox pbxUserImage;
-		private Label lblSuMiktari;
-		private Label label8;
-		private Label lblBazalMetabolizma;
-		private Label llll;
-		private Label lblAktiviteDuzeyi;
-		private Label label7;
-		private Label lblAlinmasiGerekenKalori;
-		private Label label9;
-		private Button btnAyarlar;
+		private Button btnProfil;
+		private PictureBox pictureBox1;
 	}
 }

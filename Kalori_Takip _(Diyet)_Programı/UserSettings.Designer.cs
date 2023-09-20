@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserSettings));
 			grpKisiselBilgiler = new GroupBox();
 			btnBilgiileriGuncelle = new Button();
 			label10 = new Label();
@@ -50,6 +51,8 @@
 			label9 = new Label();
 			label8 = new Label();
 			label3 = new Label();
+			btnGeriDon = new Button();
+			pictureBox1 = new PictureBox();
 			grpKisiselBilgiler.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)nmrBoyunCevresi).BeginInit();
 			((System.ComponentModel.ISupportInitialize)nmrBelCevresi).BeginInit();
@@ -57,6 +60,7 @@
 			((System.ComponentModel.ISupportInitialize)nmrYas).BeginInit();
 			((System.ComponentModel.ISupportInitialize)nmrKilo).BeginInit();
 			((System.ComponentModel.ISupportInitialize)nmrBoy).BeginInit();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
 			// 
 			// grpKisiselBilgiler
@@ -84,7 +88,7 @@
 			grpKisiselBilgiler.Controls.Add(label8);
 			grpKisiselBilgiler.Controls.Add(label3);
 			grpKisiselBilgiler.FlatStyle = FlatStyle.Flat;
-			grpKisiselBilgiler.Location = new Point(12, 12);
+			grpKisiselBilgiler.Location = new Point(12, 57);
 			grpKisiselBilgiler.Name = "grpKisiselBilgiler";
 			grpKisiselBilgiler.Size = new Size(361, 515);
 			grpKisiselBilgiler.TabIndex = 11;
@@ -328,12 +332,38 @@
 			label3.TextAlign = ContentAlignment.MiddleCenter;
 			label3.UseCompatibleTextRendering = true;
 			// 
+			// btnGeriDon
+			// 
+			btnGeriDon.BackColor = Color.Transparent;
+			btnGeriDon.BackgroundImage = (Image)resources.GetObject("btnGeriDon.BackgroundImage");
+			btnGeriDon.BackgroundImageLayout = ImageLayout.Stretch;
+			btnGeriDon.FlatAppearance.BorderSize = 0;
+			btnGeriDon.FlatStyle = FlatStyle.Flat;
+			btnGeriDon.Location = new Point(12, 12);
+			btnGeriDon.Name = "btnGeriDon";
+			btnGeriDon.Size = new Size(30, 27);
+			btnGeriDon.TabIndex = 12;
+			btnGeriDon.UseVisualStyleBackColor = false;
+			btnGeriDon.Click += btnGeriDon_Click;
+			// 
+			// pictureBox1
+			// 
+			pictureBox1.Image = Properties.Resources._80787692;
+			pictureBox1.Location = new Point(321, 580);
+			pictureBox1.Name = "pictureBox1";
+			pictureBox1.Size = new Size(61, 61);
+			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+			pictureBox1.TabIndex = 13;
+			pictureBox1.TabStop = false;
+			// 
 			// UserSettings
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(385, 546);
+			ClientSize = new Size(385, 653);
+			Controls.Add(pictureBox1);
+			Controls.Add(btnGeriDon);
 			Controls.Add(grpKisiselBilgiler);
 			Name = "UserSettings";
 			Text = "UserSettings";
@@ -346,6 +376,7 @@
 			((System.ComponentModel.ISupportInitialize)nmrYas).EndInit();
 			((System.ComponentModel.ISupportInitialize)nmrKilo).EndInit();
 			((System.ComponentModel.ISupportInitialize)nmrBoy).EndInit();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -373,5 +404,7 @@
 		private TextBox txtSifreTekrar;
 		private Label label5;
 		private Button btnBilgiileriGuncelle;
+		private Button btnGeriDon;
+		private PictureBox pictureBox1;
 	}
 }

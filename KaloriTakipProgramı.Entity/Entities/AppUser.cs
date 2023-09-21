@@ -17,6 +17,7 @@ namespace KaloriTakipProgramı.Entity.Entities
 			Meals = new List<Meal>();
 			MacroFoodReports= new List<MacroFoodReport>();
 			Waters = new List<Water>();
+			ConsumeFoods = new List<ConsumeFood>();
 
 		}
         [Key]
@@ -54,5 +55,6 @@ namespace KaloriTakipProgramı.Entity.Entities
 		public virtual ICollection<Water> Waters { get; set; }
 
 		public virtual ICollection<MacroFoodReport>? MacroFoodReports { get; set; }
+		public virtual ICollection<ConsumeFood> ConsumeFoods { get; set; }
 	}
 }

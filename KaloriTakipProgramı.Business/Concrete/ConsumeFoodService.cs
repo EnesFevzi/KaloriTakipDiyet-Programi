@@ -136,20 +136,29 @@ namespace KaloriTakipProgramı.Business.Concrete
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		//2 tarih arasında yenen en çok yiyeceğin kategorileri
-		//public List<ConsumeFood> GetMostConsumedFoodsByCategoryAndDate(DateTime startDate, DateTime endDate)
-		//{
-		//	return _consumeFoodRepository.GetByFilterList(x => x.CreatedDate >= startDate && x.CreatedDate <= endDate)
-		//				.SelectMany(x => x.Foods)
-		//				.GroupBy(cf => cf.Category.CategoryName)
-		//				.Select(g => new ConsumeFood
-		//				{
-		//					CategoryName = g.Key,
-		//					Value = g.Sum(cf => cf.Value)
-		//				})
-		//				.OrderByDescending(cf => cf.Value)
-		//				.ToList();
-		//}
+		
 
 
 

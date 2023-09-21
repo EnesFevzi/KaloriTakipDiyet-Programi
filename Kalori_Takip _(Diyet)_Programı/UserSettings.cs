@@ -119,5 +119,13 @@ namespace Kalori_Takip___Diyet__Programı
 				pbxImage.Image = userImage;
 			}
 		}
+
+		private void btnAkviteDuzeyi_Click(object sender, EventArgs e)
+		{
+			IntroduceYourselfActıvıty introduceYourselfActıvıty = new IntroduceYourselfActıvıty(_user);
+			this.Hide();
+			introduceYourselfActıvıty.ShowDialog();
+			this.Show();
+		}
 	}
 }

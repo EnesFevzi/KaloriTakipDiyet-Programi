@@ -53,6 +53,8 @@ namespace Kalori_Takip___Diyet__Programı
 		}
 
 		private Food secilenUrun;
+		private Food Urun;
+		private ConsumeFood tuketilenUrun;
 
 		private void btnEkle_Click(object sender, EventArgs e)
 		{
@@ -64,9 +66,11 @@ namespace Kalori_Takip___Diyet__Programı
 			else
 			{
 				secilenUrun = (Food)lstUrunler.SelectedItems[0].Tag;
+				Urun = secilenUrun;
 				secilenUrun = _foodService.CalculateFoodInfo(secilenUrun.FoodID, girilenMiktar);
 
-				ListViewItem item = new ListViewItem(secilenUrun.FoodName);
+				ListViewItem item = new ListViewItem();
+				item.Text = secilenUrun.FoodName;
 				item.SubItems.Add(girilenMiktar.ToString("0.00"));
 				item.SubItems.Add(secilenUrun.Calories.ToString("0.00"));
 				item.SubItems.Add(secilenUrun.Protein.ToString("0.00"));
@@ -100,6 +104,7 @@ namespace Kalori_Takip___Diyet__Programı
 						CreatedDate = DateTime.Now,
 						ImagePath = imageName,
 						AppUserID = _user.AppUserID,
+						Foods = new List<Food>() { Urun },
 						MealID = result.MealID,
 
 					};

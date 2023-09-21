@@ -1,4 +1,5 @@
 ﻿using KaloriTakipProgramı.Business.Concrete;
+using KaloriTakipProgramı.Data.Concrete.EntityFramework;
 using KaloriTakipProgramı.Entity.Entities;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
@@ -18,12 +19,15 @@ namespace Kalori_Takip___Diyet__Programı
 	public partial class ReportConsumeFood : Form
 	{
 		private readonly ConsumeFoodService _service;
+		private readonly ConsumeFoodRepository _service2;
+
 		private AppUser _user;
 
 
 		public ReportConsumeFood(AppUser user)
 		{
 			_service = new ConsumeFoodService();
+			_service2 = new ConsumeFoodRepository();
 			InitializeComponent();
 			_user = user;
 		}
@@ -99,67 +103,61 @@ namespace Kalori_Takip___Diyet__Programı
 		{
 			if (rdbHaftalik.Checked)
 			{
-				var consumedFoodsuser = _service.GetMostConsumedFoodsByUserAndDateWeek(15, dtTarih.Value);
-				//chart1.Series.Add("Siz");
-				chart1.Series["Siz"].Points.DataBind(consumedFoodsuser, "ConsumeFoodName", "Value", "");
-				chart1.Series["Siz"].ChartType = SeriesChartType.Column;
+				if (rdbOgun.Checked)
+				{
+					chart1.Series.Clear();
+					var consumedFoodsuser = _service2.HaftalıkBazdaOgunRaporuKullanıcıİle(15, dtTarih.Value);
+					chart1.Series.Add("Siz");
+					chart1.Series["Siz"].Points.DataBind(consumedFoodsuser, "MealName", "Value", "");
+					chart1.Series["Siz"].ChartType = SeriesChartType.Column;
 
-				// İkinci sütun için verileri ayarla
-				var consumedFood = _service.GetMostConsumedFoodsByDateWeek(dtTarih.Value);
-				//chart1.Series.Add("Diğer Kullanıcılar");
-				chart1.Series["Diğer Kullanıcılar"].Points.DataBind(consumedFood, "ConsumeFoodName", "Value", "");
-				chart1.Series["Diğer Kullanıcılar"].ChartType = SeriesChartType.Column;
+					// İkinci sütun için verileri ayarla
+					var consumedFood = _service2.HaftalıkBazdaOgunRaporu(dtTarih.Value);
+					chart1.Series.Add("Diğer Kullanıcılar");
+					chart1.Series["Diğer Kullanıcılar"].Points.DataBind(consumedFood, "MealName", "Value", "");
+					chart1.Series["Diğer Kullanıcılar"].ChartType = SeriesChartType.Column;
+				}
+				if (rdbKateogri.Checked) 
+				{
 
-				//İki sütunu yanyana göstermek için genişlik ayarı yapın
-				//chart1.ChartAreas[0].Position.Width = 50; // Yüzde olarak ayarlayabilirsiniz
-				//chart1.ChartAreas[0].Position.X = 0;      // İlk sütunun başlangıç pozisyonu
-				//chart1.ChartAreas[0].Position.Height = 100; // Yüzde olarak ayarlayabilirsiniz
-				//chart1.ChartAreas[0].Position.Y = 0;      // İlk sütunun başlangıç pozisyonu
+					chart1.Series.Clear();
+					var consumedFoodsuser = _service2.AylıkBazdaKategoriRaporuKullanıcıİle(15, dtTarih.Value);
+					chart1.Series.Add("Siz");
+					chart1.Series["Siz"].Points.DataBind(consumedFoodsuser, "MealName", "Value", "");
+					chart1.Series["Siz"].ChartType = SeriesChartType.Column;
 
-				//İkinci sütunu yanyana göstermek için genişlik ayarı yapın
-				//chart1.ChartAreas.Add("ChartArea2");
-				//chart1.ChartAreas[1].Position.Width = 50; // Yüzde olarak ayarlayabilirsiniz
-				//chart1.ChartAreas[1].Position.X = 50;     // İkinci sütunun başlangıç pozisyonu
-				//chart1.ChartAreas[1].Position.Height = 100; // Yüzde olarak ayarlayabilirsiniz
-				//chart1.ChartAreas[1].Position.Y = 0;
+					// İkinci sütun için verileri ayarla
+					var consumedFood = _service2.AylıkBazdaKategoriRaporu(dtTarih.Value);
+					chart1.Series.Add("Diğer Kullanıcılar");
+					chart1.Series["Diğer Kullanıcılar"].Points.DataBind(consumedFood, "MealName", "Value", "");
+					chart1.Series["Diğer Kullanıcılar"].ChartType = SeriesChartType.Column;
 
-				//Haftalık
-				//if (rbtnByCategory.Checked)
-				//{
-				//	//Kategoriye göre haftalık
-				//	GetReportsByCategoryWeek(user, dtpReport.Value);
-				//}
-				//else
-				//{
-				//	//Öğünlere göre haftalık
-				//	GetReportsByMealsWeek(user, dtpReport.Value);
-				//}
+
+
+
+
+				}
+				
 			}
 			else
-			{   chart1.Series.Clear();
-				var consumedFoodsuser = _service.GetMostConsumedFoodsByUserAndDateMonth(15, dtTarih.Value);
+			{
+				chart1.Series.Clear();
+				var consumedFoodsuser = _service2.AylıkBazdaOgunRaporuKullanıcıİle(15, dtTarih.Value);
 				chart1.Series.Add("Siz");
-				chart1.Series["Siz"].Points.DataBind(consumedFoodsuser, "ConsumeFoodName", "Value", "");
+				chart1.Series["Siz"].Points.DataBind(consumedFoodsuser, "MealName", "Value", "");
 				chart1.Series["Siz"].ChartType = SeriesChartType.Column;
 
 				// İkinci sütun için verileri ayarla
-				var consumedFood = _service.GetMostConsumedFoodsByUserAndDateMonth(dtTarih.Value);
+				var consumedFood = _service2.AylıkBazdaOgunRaporu(dtTarih.Value);
 				chart1.Series.Add("Diğer Kullanıcılar");
-				chart1.Series["Diğer Kullanıcılar"].Points.DataBind(consumedFood, "ConsumeFoodName", "Value", "");
+				chart1.Series["Diğer Kullanıcılar"].Points.DataBind(consumedFood, "MealName", "Value", "");
 				chart1.Series["Diğer Kullanıcılar"].ChartType = SeriesChartType.Column;
-
-				////Aylık
-				//if (rbtnByCategory.Checked)
-				//{
-				//	//Kategoriye göre aylık
-				//	GetReportsByCategoryMounth(user, dtpReport.Value);
-				//}
-				//else
-				//{
-				//	//Öğünlere göre aylık
-				//	GetReportsByMealsMounth(user, dtpReport.Value);
-				//}
 			}
+		}
+
+		private void rdbHaftalik_CheckedChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

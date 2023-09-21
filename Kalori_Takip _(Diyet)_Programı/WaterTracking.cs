@@ -43,9 +43,17 @@ namespace Kalori_Takip___Diyet__Programı
 			kilo = (float)_user.Weight;
 
 			lblKilo.Text = kilo.ToString();
-			double sulitresi = Formul.HesaplaGunlukSuIhtiyaci(kilo);
-			SuMiktarıHesapla();
-			lblİcmenizGerekenSuMiktari.Text = $"Bugün İçmeniz Gereken Su Miktarı {(sulitresi / 1000)-(suMiktari.WaterQuantity*0.25)} Litredir.";
+			float sulitresi = Formul.HesaplaGunlukSuIhtiyaci(kilo);
+			if (!_user.LastWaterAdditionDate.HasValue)
+			{
+				lblİcmenizGerekenSuMiktari.Text = $"Bugün İçmeniz Gereken Su Miktarı {(sulitresi / 1000)} Litredir.";
+			}
+			else
+			{
+				SuMiktarıHesapla();
+			}
+
+
 
 
 
@@ -55,7 +63,10 @@ namespace Kalori_Takip___Diyet__Programı
 			flowLayoutPanel1.Controls.Clear();
 			suMiktari = _waterService.TGetWaterByUserIdAndDate(_user.AppUserID, dtSuTarih.Value.Date);
 			flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
-
+			float sulitresi = Formul.HesaplaGunlukSuIhtiyaci(kilo);
+			double suIhtiyaci = (sulitresi / 1000) - (suMiktari.WaterQuantity * 0.25);
+			string suIhtiyaciMetin = string.Format("Bugün İçmeniz Gereken Su Miktarı {0:F2} Litredir.", suIhtiyaci);
+			lblİcmenizGerekenSuMiktari.Text = suIhtiyaciMetin;
 			for (int i = 0; i < suMiktari.WaterQuantity; i++)
 			{
 
@@ -66,7 +77,7 @@ namespace Kalori_Takip___Diyet__Programı
 				flowLayoutPanel1.Controls.Add(bardakPictureBox);
 			}
 		}
-		
+
 
 
 		Water guncellenecekWater;
@@ -107,23 +118,22 @@ namespace Kalori_Takip___Diyet__Programı
 		Water suMiktari;
 		private void dtSuTarih_ValueChanged(object sender, EventArgs e)
 		{
-			if (dtSuTarih.Value.Date<DateTime.Now.Date)
+			if (dtSuTarih.Value.Date < DateTime.Now.Date)
 			{
 				btnSuEkle.Enabled = false;
 				suMiktari = _waterService.TGetWaterByUserIdAndDate(_user.AppUserID, dtSuTarih.Value.Date);
-				if (suMiktari ==null)
+				if (suMiktari == null)
 				{
 					MessageBox.Show("Bu tarihte bir veri bulunamadı");
 				}
 				else
 				{
 					lblGecmisİcilmisSu.Text = $"İçtiğiniz su {suMiktari.WaterQuantity} bardaktır";
-					SuMiktarıHesapla();
 				}
-				
+
 
 			}
-			if (dtSuTarih.Value.Date== DateTime.Now.Date)
+			if (dtSuTarih.Value.Date == DateTime.Now.Date)
 			{
 				btnSuEkle.Enabled = true;
 				lblGecmisİcilmisSu.Text = "";
@@ -135,7 +145,7 @@ namespace Kalori_Takip___Diyet__Programı
 			}
 
 
-			
+
 
 		}
 	}

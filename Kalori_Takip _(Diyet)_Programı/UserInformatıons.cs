@@ -39,12 +39,14 @@ namespace Kalori_Takip___Diyet__Programı
 			lblAd.Text = $"{_user.Name} {_user.Surname}";
 			cinsiyet = _user.Gender;
 			lblYas.Text = _user.Age.ToString();
-			lblBoy.Text = boy.ToString();
+			lblBoy.Text = (boy * 100).ToString();
 			lblKilo.Text = kilo.ToString();
 			lblVki.Text = _user.VKI.ToString();
 			lblBazalMetabolizma.Text = _user.BMH.ToString();
 			lblYagOrani.Text = _user.VYO.ToString();
+			lblAktiviteDuzeyi.Text = _user.ActivityValue.ToString();
 			lblAlinmasiGerekenKalori.Text = Formul.HesaplaGunlukKaloriIhtiyaci(cinsiyet, kilo, boy, yas, activityValue).ToString("0.00");
+			lblSuMiktari.Text = Formul.HesaplaGunlukSuIhtiyaci(kilo).ToString();
 
 			Image userImage = LoadImages.LoadUserImage(_user.ImagePath);
 			if (userImage != null)

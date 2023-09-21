@@ -100,7 +100,7 @@ namespace Kalori_Takip___Diyet__Programı
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			txtKullaniciAdi.Text = "enes6161";
+			txtKullaniciAdi.Text = "enesfevzi61";
 			txtSifre.Text = "*123456ASas*";
 
 		}

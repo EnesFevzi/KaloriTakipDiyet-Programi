@@ -55,6 +55,7 @@
 			pictureBox1 = new PictureBox();
 			pbxImage = new PictureBox();
 			btnResimEkle = new Button();
+			btnAkviteDuzeyi = new Button();
 			grpKisiselBilgiler.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)nmrBoyunCevresi).BeginInit();
 			((System.ComponentModel.ISupportInitialize)nmrBelCevresi).BeginInit();
@@ -93,7 +94,7 @@
 			grpKisiselBilgiler.FlatStyle = FlatStyle.Flat;
 			grpKisiselBilgiler.Location = new Point(12, 182);
 			grpKisiselBilgiler.Name = "grpKisiselBilgiler";
-			grpKisiselBilgiler.Size = new Size(361, 515);
+			grpKisiselBilgiler.Size = new Size(361, 512);
 			grpKisiselBilgiler.TabIndex = 11;
 			grpKisiselBilgiler.TabStop = false;
 			grpKisiselBilgiler.Text = "Kişisel Bilgiler";
@@ -382,12 +383,27 @@
 			btnResimEkle.UseVisualStyleBackColor = false;
 			btnResimEkle.Click += btnResimEkle_Click;
 			// 
+			// btnAkviteDuzeyi
+			// 
+			btnAkviteDuzeyi.BackColor = Color.DarkSeaGreen;
+			btnAkviteDuzeyi.BackgroundImage = (Image)resources.GetObject("btnAkviteDuzeyi.BackgroundImage");
+			btnAkviteDuzeyi.BackgroundImageLayout = ImageLayout.Stretch;
+			btnAkviteDuzeyi.FlatAppearance.BorderSize = 0;
+			btnAkviteDuzeyi.FlatStyle = FlatStyle.Popup;
+			btnAkviteDuzeyi.Location = new Point(323, 12);
+			btnAkviteDuzeyi.Name = "btnAkviteDuzeyi";
+			btnAkviteDuzeyi.Size = new Size(50, 53);
+			btnAkviteDuzeyi.TabIndex = 30;
+			btnAkviteDuzeyi.UseVisualStyleBackColor = false;
+			btnAkviteDuzeyi.Click += btnAkviteDuzeyi_Click;
+			// 
 			// UserSettings
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
 			ClientSize = new Size(385, 782);
+			Controls.Add(btnAkviteDuzeyi);
 			Controls.Add(pbxImage);
 			Controls.Add(btnResimEkle);
 			Controls.Add(pictureBox1);
@@ -437,5 +453,6 @@
 		private PictureBox pictureBox1;
 		private PictureBox pbxImage;
 		private Button btnResimEkle;
+		private Button btnAkviteDuzeyi;
 	}
 }

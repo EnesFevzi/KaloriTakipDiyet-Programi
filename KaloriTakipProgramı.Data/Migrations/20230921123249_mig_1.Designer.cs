@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KaloriTakipProgramı.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230921072307_lhgkjlhkjh")]
-    partial class lhgkjlhkjh
+    [Migration("20230921123249_mig_1")]
+    partial class mig_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,8 +71,8 @@ namespace KaloriTakipProgramı.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AppUserID"), 1L, 1);
 
-                    b.Property<double?>("ActivityValue")
-                        .HasColumnType("float");
+                    b.Property<float?>("ActivityValue")
+                        .HasColumnType("real");
 
                     b.Property<int?>("Age")
                         .HasColumnType("int");
@@ -80,8 +80,8 @@ namespace KaloriTakipProgramı.Data.Migrations
                     b.Property<double?>("BMH")
                         .HasColumnType("float");
 
-                    b.Property<double?>("BasinCircle")
-                        .HasColumnType("float");
+                    b.Property<float?>("BasinCircle")
+                        .HasColumnType("real");
 
                     b.Property<string>("ConfirmPassword")
                         .IsRequired()
@@ -101,8 +101,8 @@ namespace KaloriTakipProgramı.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Height")
-                        .HasColumnType("float");
+                    b.Property<float?>("Height")
+                        .HasColumnType("real");
 
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
@@ -120,8 +120,8 @@ namespace KaloriTakipProgramı.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("NeckCircle")
-                        .HasColumnType("float");
+                    b.Property<float?>("NeckCircle")
+                        .HasColumnType("real");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -150,11 +150,11 @@ namespace KaloriTakipProgramı.Data.Migrations
                     b.Property<int>("Value")
                         .HasColumnType("int");
 
-                    b.Property<double?>("WaistCircle")
-                        .HasColumnType("float");
+                    b.Property<float?>("WaistCircle")
+                        .HasColumnType("real");
 
-                    b.Property<double?>("Weight")
-                        .HasColumnType("float");
+                    b.Property<float?>("Weight")
+                        .HasColumnType("real");
 
                     b.HasKey("AppUserID");
 
@@ -202,7 +202,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                         {
                             CategoryID = 1,
                             CategoryName = "Deniz Ürünleri",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4849),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6753),
                             Status = false,
                             Value = 1
                         });
@@ -268,218 +268,6 @@ namespace KaloriTakipProgramı.Data.Migrations
                     b.HasIndex("MealID");
 
                     b.ToTable("ConsumeFoods");
-
-                    b.HasData(
-                        new
-                        {
-                            ConsumeFoodID = 1,
-                            AppUserID = 8,
-                            Calories = 52f,
-                            Carbohydrate = 14f,
-                            ConsumeFoodName = "Apple",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4918),
-                            Fat = 0.2f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 0.3f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 2,
-                            AppUserID = 8,
-                            Calories = 52f,
-                            Carbohydrate = 14f,
-                            ConsumeFoodName = "Apple",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4921),
-                            Fat = 0.2f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 0.3f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 3,
-                            AppUserID = 8,
-                            Calories = 52f,
-                            Carbohydrate = 14f,
-                            ConsumeFoodName = "Apple",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4923),
-                            Fat = 0.2f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 0.3f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 4,
-                            AppUserID = 8,
-                            Calories = 165f,
-                            Carbohydrate = 0f,
-                            ConsumeFoodName = "Chicken Breast",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4924),
-                            Fat = 3.6f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 31f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 5,
-                            AppUserID = 8,
-                            Calories = 130f,
-                            Carbohydrate = 28f,
-                            ConsumeFoodName = "Rice",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4925),
-                            Fat = 0.3f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 2.7f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 6,
-                            AppUserID = 8,
-                            Calories = 206f,
-                            Carbohydrate = 0f,
-                            ConsumeFoodName = "Salmon",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4926),
-                            Fat = 13f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 22f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 7,
-                            AppUserID = 8,
-                            Calories = 206f,
-                            Carbohydrate = 0f,
-                            ConsumeFoodName = "Salmon",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4931),
-                            Fat = 13f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 22f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 8,
-                            AppUserID = 8,
-                            Calories = 206f,
-                            Carbohydrate = 0f,
-                            ConsumeFoodName = "Salmon",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4934),
-                            Fat = 13f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 22f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 9,
-                            AppUserID = 8,
-                            Calories = 206f,
-                            Carbohydrate = 0f,
-                            ConsumeFoodName = "Salmon",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4935),
-                            Fat = 13f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 22f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 10,
-                            AppUserID = 8,
-                            Calories = 206f,
-                            Carbohydrate = 0f,
-                            ConsumeFoodName = "Salmon",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4936),
-                            Fat = 13f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 22f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 11,
-                            AppUserID = 8,
-                            Calories = 206f,
-                            Carbohydrate = 0f,
-                            ConsumeFoodName = "Salmon",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4937),
-                            Fat = 13f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 22f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 12,
-                            AppUserID = 8,
-                            Calories = 206f,
-                            Carbohydrate = 0f,
-                            ConsumeFoodName = "Salmon",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4938),
-                            Fat = 13f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 22f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 13,
-                            AppUserID = 8,
-                            Calories = 206f,
-                            Carbohydrate = 0f,
-                            ConsumeFoodName = "Salmon",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4940),
-                            Fat = 13f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 22f,
-                            Status = false,
-                            Value = 1
-                        },
-                        new
-                        {
-                            ConsumeFoodID = 14,
-                            AppUserID = 8,
-                            Calories = 131f,
-                            Carbohydrate = 25f,
-                            ConsumeFoodName = "Pasta",
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4941),
-                            Fat = 1.5f,
-                            GramCompensation = 100f,
-                            MealID = 1,
-                            Protein = 5f,
-                            Status = false,
-                            Value = 1
-                        });
                 });
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.Food", b =>
@@ -551,7 +339,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                             Calories = 2.08f,
                             Carbohydrate = 0f,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4865),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6769),
                             Fat = 0.13f,
                             FoodName = "Somon",
                             GramCompensation = 100f,
@@ -566,7 +354,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                             Calories = 0.73f,
                             Carbohydrate = 0.01f,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4869),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6772),
                             Fat = 0.08f,
                             FoodName = "Ahtapot",
                             GramCompensation = 100f,
@@ -581,7 +369,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                             Calories = 1.01f,
                             Carbohydrate = 0f,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4871),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6774),
                             Fat = 0.02f,
                             FoodName = "Alabalık",
                             GramCompensation = 100f,
@@ -596,7 +384,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                             Calories = 1.2f,
                             Carbohydrate = 0f,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4872),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6775),
                             Fat = 0.06f,
                             FoodName = "Barbun",
                             GramCompensation = 100f,
@@ -611,7 +399,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                             Calories = 1.2f,
                             Carbohydrate = 0f,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4873),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6776),
                             Fat = 0.06f,
                             FoodName = "Çipura",
                             GramCompensation = 100f,
@@ -626,7 +414,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                             Calories = 0.79f,
                             Carbohydrate = 0f,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4874),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6777),
                             Fat = 0f,
                             FoodName = "Dil Balığı",
                             GramCompensation = 100f,
@@ -641,7 +429,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                             Calories = 2f,
                             Carbohydrate = 0.05f,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4875),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6778),
                             Fat = 0.1f,
                             FoodName = "Izgara Hamsi",
                             GramCompensation = 100f,
@@ -656,7 +444,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                             Calories = 1.15f,
                             Carbohydrate = 0f,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4876),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6779),
                             Fat = 0.05f,
                             FoodName = "Kızartma Hamsi",
                             GramCompensation = 100f,
@@ -671,7 +459,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                             Calories = 2.62f,
                             Carbohydrate = 0.03f,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4877),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6780),
                             Fat = 0.15f,
                             FoodName = "Havyar",
                             GramCompensation = 100f,
@@ -686,7 +474,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                             Calories = 0.91f,
                             Carbohydrate = 0f,
                             CategoryID = 1,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4878),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6781),
                             Fat = 0.02f,
                             FoodName = "Istakoz",
                             GramCompensation = 100f,
@@ -773,7 +561,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                         new
                         {
                             MealID = 1,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4894),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6797),
                             MealName = "Sabah",
                             Status = false,
                             Value = 1
@@ -781,7 +569,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                         new
                         {
                             MealID = 2,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4901),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6806),
                             MealName = "Öğle",
                             Status = false,
                             Value = 1
@@ -789,7 +577,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                         new
                         {
                             MealID = 3,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4906),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6811),
                             MealName = "Akşam",
                             Status = false,
                             Value = 1
@@ -797,7 +585,7 @@ namespace KaloriTakipProgramı.Data.Migrations
                         new
                         {
                             MealID = 4,
-                            CreatedDate = new DateTime(2023, 9, 21, 10, 23, 7, 572, DateTimeKind.Local).AddTicks(4911),
+                            CreatedDate = new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6815),
                             MealName = "Snack",
                             Status = false,
                             Value = 1
@@ -873,7 +661,7 @@ namespace KaloriTakipProgramı.Data.Migrations
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.ConsumeFood", b =>
                 {
                     b.HasOne("KaloriTakipProgramı.Entity.Entities.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("ConsumeFoods")
                         .HasForeignKey("AppUserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -938,6 +726,8 @@ namespace KaloriTakipProgramı.Data.Migrations
 
             modelBuilder.Entity("KaloriTakipProgramı.Entity.Entities.AppUser", b =>
                 {
+                    b.Navigation("ConsumeFoods");
+
                     b.Navigation("MacroFoodReports");
 
                     b.Navigation("Meals");

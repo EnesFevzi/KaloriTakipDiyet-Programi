@@ -28,10 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			rdbHaftalik = new RadioButton();
 			rdbAylik = new RadioButton();
@@ -39,8 +39,8 @@
 			label1 = new Label();
 			grpZamanAraligi = new GroupBox();
 			groupBox2 = new GroupBox();
-			radioButton1 = new RadioButton();
-			radioButton2 = new RadioButton();
+			rdbOgun = new RadioButton();
+			rdbKateogri = new RadioButton();
 			btnRaporla = new Button();
 			((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
 			grpZamanAraligi.SuspendLayout();
@@ -49,21 +49,21 @@
 			// 
 			// chart1
 			// 
-			chartArea1.Name = "ChartArea1";
-			chart1.ChartAreas.Add(chartArea1);
-			legend1.Name = "Legend1";
-			chart1.Legends.Add(legend1);
+			chartArea2.Name = "ChartArea1";
+			chart1.ChartAreas.Add(chartArea2);
+			legend2.Name = "Legend1";
+			chart1.Legends.Add(legend2);
 			chart1.Location = new Point(12, 12);
 			chart1.Name = "chart1";
 			chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-			series1.ChartArea = "ChartArea1";
-			series1.Legend = "Legend1";
-			series1.Name = "Siz";
-			series2.ChartArea = "ChartArea1";
-			series2.Legend = "Legend1";
-			series2.Name = "Diğer Kullanıcılar";
-			chart1.Series.Add(series1);
-			chart1.Series.Add(series2);
+			series3.ChartArea = "ChartArea1";
+			series3.Legend = "Legend1";
+			series3.Name = "Siz";
+			series4.ChartArea = "ChartArea1";
+			series4.Legend = "Legend1";
+			series4.Name = "Diğer Kullanıcılar";
+			chart1.Series.Add(series3);
+			chart1.Series.Add(series4);
 			chart1.Size = new Size(520, 380);
 			chart1.TabIndex = 0;
 			chart1.Text = "chart1";
@@ -78,6 +78,7 @@
 			rdbHaftalik.TabStop = true;
 			rdbHaftalik.Text = "Haftalık";
 			rdbHaftalik.UseVisualStyleBackColor = true;
+			rdbHaftalik.CheckedChanged += rdbHaftalik_CheckedChanged;
 			// 
 			// rdbAylik
 			// 
@@ -121,8 +122,8 @@
 			// 
 			// groupBox2
 			// 
-			groupBox2.Controls.Add(radioButton1);
-			groupBox2.Controls.Add(radioButton2);
+			groupBox2.Controls.Add(rdbOgun);
+			groupBox2.Controls.Add(rdbKateogri);
 			groupBox2.Location = new Point(551, 131);
 			groupBox2.Name = "groupBox2";
 			groupBox2.Size = new Size(287, 58);
@@ -130,27 +131,27 @@
 			groupBox2.TabStop = false;
 			groupBox2.Text = "Zaman Aralığı";
 			// 
-			// radioButton1
+			// rdbOgun
 			// 
-			radioButton1.AutoSize = true;
-			radioButton1.Location = new Point(6, 22);
-			radioButton1.Name = "radioButton1";
-			radioButton1.Size = new Size(66, 19);
-			radioButton1.TabIndex = 1;
-			radioButton1.TabStop = true;
-			radioButton1.Text = "Haftalık";
-			radioButton1.UseVisualStyleBackColor = true;
+			rdbOgun.AutoSize = true;
+			rdbOgun.Location = new Point(6, 22);
+			rdbOgun.Name = "rdbOgun";
+			rdbOgun.Size = new Size(55, 19);
+			rdbOgun.TabIndex = 1;
+			rdbOgun.TabStop = true;
+			rdbOgun.Text = "Öğün";
+			rdbOgun.UseVisualStyleBackColor = true;
 			// 
-			// radioButton2
+			// rdbKateogri
 			// 
-			radioButton2.AutoSize = true;
-			radioButton2.Location = new Point(230, 22);
-			radioButton2.Name = "radioButton2";
-			radioButton2.Size = new Size(51, 19);
-			radioButton2.TabIndex = 1;
-			radioButton2.TabStop = true;
-			radioButton2.Text = "Aylık";
-			radioButton2.UseVisualStyleBackColor = true;
+			rdbKateogri.AutoSize = true;
+			rdbKateogri.Location = new Point(212, 22);
+			rdbKateogri.Name = "rdbKateogri";
+			rdbKateogri.Size = new Size(69, 19);
+			rdbKateogri.TabIndex = 1;
+			rdbKateogri.TabStop = true;
+			rdbKateogri.Text = "Kategori";
+			rdbKateogri.UseVisualStyleBackColor = true;
 			// 
 			// btnRaporla
 			// 
@@ -194,8 +195,8 @@
 		private Label label1;
 		private GroupBox grpZamanAraligi;
 		private GroupBox groupBox2;
-		private RadioButton radioButton1;
-		private RadioButton radioButton2;
+		private RadioButton rdbOgun;
+		private RadioButton rdbKateogri;
 		private Button btnRaporla;
 	}
 }

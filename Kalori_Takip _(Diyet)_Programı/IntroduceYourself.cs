@@ -42,15 +42,15 @@ namespace Kalori_Takip___Diyet__Programı
 			}
 
 			var user = _user;
-			double kilo = (double)nmrKilo.Value;
-			double boy = (double)nmrBoy.Value;
+			float kilo = (float)nmrKilo.Value;
+			float boy = (float)nmrBoy.Value;
 			string cinsiyet = _user.Gender;
 			int yas = (int)nmrYas.Value;
-			double belcevresi = (double)nmrBelCevresi.Value;
-			double boyunCevresi = (double)nmrBoyunCevresi.Value;
-			double basenCevresi = (double)nmrBasenCevresi.Value;
-			_user.Height = (double)nmrBoy.Value;
-			_user.Weight = (double)nmrKilo.Value;
+			float belcevresi = (float)nmrBelCevresi.Value;
+			float boyunCevresi = (float)nmrBoyunCevresi.Value;
+			float basenCevresi = (float)nmrBasenCevresi.Value;
+			_user.Height = (float)nmrBoy.Value;
+			_user.Weight = (float)nmrKilo.Value;
 			_user.Age = (int)nmrYas.Value;
 			_user.NeckCircle = boyunCevresi;
 			_user.BasinCircle = basenCevresi;
@@ -59,15 +59,13 @@ namespace Kalori_Takip___Diyet__Programı
 			_user.VKI = Formul.HesaplaBMI(kilo, boy);
 			_user.VYO = Formul.HesaplaVucutYagOrani(cinsiyet, kilo, boy, yas, belcevresi, boyunCevresi, basenCevresi);
 			_user.BMH = Formul.HesaplaBMR(cinsiyet, kilo, boy, yas);
+			_user.ImagePath = imageName;
 			_userService.TUpdate(user);
 			islemTamamMi = true;
 			if (_userService.BelBoyunKontrol(belcevresi, boyunCevresi))
 			{
-
-
 				if (islemTamamMi)
 				{
-
 					if (_user.ModifiedDate2 == null)
 					{
 						MessageBox.Show("Bilgiler Kaydedildi");
@@ -95,7 +93,7 @@ namespace Kalori_Takip___Diyet__Programı
 				MessageBox.Show("Boyun Çevresi Bel Çevresinden Büyük Olamaz");
 			}
 		}
-
+		string imageName;
 		private void btnResimEkle_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -104,7 +102,7 @@ namespace Kalori_Takip___Diyet__Programı
 			{
 				string selectedImagePath = openFileDialog.FileName;
 				string fileExtension = Path.GetExtension(selectedImagePath);
-				string imageName = Guid.NewGuid().ToString() + fileExtension;
+				imageName = Guid.NewGuid().ToString() + fileExtension;
 				string saveLocation = Path.Combine(Application.StartupPath, "UserImage", imageName);
 				File.Copy(selectedImagePath, saveLocation);
 				_user.ImagePath = imageName;

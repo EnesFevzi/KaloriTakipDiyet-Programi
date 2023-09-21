@@ -83,6 +83,26 @@ namespace Kalori_Takip___Diyet__Programı.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap defaultkullanici {
+            get {
+                object obj = ResourceManager.GetObject("defaultkullanici", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap defaultyemek {
+            get {
+                object obj = ResourceManager.GetObject("defaultyemek", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap turn_back {
             get {
                 object obj = ResourceManager.GetObject("turn-back", resourceCulture);

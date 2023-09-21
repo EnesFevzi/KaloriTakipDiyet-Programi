@@ -38,21 +38,29 @@
 			btnSabahGoster = new Button();
 			btnKahvaltiEkle = new Button();
 			lblBreakfastCalory = new Label();
+			label42 = new Label();
+			label37 = new Label();
 			lblBreakfastCarb = new Label();
 			lblBreakfastProtein = new Label();
 			lblBreakfastFat = new Label();
+			label36 = new Label();
 			label13 = new Label();
 			label6 = new Label();
 			label8 = new Label();
+			label35 = new Label();
 			label10 = new Label();
 			grpAksam = new GroupBox();
 			btnAksamGoster = new Button();
 			btnAksamYemegi = new Button();
 			lblAksamCalory = new Label();
+			label34 = new Label();
+			label33 = new Label();
 			lblAksamCarb = new Label();
 			lblAksamProtein = new Label();
+			label29 = new Label();
 			lblAksamFat = new Label();
 			label9 = new Label();
+			label28 = new Label();
 			label14 = new Label();
 			label15 = new Label();
 			label16 = new Label();
@@ -60,19 +68,27 @@
 			btnOgleGoster = new Button();
 			btnOgleYemegi = new Button();
 			lblOgleCalory = new Label();
+			label46 = new Label();
+			label45 = new Label();
 			lblOgleCarb = new Label();
 			lblOgleProtein = new Label();
 			lblOgleFat = new Label();
 			label7 = new Label();
+			label44 = new Label();
 			label22 = new Label();
 			label23 = new Label();
 			label24 = new Label();
+			label43 = new Label();
 			grpAperatif = new GroupBox();
 			btnAperatifGoster = new Button();
 			btnAperatifEkle = new Button();
 			lblAperatifCalory = new Label();
+			label27 = new Label();
+			label26 = new Label();
 			lblAperatifCarb = new Label();
+			label25 = new Label();
 			lblAperatifProtein = new Label();
+			label21 = new Label();
 			lblAperatifFat = new Label();
 			label30 = new Label();
 			label11 = new Label();
@@ -82,6 +98,10 @@
 			lblTotalKalori = new Label();
 			lblTotalKarbonhidrat = new Label();
 			lblTotalProtein = new Label();
+			label20 = new Label();
+			label19 = new Label();
+			label18 = new Label();
+			label17 = new Label();
 			lblTotalYag = new Label();
 			label38 = new Label();
 			label39 = new Label();
@@ -93,6 +113,7 @@
 			pbxAperatif = new PictureBox();
 			dtpMealDate = new DateTimePicker();
 			label12 = new Label();
+			btnGeriDon = new Button();
 			grpSabah.SuspendLayout();
 			grpAksam.SuspendLayout();
 			grpOgle.SuspendLayout();
@@ -165,12 +186,16 @@
 			grpSabah.Controls.Add(btnSabahGoster);
 			grpSabah.Controls.Add(btnKahvaltiEkle);
 			grpSabah.Controls.Add(lblBreakfastCalory);
+			grpSabah.Controls.Add(label42);
+			grpSabah.Controls.Add(label37);
 			grpSabah.Controls.Add(lblBreakfastCarb);
 			grpSabah.Controls.Add(lblBreakfastProtein);
 			grpSabah.Controls.Add(lblBreakfastFat);
+			grpSabah.Controls.Add(label36);
 			grpSabah.Controls.Add(label13);
 			grpSabah.Controls.Add(label6);
 			grpSabah.Controls.Add(label8);
+			grpSabah.Controls.Add(label35);
 			grpSabah.Controls.Add(label10);
 			grpSabah.Location = new Point(105, 110);
 			grpSabah.Name = "grpSabah";
@@ -216,6 +241,26 @@
 			lblBreakfastCalory.TabIndex = 0;
 			lblBreakfastCalory.Text = "0";
 			// 
+			// label42
+			// 
+			label42.AutoSize = true;
+			label42.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label42.Location = new Point(197, 102);
+			label42.Name = "label42";
+			label42.Size = new Size(27, 15);
+			label42.TabIndex = 0;
+			label42.Text = "kcal";
+			// 
+			// label37
+			// 
+			label37.AutoSize = true;
+			label37.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label37.Location = new Point(197, 73);
+			label37.Name = "label37";
+			label37.Size = new Size(18, 15);
+			label37.TabIndex = 0;
+			label37.Text = "gr";
+			// 
 			// lblBreakfastCarb
 			// 
 			lblBreakfastCarb.AutoSize = true;
@@ -245,6 +290,16 @@
 			lblBreakfastFat.Size = new Size(14, 15);
 			lblBreakfastFat.TabIndex = 0;
 			lblBreakfastFat.Text = "0";
+			// 
+			// label36
+			// 
+			label36.AutoSize = true;
+			label36.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label36.Location = new Point(197, 46);
+			label36.Name = "label36";
+			label36.Size = new Size(18, 15);
+			label36.TabIndex = 0;
+			label36.Text = "gr";
 			// 
 			// label13
 			// 
@@ -276,6 +331,16 @@
 			label8.TabIndex = 0;
 			label8.Text = "Protein";
 			// 
+			// label35
+			// 
+			label35.AutoSize = true;
+			label35.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label35.Location = new Point(197, 19);
+			label35.Name = "label35";
+			label35.Size = new Size(18, 15);
+			label35.TabIndex = 0;
+			label35.Text = "gr";
+			// 
 			// label10
 			// 
 			label10.AutoSize = true;
@@ -292,10 +357,14 @@
 			grpAksam.Controls.Add(btnAksamGoster);
 			grpAksam.Controls.Add(btnAksamYemegi);
 			grpAksam.Controls.Add(lblAksamCalory);
+			grpAksam.Controls.Add(label34);
+			grpAksam.Controls.Add(label33);
 			grpAksam.Controls.Add(lblAksamCarb);
 			grpAksam.Controls.Add(lblAksamProtein);
+			grpAksam.Controls.Add(label29);
 			grpAksam.Controls.Add(lblAksamFat);
 			grpAksam.Controls.Add(label9);
+			grpAksam.Controls.Add(label28);
 			grpAksam.Controls.Add(label14);
 			grpAksam.Controls.Add(label15);
 			grpAksam.Controls.Add(label16);
@@ -342,6 +411,26 @@
 			lblAksamCalory.TabIndex = 0;
 			lblAksamCalory.Text = "0";
 			// 
+			// label34
+			// 
+			label34.AutoSize = true;
+			label34.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label34.Location = new Point(202, 102);
+			label34.Name = "label34";
+			label34.Size = new Size(27, 15);
+			label34.TabIndex = 0;
+			label34.Text = "kcal";
+			// 
+			// label33
+			// 
+			label33.AutoSize = true;
+			label33.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label33.Location = new Point(202, 73);
+			label33.Name = "label33";
+			label33.Size = new Size(18, 15);
+			label33.TabIndex = 0;
+			label33.Text = "gr";
+			// 
 			// lblAksamCarb
 			// 
 			lblAksamCarb.AutoSize = true;
@@ -362,6 +451,16 @@
 			lblAksamProtein.TabIndex = 0;
 			lblAksamProtein.Text = "0";
 			// 
+			// label29
+			// 
+			label29.AutoSize = true;
+			label29.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label29.Location = new Point(202, 46);
+			label29.Name = "label29";
+			label29.Size = new Size(18, 15);
+			label29.TabIndex = 0;
+			label29.Text = "gr";
+			// 
 			// lblAksamFat
 			// 
 			lblAksamFat.AutoSize = true;
@@ -381,6 +480,16 @@
 			label9.Size = new Size(38, 15);
 			label9.TabIndex = 0;
 			label9.Text = "Kalori";
+			// 
+			// label28
+			// 
+			label28.AutoSize = true;
+			label28.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label28.Location = new Point(202, 19);
+			label28.Name = "label28";
+			label28.Size = new Size(18, 15);
+			label28.TabIndex = 0;
+			label28.Text = "gr";
 			// 
 			// label14
 			// 
@@ -418,13 +527,17 @@
 			grpOgle.Controls.Add(btnOgleGoster);
 			grpOgle.Controls.Add(btnOgleYemegi);
 			grpOgle.Controls.Add(lblOgleCalory);
+			grpOgle.Controls.Add(label46);
+			grpOgle.Controls.Add(label45);
 			grpOgle.Controls.Add(lblOgleCarb);
 			grpOgle.Controls.Add(lblOgleProtein);
 			grpOgle.Controls.Add(lblOgleFat);
 			grpOgle.Controls.Add(label7);
+			grpOgle.Controls.Add(label44);
 			grpOgle.Controls.Add(label22);
 			grpOgle.Controls.Add(label23);
 			grpOgle.Controls.Add(label24);
+			grpOgle.Controls.Add(label43);
 			grpOgle.Location = new Point(109, 381);
 			grpOgle.Name = "grpOgle";
 			grpOgle.Size = new Size(244, 196);
@@ -469,6 +582,26 @@
 			lblOgleCalory.TabIndex = 0;
 			lblOgleCalory.Text = "0";
 			// 
+			// label46
+			// 
+			label46.AutoSize = true;
+			label46.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label46.Location = new Point(193, 102);
+			label46.Name = "label46";
+			label46.Size = new Size(27, 15);
+			label46.TabIndex = 0;
+			label46.Text = "kcal";
+			// 
+			// label45
+			// 
+			label45.AutoSize = true;
+			label45.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label45.Location = new Point(193, 73);
+			label45.Name = "label45";
+			label45.Size = new Size(18, 15);
+			label45.TabIndex = 0;
+			label45.Text = "gr";
+			// 
 			// lblOgleCarb
 			// 
 			lblOgleCarb.AutoSize = true;
@@ -509,6 +642,16 @@
 			label7.TabIndex = 0;
 			label7.Text = "Kalori";
 			// 
+			// label44
+			// 
+			label44.AutoSize = true;
+			label44.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label44.Location = new Point(193, 46);
+			label44.Name = "label44";
+			label44.Size = new Size(18, 15);
+			label44.TabIndex = 0;
+			label44.Text = "gr";
+			// 
 			// label22
 			// 
 			label22.AutoSize = true;
@@ -539,14 +682,28 @@
 			label24.TabIndex = 0;
 			label24.Text = "Yağ";
 			// 
+			// label43
+			// 
+			label43.AutoSize = true;
+			label43.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label43.Location = new Point(193, 19);
+			label43.Name = "label43";
+			label43.Size = new Size(18, 15);
+			label43.TabIndex = 0;
+			label43.Text = "gr";
+			// 
 			// grpAperatif
 			// 
 			grpAperatif.BackColor = Color.Transparent;
 			grpAperatif.Controls.Add(btnAperatifGoster);
 			grpAperatif.Controls.Add(btnAperatifEkle);
 			grpAperatif.Controls.Add(lblAperatifCalory);
+			grpAperatif.Controls.Add(label27);
+			grpAperatif.Controls.Add(label26);
 			grpAperatif.Controls.Add(lblAperatifCarb);
+			grpAperatif.Controls.Add(label25);
 			grpAperatif.Controls.Add(lblAperatifProtein);
+			grpAperatif.Controls.Add(label21);
 			grpAperatif.Controls.Add(lblAperatifFat);
 			grpAperatif.Controls.Add(label30);
 			grpAperatif.Controls.Add(label11);
@@ -596,6 +753,26 @@
 			lblAperatifCalory.TabIndex = 0;
 			lblAperatifCalory.Text = "0";
 			// 
+			// label27
+			// 
+			label27.AutoSize = true;
+			label27.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label27.Location = new Point(205, 102);
+			label27.Name = "label27";
+			label27.Size = new Size(27, 15);
+			label27.TabIndex = 0;
+			label27.Text = "kcal";
+			// 
+			// label26
+			// 
+			label26.AutoSize = true;
+			label26.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label26.Location = new Point(205, 73);
+			label26.Name = "label26";
+			label26.Size = new Size(18, 15);
+			label26.TabIndex = 0;
+			label26.Text = "gr";
+			// 
 			// lblAperatifCarb
 			// 
 			lblAperatifCarb.AutoSize = true;
@@ -606,6 +783,16 @@
 			lblAperatifCarb.TabIndex = 0;
 			lblAperatifCarb.Text = "0";
 			// 
+			// label25
+			// 
+			label25.AutoSize = true;
+			label25.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label25.Location = new Point(205, 46);
+			label25.Name = "label25";
+			label25.Size = new Size(18, 15);
+			label25.TabIndex = 0;
+			label25.Text = "gr";
+			// 
 			// lblAperatifProtein
 			// 
 			lblAperatifProtein.AutoSize = true;
@@ -615,6 +802,16 @@
 			lblAperatifProtein.Size = new Size(14, 15);
 			lblAperatifProtein.TabIndex = 0;
 			lblAperatifProtein.Text = "0";
+			// 
+			// label21
+			// 
+			label21.AutoSize = true;
+			label21.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label21.Location = new Point(205, 19);
+			label21.Name = "label21";
+			label21.Size = new Size(18, 15);
+			label21.TabIndex = 0;
+			label21.Text = "gr";
 			// 
 			// lblAperatifFat
 			// 
@@ -672,6 +869,10 @@
 			grpToplam.Controls.Add(lblTotalKalori);
 			grpToplam.Controls.Add(lblTotalKarbonhidrat);
 			grpToplam.Controls.Add(lblTotalProtein);
+			grpToplam.Controls.Add(label20);
+			grpToplam.Controls.Add(label19);
+			grpToplam.Controls.Add(label18);
+			grpToplam.Controls.Add(label17);
 			grpToplam.Controls.Add(lblTotalYag);
 			grpToplam.Controls.Add(label38);
 			grpToplam.Controls.Add(label39);
@@ -687,7 +888,7 @@
 			// 
 			lblTotalKalori.AutoSize = true;
 			lblTotalKalori.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-			lblTotalKalori.Location = new Point(165, 99);
+			lblTotalKalori.Location = new Point(154, 106);
 			lblTotalKalori.Name = "lblTotalKalori";
 			lblTotalKalori.Size = new Size(14, 15);
 			lblTotalKalori.TabIndex = 0;
@@ -697,7 +898,7 @@
 			// 
 			lblTotalKarbonhidrat.AutoSize = true;
 			lblTotalKarbonhidrat.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-			lblTotalKarbonhidrat.Location = new Point(165, 70);
+			lblTotalKarbonhidrat.Location = new Point(154, 74);
 			lblTotalKarbonhidrat.Name = "lblTotalKarbonhidrat";
 			lblTotalKarbonhidrat.Size = new Size(14, 15);
 			lblTotalKarbonhidrat.TabIndex = 0;
@@ -707,17 +908,57 @@
 			// 
 			lblTotalProtein.AutoSize = true;
 			lblTotalProtein.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-			lblTotalProtein.Location = new Point(165, 42);
+			lblTotalProtein.Location = new Point(154, 46);
 			lblTotalProtein.Name = "lblTotalProtein";
 			lblTotalProtein.Size = new Size(14, 15);
 			lblTotalProtein.TabIndex = 0;
 			lblTotalProtein.Text = "0";
 			// 
+			// label20
+			// 
+			label20.AutoSize = true;
+			label20.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label20.Location = new Point(211, 106);
+			label20.Name = "label20";
+			label20.Size = new Size(27, 15);
+			label20.TabIndex = 0;
+			label20.Text = "kcal";
+			// 
+			// label19
+			// 
+			label19.AutoSize = true;
+			label19.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label19.Location = new Point(211, 74);
+			label19.Name = "label19";
+			label19.Size = new Size(18, 15);
+			label19.TabIndex = 0;
+			label19.Text = "gr";
+			// 
+			// label18
+			// 
+			label18.AutoSize = true;
+			label18.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label18.Location = new Point(211, 39);
+			label18.Name = "label18";
+			label18.Size = new Size(18, 15);
+			label18.TabIndex = 0;
+			label18.Text = "gr";
+			// 
+			// label17
+			// 
+			label17.AutoSize = true;
+			label17.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+			label17.Location = new Point(211, 14);
+			label17.Name = "label17";
+			label17.Size = new Size(18, 15);
+			label17.TabIndex = 0;
+			label17.Text = "gr";
+			// 
 			// lblTotalYag
 			// 
 			lblTotalYag.AutoSize = true;
 			lblTotalYag.Font = new Font("Calibri", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-			lblTotalYag.Location = new Point(165, 14);
+			lblTotalYag.Location = new Point(154, 14);
 			lblTotalYag.Name = "lblTotalYag";
 			lblTotalYag.Size = new Size(14, 15);
 			lblTotalYag.TabIndex = 0;
@@ -822,12 +1063,27 @@
 			label12.TabIndex = 34;
 			label12.Text = "Farklı Tarihlerde Neler Yediğine Bakabilrsin";
 			// 
+			// btnGeriDon
+			// 
+			btnGeriDon.BackColor = Color.Transparent;
+			btnGeriDon.BackgroundImage = (Image)resources.GetObject("btnGeriDon.BackgroundImage");
+			btnGeriDon.BackgroundImageLayout = ImageLayout.Stretch;
+			btnGeriDon.FlatAppearance.BorderSize = 0;
+			btnGeriDon.FlatStyle = FlatStyle.Popup;
+			btnGeriDon.Location = new Point(0, 6);
+			btnGeriDon.Name = "btnGeriDon";
+			btnGeriDon.Size = new Size(30, 27);
+			btnGeriDon.TabIndex = 35;
+			btnGeriDon.UseVisualStyleBackColor = false;
+			btnGeriDon.Click += btnGeriDon_Click;
+			// 
 			// MealTable
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
 			ClientSize = new Size(1059, 600);
+			Controls.Add(btnGeriDon);
 			Controls.Add(label12);
 			Controls.Add(dtpMealDate);
 			Controls.Add(pbxOgle);
@@ -931,5 +1187,26 @@
 		private Button btnAperatifGoster;
 		private DateTimePicker dtpMealDate;
 		private Label label12;
+		private Label label42;
+		private Label label37;
+		private Label label36;
+		private Label label35;
+		private Label label34;
+		private Label label33;
+		private Label label29;
+		private Label label28;
+		private Label label46;
+		private Label label45;
+		private Label label44;
+		private Label label43;
+		private Label label27;
+		private Label label26;
+		private Label label25;
+		private Label label21;
+		private Label label20;
+		private Label label19;
+		private Label label18;
+		private Label label17;
+		private Button btnGeriDon;
 	}
 }

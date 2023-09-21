@@ -48,11 +48,18 @@
 			columnHeader6 = new ColumnHeader();
 			columnHeader7 = new ColumnHeader();
 			label1 = new Label();
+			pbxYemekResmi = new PictureBox();
+			label3 = new Label();
+			btnResimEkle = new Button();
 			grpAraOguniEkle.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pbxYemekResmi).BeginInit();
 			SuspendLayout();
 			// 
 			// grpAraOguniEkle
 			// 
+			grpAraOguniEkle.Controls.Add(pbxYemekResmi);
+			grpAraOguniEkle.Controls.Add(label3);
+			grpAraOguniEkle.Controls.Add(btnResimEkle);
 			grpAraOguniEkle.Controls.Add(label2);
 			grpAraOguniEkle.Controls.Add(label5);
 			grpAraOguniEkle.Controls.Add(label6);
@@ -235,6 +242,41 @@
 			label1.TabIndex = 2;
 			label1.Text = "ARA ÖĞÜN EKLE";
 			// 
+			// pbxYemekResmi
+			// 
+			pbxYemekResmi.BorderStyle = BorderStyle.FixedSingle;
+			pbxYemekResmi.Location = new Point(657, 19);
+			pbxYemekResmi.Name = "pbxYemekResmi";
+			pbxYemekResmi.Size = new Size(117, 134);
+			pbxYemekResmi.SizeMode = PictureBoxSizeMode.StretchImage;
+			pbxYemekResmi.TabIndex = 56;
+			pbxYemekResmi.TabStop = false;
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.BackColor = Color.Transparent;
+			label3.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+			label3.Location = new Point(502, 16);
+			label3.Name = "label3";
+			label3.Size = new Size(149, 19);
+			label3.TabIndex = 55;
+			label3.Text = "Resim Ekleyebilirsiniz";
+			// 
+			// btnResimEkle
+			// 
+			btnResimEkle.BackColor = Color.DarkSeaGreen;
+			btnResimEkle.BackgroundImage = (Image)resources.GetObject("btnResimEkle.BackgroundImage");
+			btnResimEkle.BackgroundImageLayout = ImageLayout.Stretch;
+			btnResimEkle.FlatAppearance.BorderSize = 0;
+			btnResimEkle.FlatStyle = FlatStyle.Popup;
+			btnResimEkle.Location = new Point(741, 159);
+			btnResimEkle.Name = "btnResimEkle";
+			btnResimEkle.Size = new Size(33, 30);
+			btnResimEkle.TabIndex = 54;
+			btnResimEkle.UseVisualStyleBackColor = false;
+			btnResimEkle.Click += btnResimEkle_Click;
+			// 
 			// AddSnack
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -246,6 +288,7 @@
 			Text = "AddSnack";
 			grpAraOguniEkle.ResumeLayout(false);
 			grpAraOguniEkle.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)pbxYemekResmi).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -269,5 +312,8 @@
 		private ColumnHeader columnHeader5;
 		private ColumnHeader columnHeader6;
 		private ColumnHeader columnHeader7;
+		private PictureBox pbxYemekResmi;
+		private Label label3;
+		private Button btnResimEkle;
 	}
 }

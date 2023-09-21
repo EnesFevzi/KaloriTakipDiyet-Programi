@@ -28,6 +28,139 @@ namespace Kalori_Takip___Diyet__Programı
 			_mealService = new MealService();
 		}
 
+
+		DateTime tuketimTarihi;
+		bool dateTimePickerIsAktif = false;
+		private void MealTable_Load(object sender, EventArgs e)
+		{
+			brekfast = _mealService.TGetByMealIDBreakfast();
+			dinner = _mealService.TGetByMealIDDinner();
+			brunch = _mealService.TGetByMealIDBrunch();
+			snack = _mealService.TGetByMealIDSnack();
+
+
+
+			DateTime secilenTarih;
+			if (dateTimePickerIsAktif == true)
+			{
+				secilenTarih = dtpMealDate.Value;
+			}
+			else
+			{
+				secilenTarih = DateTime.UtcNow;
+			}
+			BesinDegeriTopla(brekfast.MealName, secilenTarih);
+
+			BesinDegeriTopla(brunch.MealName, secilenTarih);
+
+			BesinDegeriTopla(dinner.MealName, secilenTarih);
+
+			BesinDegeriTopla(snack.MealName, secilenTarih);
+			TotalBesinDegeri(secilenTarih);
+		}
+		Meal brekfast;
+		private void btnSabahGoster_Click(object sender, EventArgs e)
+		{
+
+			if (dateTimePickerIsAktif == true)
+			{
+				FoodShow foodShow = new FoodShow(brekfast, dtpMealDate.Value.Date);
+				foodShow.ShowDialog();
+				BesinDegeriTopla(brekfast.MealName, dtpMealDate.Value.Date);
+				TotalBesinDegeri(dtpMealDate.Value.Date);
+			}
+			else
+			{
+				FoodShow foodShow = new FoodShow(brekfast, DateTime.UtcNow.Date);
+				foodShow.ShowDialog();
+				BesinDegeriTopla(brekfast.MealName, DateTime.UtcNow.Date);
+				TotalBesinDegeri(dtpMealDate.Value.Date);
+			}
+		}
+		Meal dinner;
+		private void btnAksamGoster_Click(object sender, EventArgs e)
+		{
+
+			if (dateTimePickerIsAktif == true)
+			{
+				FoodShow foodShow = new FoodShow(dinner, dtpMealDate.Value.Date);
+				foodShow.ShowDialog();
+				BesinDegeriTopla(dinner.MealName, DateTime.UtcNow.Date);
+				TotalBesinDegeri(dtpMealDate.Value.Date);
+			}
+			else
+			{
+				FoodShow foodShow = new FoodShow(dinner, DateTime.UtcNow.Date);
+				foodShow.ShowDialog();
+				BesinDegeriTopla(dinner.MealName, DateTime.UtcNow.Date);
+				TotalBesinDegeri(dtpMealDate.Value.Date);
+			}
+		}
+		Meal brunch;
+		private void btnOgleGoster_Click(object sender, EventArgs e)
+		{
+
+			if (dateTimePickerIsAktif == true)
+			{
+				FoodShow foodShow = new FoodShow(brunch, dtpMealDate.Value.Date);
+				foodShow.ShowDialog();
+				BesinDegeriTopla(brunch.MealName, DateTime.UtcNow.Date);
+				TotalBesinDegeri(dtpMealDate.Value.Date);
+			}
+			else
+			{
+				FoodShow foodShow = new FoodShow(brunch, DateTime.UtcNow.Date);
+				foodShow.ShowDialog();
+				BesinDegeriTopla(brunch.MealName, DateTime.UtcNow.Date);
+				TotalBesinDegeri(dtpMealDate.Value.Date);
+			}
+		}
+		Meal snack;
+		private void btnAperatifGoster_Click(object sender, EventArgs e)
+		{
+			if (dateTimePickerIsAktif == true)
+			{
+				FoodShow foodShow = new FoodShow(snack, dtpMealDate.Value.Date);
+				foodShow.ShowDialog();
+				BesinDegeriTopla(snack.MealName, DateTime.UtcNow.Date);
+				TotalBesinDegeri(dtpMealDate.Value.Date);
+			}
+			else
+			{
+				FoodShow foodShow = new FoodShow(snack, DateTime.UtcNow.Date);
+				foodShow.ShowDialog();
+				BesinDegeriTopla(snack.MealName, DateTime.UtcNow.Date);
+				TotalBesinDegeri(dtpMealDate.Value.Date);
+
+			}
+		}
+
+		private void dtpMealDate_ValueChanged(object sender, EventArgs e)
+		{
+			dateTimePickerIsAktif = true;
+			DateTime secilenTarih = dtpMealDate.Value.Date;
+			if (secilenTarih.Date != DateTime.UtcNow.Date)
+			{
+				btnKahvaltiEkle.Enabled = false;
+				btnAksamYemegi.Enabled = false;
+				btnOgleYemegi.Enabled = false;
+				btnAperatifEkle.Enabled = false;
+			}
+			else
+			{
+				btnKahvaltiEkle.Enabled = true;
+				btnAksamYemegi.Enabled = true;
+				btnOgleYemegi.Enabled = true;
+				btnAperatifEkle.Enabled = true;
+			}
+
+			BesinDegeriTopla(brekfast.MealName, secilenTarih);
+			BesinDegeriTopla(brunch.MealName, secilenTarih);
+			BesinDegeriTopla(dinner.MealName, secilenTarih);
+			BesinDegeriTopla(snack.MealName, secilenTarih);
+			TotalBesinDegeri(secilenTarih);
+		}
+
 		private void btnKahvaltiEkle_Click(object sender, EventArgs e)
 		{
 			AddBreakfast addBreakfast = new AddBreakfast(_user);
@@ -37,12 +170,35 @@ namespace Kalori_Takip___Diyet__Programı
 			TotalBesinDegeri(DateTime.Now);
 			this.Show();
 		}
+		private void btnOgleYemegi_Click(object sender, EventArgs e)
+		{
+			AddLunch addLunch = new AddLunch(_user);
+			this.Hide();
+			addLunch.ShowDialog();
+			BesinDegeriTopla(brunch.MealName, DateTime.UtcNow);
+			TotalBesinDegeri(DateTime.UtcNow);
+			this.Show();
+		}
+		private void btnAksamYemegi_Click(object sender, EventArgs e)
+		{
 
+			AddDinner addDinner = new AddDinner(_user);
+			this.Hide();
+			addDinner.ShowDialog();
+			BesinDegeriTopla(dinner.MealName, DateTime.UtcNow);
+			TotalBesinDegeri(DateTime.UtcNow);
+			this.Show();
+		}
 
-
-
-
-
+		private void btnAperatifEkle_Click(object sender, EventArgs e)
+		{
+			AddSnack addSnack = new AddSnack(_user);
+			this.Show();
+			addSnack.ShowDialog();
+			BesinDegeriTopla(snack.MealName, DateTime.UtcNow);
+			TotalBesinDegeri(DateTime.UtcNow);
+			this.Show();
+		}
 
 		float totFat = 0;
 		float totCarb = 0;
@@ -110,163 +266,10 @@ namespace Kalori_Takip___Diyet__Programı
 				lblAperatifProtein.Text = totProtein.ToString("0.00");
 			}
 		}
-		DateTime tuketimTarihi;
-		bool dateTimePickerIsAktif = false;
-		private void MealTable_Load(object sender, EventArgs e)
+
+		private void btnGeriDon_Click(object sender, EventArgs e)
 		{
-			DateTime secilenTarih;
-			if (dateTimePickerIsAktif == true)
-			{
-				secilenTarih = dtpMealDate.Value;
-			}
-			else
-			{
-				secilenTarih = DateTime.UtcNow;
-			}
-			BesinDegeriTopla("Sabah", secilenTarih);
-
-			BesinDegeriTopla("Öğle", secilenTarih);
-
-			BesinDegeriTopla("Akşam", secilenTarih);
-
-			BesinDegeriTopla("Snack", secilenTarih);
-			TotalBesinDegeri(secilenTarih);
+			this.Close();
 		}
-
-		private void btnSabahGoster_Click(object sender, EventArgs e)
-		{
-			var result = _mealService.TGetByMealIDBreakfast();
-			if (dateTimePickerIsAktif == true)
-			{
-				FoodShow foodShow = new FoodShow(result, dtpMealDate.Value.Date);
-				foodShow.ShowDialog();
-				BesinDegeriTopla(result.MealName, dtpMealDate.Value.Date);
-				TotalBesinDegeri(dtpMealDate.Value.Date);
-			}
-			else
-			{
-				FoodShow foodShow = new FoodShow(result, DateTime.UtcNow.Date);
-				foodShow.ShowDialog();
-				BesinDegeriTopla(result.MealName, DateTime.UtcNow.Date);
-				TotalBesinDegeri(dtpMealDate.Value.Date);
-			}
-		}
-
-		private void btnAksamGoster_Click(object sender, EventArgs e)
-		{
-			var result = _mealService.TGetByMealIDDinner();
-			if (dateTimePickerIsAktif == true)
-			{
-				FoodShow foodShow = new FoodShow(result, dtpMealDate.Value.Date);
-				foodShow.ShowDialog();
-				BesinDegeriTopla(result.MealName, DateTime.UtcNow.Date);
-				TotalBesinDegeri(dtpMealDate.Value.Date);
-			}
-			else
-			{
-				FoodShow foodShow = new FoodShow(result, DateTime.UtcNow.Date);
-				foodShow.ShowDialog();
-				BesinDegeriTopla(result.MealName, DateTime.UtcNow.Date);
-				TotalBesinDegeri(dtpMealDate.Value.Date);
-			}
-		}
-
-		private void btnOgleGoster_Click(object sender, EventArgs e)
-		{
-			var result = _mealService.TGetByMealIDBrunch();
-			if (dateTimePickerIsAktif == true)
-			{
-				FoodShow foodShow = new FoodShow(result, dtpMealDate.Value.Date);
-				foodShow.ShowDialog();
-				BesinDegeriTopla(result.MealName, DateTime.UtcNow.Date);
-				TotalBesinDegeri(dtpMealDate.Value.Date);
-			}
-			else
-			{
-				FoodShow foodShow = new FoodShow(result, DateTime.UtcNow.Date);
-				foodShow.ShowDialog();
-				BesinDegeriTopla(result.MealName, DateTime.UtcNow.Date);
-				TotalBesinDegeri(dtpMealDate.Value.Date);
-			}
-		}
-
-		private void btnAperatifGoster_Click(object sender, EventArgs e)
-		{
-			var result = _mealService.TGetByMealIDDinner();
-			if (dateTimePickerIsAktif == true)
-			{
-				FoodShow foodShow = new FoodShow(result, dtpMealDate.Value.Date);
-				foodShow.ShowDialog();
-				BesinDegeriTopla(result.MealName, DateTime.UtcNow.Date);
-				TotalBesinDegeri(dtpMealDate.Value.Date);
-			}
-			else
-			{
-				FoodShow foodShow = new FoodShow(result, DateTime.UtcNow.Date);
-				foodShow.ShowDialog();
-				BesinDegeriTopla(result.MealName, DateTime.UtcNow.Date);
-				TotalBesinDegeri(dtpMealDate.Value.Date);
-
-			}
-		}
-
-		private void dtpMealDate_ValueChanged(object sender, EventArgs e)
-		{
-			dateTimePickerIsAktif = true;
-			DateTime secilenTarih;
-			secilenTarih = dtpMealDate.Value;
-			if (secilenTarih.Date != DateTime.UtcNow.Date)
-			{
-				btnKahvaltiEkle.Enabled = false;
-				btnAksamYemegi.Enabled = false;
-				btnOgleYemegi.Enabled = false;
-				btnAperatifEkle.Enabled = false;
-			}
-			else
-			{
-				btnKahvaltiEkle.Enabled = true;
-				btnAksamYemegi.Enabled = true;
-				btnOgleYemegi.Enabled = true;
-				btnAperatifEkle.Enabled = true;
-			}
-
-			BesinDegeriTopla("Sabah", secilenTarih);
-			BesinDegeriTopla("Öğle", secilenTarih);
-			BesinDegeriTopla("Akşam", secilenTarih);
-			BesinDegeriTopla("Snack", secilenTarih);
-			TotalBesinDegeri(secilenTarih);
-		}
-
-		private void btnAperatifEkle_Click(object sender, EventArgs e)
-		{
-			AddSnack addSnack = new AddSnack(_user);
-			this.Show();
-			addSnack.ShowDialog();
-			BesinDegeriTopla("Snack", DateTime.UtcNow);
-			TotalBesinDegeri(DateTime.UtcNow);
-			this.Show();
-		}
-
-		private void btnOgleYemegi_Click(object sender, EventArgs e)
-		{
-			AddLunch addLunch = new AddLunch(_user);
-			this.Hide();
-			addLunch.ShowDialog();
-			BesinDegeriTopla("Öğle", DateTime.UtcNow);
-			TotalBesinDegeri(DateTime.UtcNow);
-			this.Show();
-		}
-
-		private void btnAksamYemegi_Click(object sender, EventArgs e)
-		{
-
-			AddDinner addDinner = new AddDinner(_user);
-			this.Hide();
-			addDinner.ShowDialog();
-			BesinDegeriTopla("Akşam", DateTime.UtcNow);
-			TotalBesinDegeri(DateTime.UtcNow);
-			this.Show();
-		}
-
 	}
 }

@@ -53,6 +53,8 @@
 			label3 = new Label();
 			btnGeriDon = new Button();
 			pictureBox1 = new PictureBox();
+			pbxImage = new PictureBox();
+			btnResimEkle = new Button();
 			grpKisiselBilgiler.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)nmrBoyunCevresi).BeginInit();
 			((System.ComponentModel.ISupportInitialize)nmrBelCevresi).BeginInit();
@@ -61,6 +63,7 @@
 			((System.ComponentModel.ISupportInitialize)nmrKilo).BeginInit();
 			((System.ComponentModel.ISupportInitialize)nmrBoy).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+			((System.ComponentModel.ISupportInitialize)pbxImage).BeginInit();
 			SuspendLayout();
 			// 
 			// grpKisiselBilgiler
@@ -88,7 +91,7 @@
 			grpKisiselBilgiler.Controls.Add(label8);
 			grpKisiselBilgiler.Controls.Add(label3);
 			grpKisiselBilgiler.FlatStyle = FlatStyle.Flat;
-			grpKisiselBilgiler.Location = new Point(12, 57);
+			grpKisiselBilgiler.Location = new Point(12, 182);
 			grpKisiselBilgiler.Name = "grpKisiselBilgiler";
 			grpKisiselBilgiler.Size = new Size(361, 515);
 			grpKisiselBilgiler.TabIndex = 11;
@@ -349,19 +352,44 @@
 			// pictureBox1
 			// 
 			pictureBox1.Image = Properties.Resources._80787692;
-			pictureBox1.Location = new Point(321, 580);
+			pictureBox1.Location = new Point(321, 721);
 			pictureBox1.Name = "pictureBox1";
 			pictureBox1.Size = new Size(61, 61);
 			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 			pictureBox1.TabIndex = 13;
 			pictureBox1.TabStop = false;
 			// 
+			// pbxImage
+			// 
+			pbxImage.Location = new Point(137, 12);
+			pbxImage.Name = "pbxImage";
+			pbxImage.Size = new Size(115, 135);
+			pbxImage.SizeMode = PictureBoxSizeMode.StretchImage;
+			pbxImage.TabIndex = 29;
+			pbxImage.TabStop = false;
+			// 
+			// btnResimEkle
+			// 
+			btnResimEkle.BackColor = Color.Transparent;
+			btnResimEkle.FlatStyle = FlatStyle.Popup;
+			btnResimEkle.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+			btnResimEkle.ForeColor = SystemColors.ActiveCaptionText;
+			btnResimEkle.Location = new Point(136, 153);
+			btnResimEkle.Name = "btnResimEkle";
+			btnResimEkle.Size = new Size(116, 32);
+			btnResimEkle.TabIndex = 28;
+			btnResimEkle.Text = "RESİM EKLE";
+			btnResimEkle.UseVisualStyleBackColor = false;
+			btnResimEkle.Click += btnResimEkle_Click;
+			// 
 			// UserSettings
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(385, 653);
+			ClientSize = new Size(385, 782);
+			Controls.Add(pbxImage);
+			Controls.Add(btnResimEkle);
 			Controls.Add(pictureBox1);
 			Controls.Add(btnGeriDon);
 			Controls.Add(grpKisiselBilgiler);
@@ -377,6 +405,7 @@
 			((System.ComponentModel.ISupportInitialize)nmrKilo).EndInit();
 			((System.ComponentModel.ISupportInitialize)nmrBoy).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+			((System.ComponentModel.ISupportInitialize)pbxImage).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -406,5 +435,7 @@
 		private Button btnBilgiileriGuncelle;
 		private Button btnGeriDon;
 		private PictureBox pictureBox1;
+		private PictureBox pbxImage;
+		private Button btnResimEkle;
 	}
 }

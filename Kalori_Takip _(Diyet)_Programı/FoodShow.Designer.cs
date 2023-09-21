@@ -38,6 +38,8 @@
 			columnHeader6 = new ColumnHeader();
 			btnSil = new Button();
 			lblGosterBaslik = new Label();
+			pbxYemekResmi = new PictureBox();
+			((System.ComponentModel.ISupportInitialize)pbxYemekResmi).BeginInit();
 			SuspendLayout();
 			// 
 			// lstKaydedilenUrunler
@@ -46,7 +48,7 @@
 			lstKaydedilenUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
 			lstKaydedilenUrunler.FullRowSelect = true;
 			lstKaydedilenUrunler.GridLines = true;
-			lstKaydedilenUrunler.Location = new Point(13, 73);
+			lstKaydedilenUrunler.Location = new Point(12, 265);
 			lstKaydedilenUrunler.Name = "lstKaydedilenUrunler";
 			lstKaydedilenUrunler.Size = new Size(775, 198);
 			lstKaydedilenUrunler.TabIndex = 0;
@@ -90,7 +92,7 @@
 			btnSil.BackgroundImageLayout = ImageLayout.Stretch;
 			btnSil.FlatAppearance.BorderSize = 0;
 			btnSil.FlatStyle = FlatStyle.Popup;
-			btnSil.Location = new Point(377, 286);
+			btnSil.Location = new Point(376, 478);
 			btnSil.Name = "btnSil";
 			btnSil.Size = new Size(47, 45);
 			btnSil.TabIndex = 4;
@@ -106,18 +108,29 @@
 			lblGosterBaslik.TabIndex = 5;
 			lblGosterBaslik.TextAlign = ContentAlignment.MiddleCenter;
 			// 
+			// pbxYemekResmi
+			// 
+			pbxYemekResmi.Location = new Point(337, 85);
+			pbxYemekResmi.Name = "pbxYemekResmi";
+			pbxYemekResmi.Size = new Size(117, 134);
+			pbxYemekResmi.SizeMode = PictureBoxSizeMode.StretchImage;
+			pbxYemekResmi.TabIndex = 35;
+			pbxYemekResmi.TabStop = false;
+			// 
 			// FoodShow
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(800, 353);
+			ClientSize = new Size(800, 551);
+			Controls.Add(pbxYemekResmi);
 			Controls.Add(lblGosterBaslik);
 			Controls.Add(btnSil);
 			Controls.Add(lstKaydedilenUrunler);
 			Name = "FoodShow";
 			Text = "FoodShow";
 			Load += FoodShow_Load;
+			((System.ComponentModel.ISupportInitialize)pbxYemekResmi).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -132,5 +145,6 @@
 		private ColumnHeader columnHeader6;
 		private Button btnSil;
 		private Label lblGosterBaslik;
+		private PictureBox pbxYemekResmi;
 	}
 }

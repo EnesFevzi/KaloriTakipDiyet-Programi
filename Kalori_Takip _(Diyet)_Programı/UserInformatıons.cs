@@ -1,4 +1,6 @@
-﻿using KaloriTakipProgramı.Business.Formules;
+﻿using Kalori_Takip___Diyet__Programı.Extensions;
+using Kalori_Takip___Diyet__Programı.Properties;
+using KaloriTakipProgramı.Business.Formules;
 using KaloriTakipProgramı.Entity.Entities;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
@@ -23,15 +25,15 @@ namespace Kalori_Takip___Diyet__Programı
 			_user = user;
 		}
 		string cinsiyet;
-		double kilo;
-		double boy;
+		float kilo;
+		float boy;
 		int yas;
-		double activityValue;
+		float activityValue;
 		private void UserInformatıons_Load(object sender, EventArgs e)
 		{
-			kilo = (double)_user.Weight;
-			boy = (double)_user.Height;
-
+			kilo = (float)_user.Weight;
+			boy = (float)_user.Height;
+			activityValue = (float)_user.ActivityValue;
 
 
 			lblAd.Text = $"{_user.Name} {_user.Surname}";
@@ -42,20 +44,12 @@ namespace Kalori_Takip___Diyet__Programı
 			lblVki.Text = _user.VKI.ToString();
 			lblBazalMetabolizma.Text = _user.BMH.ToString();
 			lblYagOrani.Text = _user.VYO.ToString();
-			lblAlinmasiGerekenKalori.Text = Formul.HesaplaGunlukKaloriIhtiyaci(cinsiyet, kilo, boy, yas, activityValue).ToString();
+			lblAlinmasiGerekenKalori.Text = Formul.HesaplaGunlukKaloriIhtiyaci(cinsiyet, kilo, boy, yas, activityValue).ToString("0.00");
 
-			string imagePath = Path.Combine(Application.StartupPath, "UserImage", _user.ImagePath);
-
-			if (File.Exists(imagePath))
+			Image userImage = LoadImages.LoadUserImage(_user.ImagePath);
+			if (userImage != null)
 			{
-				using (FileStream stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
-				{
-					pbxUserImage.Image = Image.FromStream(stream);
-				}
-			}
-			else
-			{
-				MessageBox.Show("Resim bulunamadı.");
+				pbxUserImage.Image = userImage;
 			}
 		}
 
@@ -69,7 +63,7 @@ namespace Kalori_Takip___Diyet__Programı
 
 		private void btnGeriDon_Click(object sender, EventArgs e)
 		{
-			this.Hide();
+			this.Close();
 		}
 	}
 }

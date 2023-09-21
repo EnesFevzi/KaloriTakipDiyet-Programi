@@ -30,7 +30,6 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddLunch));
 			grpOgleYemegiEkle = new GroupBox();
-			label1 = new Label();
 			label2 = new Label();
 			label5 = new Label();
 			label6 = new Label();
@@ -48,11 +47,19 @@
 			columnHeader5 = new ColumnHeader();
 			columnHeader6 = new ColumnHeader();
 			columnHeader7 = new ColumnHeader();
+			label1 = new Label();
+			pbxYemekResmi = new PictureBox();
+			label3 = new Label();
+			btnResimEkle = new Button();
 			grpOgleYemegiEkle.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pbxYemekResmi).BeginInit();
 			SuspendLayout();
 			// 
 			// grpOgleYemegiEkle
 			// 
+			grpOgleYemegiEkle.Controls.Add(pbxYemekResmi);
+			grpOgleYemegiEkle.Controls.Add(label3);
+			grpOgleYemegiEkle.Controls.Add(btnResimEkle);
 			grpOgleYemegiEkle.Controls.Add(label2);
 			grpOgleYemegiEkle.Controls.Add(label5);
 			grpOgleYemegiEkle.Controls.Add(label6);
@@ -70,17 +77,6 @@
 			grpOgleYemegiEkle.TabIndex = 16;
 			grpOgleYemegiEkle.TabStop = false;
 			grpOgleYemegiEkle.Text = "ÖĞLE YEMEĞİ EKLE";
-			// 
-			// label1
-			// 
-			label1.AutoSize = true;
-			label1.BackColor = Color.Transparent;
-			label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-			label1.Location = new Point(6, 19);
-			label1.Name = "label1";
-			label1.Size = new Size(162, 23);
-			label1.TabIndex = 2;
-			label1.Text = "ÖĞLE YEMEĞİ  EKLE";
 			// 
 			// label2
 			// 
@@ -235,6 +231,52 @@
 			columnHeader7.Text = "Karbonhidrat";
 			columnHeader7.Width = 125;
 			// 
+			// label1
+			// 
+			label1.AutoSize = true;
+			label1.BackColor = Color.Transparent;
+			label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+			label1.Location = new Point(6, 19);
+			label1.Name = "label1";
+			label1.Size = new Size(162, 23);
+			label1.TabIndex = 2;
+			label1.Text = "ÖĞLE YEMEĞİ  EKLE";
+			// 
+			// pbxYemekResmi
+			// 
+			pbxYemekResmi.BorderStyle = BorderStyle.FixedSingle;
+			pbxYemekResmi.Location = new Point(651, 19);
+			pbxYemekResmi.Name = "pbxYemekResmi";
+			pbxYemekResmi.Size = new Size(117, 134);
+			pbxYemekResmi.SizeMode = PictureBoxSizeMode.StretchImage;
+			pbxYemekResmi.TabIndex = 46;
+			pbxYemekResmi.TabStop = false;
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.BackColor = Color.Transparent;
+			label3.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+			label3.Location = new Point(496, 16);
+			label3.Name = "label3";
+			label3.Size = new Size(149, 19);
+			label3.TabIndex = 45;
+			label3.Text = "Resim Ekleyebilirsiniz";
+			// 
+			// btnResimEkle
+			// 
+			btnResimEkle.BackColor = Color.DarkSeaGreen;
+			btnResimEkle.BackgroundImage = (Image)resources.GetObject("btnResimEkle.BackgroundImage");
+			btnResimEkle.BackgroundImageLayout = ImageLayout.Stretch;
+			btnResimEkle.FlatAppearance.BorderSize = 0;
+			btnResimEkle.FlatStyle = FlatStyle.Popup;
+			btnResimEkle.Location = new Point(735, 159);
+			btnResimEkle.Name = "btnResimEkle";
+			btnResimEkle.Size = new Size(33, 30);
+			btnResimEkle.TabIndex = 44;
+			btnResimEkle.UseVisualStyleBackColor = false;
+			btnResimEkle.Click += btnResimEkle_Click;
+			// 
 			// AddLunch
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -246,6 +288,7 @@
 			Text = "AddLunch";
 			grpOgleYemegiEkle.ResumeLayout(false);
 			grpOgleYemegiEkle.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)pbxYemekResmi).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -270,5 +313,8 @@
 		private ColumnHeader columnHeader5;
 		private ColumnHeader columnHeader6;
 		private ColumnHeader columnHeader7;
+		private PictureBox pbxYemekResmi;
+		private Label label3;
+		private Button btnResimEkle;
 	}
 }

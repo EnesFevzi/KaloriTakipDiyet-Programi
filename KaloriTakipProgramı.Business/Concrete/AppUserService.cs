@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using static KaloriTakipProgramı.Data.Concrete.EF.AppUserRepository;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace KaloriTakipProgramı.Business.Concrete
 {
@@ -145,5 +146,7 @@ namespace KaloriTakipProgramı.Business.Concrete
 				return true;
 			}
 		}
+
+		
 	}
 }

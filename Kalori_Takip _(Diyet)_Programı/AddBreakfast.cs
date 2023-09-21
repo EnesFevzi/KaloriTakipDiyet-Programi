@@ -19,6 +19,7 @@ namespace Kalori_Takip___Diyet__Programı
 		private readonly ConsumeFoodService _consumeFoodService;
 		private readonly MealService _mealService;
 		private AppUser _user;
+		private ConsumeFood _consumeFood;
 		float girilenMiktar = 0;
 		public AddBreakfast(AppUser user)
 		{
@@ -27,6 +28,7 @@ namespace Kalori_Takip___Diyet__Programı
 			_consumeFoodService = new ConsumeFoodService();
 			_mealService = new MealService();
 			_user = user;
+			_consumeFood = new ConsumeFood();
 		}
 
 		private void txtUrunAra_TextChanged(object sender, EventArgs e)
@@ -75,7 +77,7 @@ namespace Kalori_Takip___Diyet__Programı
 
 			}
 		}
-
+		ConsumeFood consumeFood;
 		private void btnKaydet_Click(object sender, EventArgs e)
 		{
 			var result = _mealService.TGetByMealIDBreakfast();
@@ -87,7 +89,7 @@ namespace Kalori_Takip___Diyet__Programı
 			{
 				foreach (ListViewItem item in lstEklenenUrunler.Items)
 				{
-					var consumeFood = new ConsumeFood()
+					consumeFood = new ConsumeFood()
 					{
 						ConsumeFoodName = item.SubItems[0].Text,
 						GramCompensation = Convert.ToSingle(item.SubItems[1].Text),
@@ -96,6 +98,7 @@ namespace Kalori_Takip___Diyet__Programı
 						Protein = Convert.ToSingle(item.SubItems[4].Text),
 						Fat = Convert.ToSingle(item.SubItems[5].Text),
 						CreatedDate = DateTime.Now,
+						ImagePath = imageName,
 						AppUserID = _user.AppUserID,
 						MealID = result.MealID,
 
@@ -115,10 +118,32 @@ namespace Kalori_Takip___Diyet__Programı
 				lstEklenenUrunler.Items.Remove(lstEklenenUrunler.SelectedItems[0]);
 			}
 		}
+		string imageName;
+		private void btnResimEkle_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			openFileDialog.Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png;*.gif|Tüm Dosyalar|*.*";
+			if (openFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				string selectedImagePath = openFileDialog.FileName;
+				string fileExtension = Path.GetExtension(selectedImagePath);
+				imageName = Guid.NewGuid().ToString() + fileExtension;
+				string saveLocation = Path.Combine(Application.StartupPath, "FoodImage", imageName);
+				File.Copy(selectedImagePath, saveLocation);
+				_consumeFood.ImagePath = imageName;
+			}
 
-		private void grpKahvaltiEkle_Enter(object sender, EventArgs e)
+			Image ımage = LoadImages.LoadFoodImage(_consumeFood.ImagePath);
+			pbxYemekResmi.Image = ımage;
+		}
+
+		private void label3_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private void pbxYemekResmi_Click(object sender, EventArgs e)
+		{
 		}
 	}
 }

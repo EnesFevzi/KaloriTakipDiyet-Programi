@@ -35,29 +35,38 @@ namespace Kalori_Takip___Diyet__Programı
 
 		private void btnGeriDon_Click(object sender, EventArgs e)
 		{
-			this.Hide();
+			this.Close();
 		}
-		double kilo;
+		float kilo;
 		private void WaterTracking_Load(object sender, EventArgs e)
 		{
-			kilo = (double)_user.Weight;
+			kilo = (float)_user.Weight;
 
 			lblKilo.Text = kilo.ToString();
 			double sulitresi = Formul.HesaplaGunlukSuIhtiyaci(kilo);
-			lblİcmenizGerekenSuMiktari.Text = $"Bugün İçmeniz Gereken Su Miktarı {(sulitresi / 1000)} Litredir.";
+			SuMiktarıHesapla();
+			lblİcmenizGerekenSuMiktari.Text = $"Bugün İçmeniz Gereken Su Miktarı {(sulitresi / 1000)-(suMiktari.WaterQuantity*0.25)} Litredir.";
 
-			#region Daha Sonra Bakılacak
-			//flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
-			//for (int i = 0; i < suMiktari.WaterQuantity; i++)
-			//{
 
-			//	PictureBox bardakPictureBox = new PictureBox();
-			//	bardakPictureBox.Image = pbxSuBardagi.Image;
-			//	flowLayoutPanel1.Controls.Add(bardakPictureBox);
-			//}
-			#endregion
 
 		}
+		private void SuMiktarıHesapla()
+		{
+			flowLayoutPanel1.Controls.Clear();
+			suMiktari = _waterService.TGetWaterByUserIdAndDate(_user.AppUserID, dtSuTarih.Value.Date);
+			flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+
+			for (int i = 0; i < suMiktari.WaterQuantity; i++)
+			{
+
+				PictureBox bardakPictureBox = new PictureBox();
+				bardakPictureBox.Image = pbxSuBardagi.Image;
+				bardakPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+				bardakPictureBox.Size = new Size(45, 86);
+				flowLayoutPanel1.Controls.Add(bardakPictureBox);
+			}
+		}
+		
 
 
 		Water guncellenecekWater;
@@ -76,6 +85,7 @@ namespace Kalori_Takip___Diyet__Programı
 				_user.LastWaterAdditionDate = DateTime.Now.Date;
 				_userService.TUpdate(_user);
 				MessageBox.Show("Ekleme İşlemi Başarılı");
+				SuMiktarıHesapla();
 				Helper.Temizle(grpSuMiktariGir.Controls);
 			}
 			else
@@ -86,6 +96,7 @@ namespace Kalori_Takip___Diyet__Programı
 				_user.LastWaterAdditionDate = DateTime.Now.Date;
 				_userService.TUpdate(_user);
 				_waterService.TUpdate(guncellenecekWater);
+				SuMiktarıHesapla();
 				MessageBox.Show("Güncelleme İşlemi Başarılı");
 			}
 
@@ -107,6 +118,7 @@ namespace Kalori_Takip___Diyet__Programı
 				else
 				{
 					lblGecmisİcilmisSu.Text = $"İçtiğiniz su {suMiktari.WaterQuantity} bardaktır";
+					SuMiktarıHesapla();
 				}
 				
 
@@ -114,12 +126,14 @@ namespace Kalori_Takip___Diyet__Programı
 			if (dtSuTarih.Value.Date== DateTime.Now.Date)
 			{
 				btnSuEkle.Enabled = true;
+				lblGecmisİcilmisSu.Text = "";
 			}
-			else
+			if (dtSuTarih.Value.Date > DateTime.Now.Date)
 			{
-				MessageBox.Show("Bu tarihte bir veri bulunamadı");
-				btnSuEkle.Enabled = false;
+				btnSuEkle.Enabled = true;
+				lblGecmisİcilmisSu.Text = "";
 			}
+
 
 			
 

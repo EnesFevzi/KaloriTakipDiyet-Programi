@@ -28,14 +28,14 @@ namespace KaloriTakipProgramı.Entity.Entities
 		public string Password { get; set; }
 		public string ConfirmPassword { get; set; }
 		public string Gender { get; set; }
-		public string? ImagePath { get; set; }
+		public string? ImagePath { get; set; } = "Atanmadı";
 		public int? Age { get; set; }
-		public double? Height { get; set; }
-		public double? Weight { get; set; }
-		public double? BasinCircle { get; set; }
-		public double? NeckCircle { get; set; }
-		public double? WaistCircle { get; set; }
-		public double? ActivityValue { get; set; }
+		public float? Height { get; set; }
+		public float? Weight { get; set; }
+		public float? BasinCircle { get; set; }
+		public float? NeckCircle { get; set; }
+		public float? WaistCircle { get; set; }
+		public float? ActivityValue { get; set; }
 		public DateTime? LastWaterAdditionDate { get; set; }
 
 		public double? VKI { get; set; }

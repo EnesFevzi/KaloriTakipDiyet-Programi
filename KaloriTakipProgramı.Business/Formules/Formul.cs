@@ -62,29 +62,28 @@ namespace KaloriTakipProgramı.Business.Formules
 			return bmr;
 		}
 
-		public static double HesaplaGunlukKaloriIhtiyaci(string cinsiyet, double kilo, double boy, int yas, double aktiviteFaktoru)
+		public static double HesaplaGunlukKaloriIhtiyaci(string cinsiyet, float kilo, float boy, int yas, float aktiviteFaktoru)
 		{
-			double gunlukKaloriIhtiyaci = 0.0;
+			float gunlukKaloriIhtiyaci = 0.0f;
 
 			if (cinsiyet.Equals("Erkek", StringComparison.OrdinalIgnoreCase))
 			{
 				// Erkekler için Mifflin-St Jeor Denklemi
-				gunlukKaloriIhtiyaci = (10 * kilo) + (6.25 * boy) - (5 * yas) + 5;
+				gunlukKaloriIhtiyaci = (float)((10 * kilo) + (6.25 * boy) - (5 * yas) + 5);
 			}
 			else if (cinsiyet.Equals("Kadın", StringComparison.OrdinalIgnoreCase))
 			{
 				// Kadınlar için Mifflin-St Jeor Denklemi
-				gunlukKaloriIhtiyaci = (10 * kilo) + (6.25 * boy) - (5 * yas) - 161;
+				gunlukKaloriIhtiyaci = (float)((10 * kilo) + (6.25 * boy) - (5 * yas) - 161);
 			}
 
-			// Aktivite faktörünü hesaplamaya dahil edin
 			gunlukKaloriIhtiyaci = gunlukKaloriIhtiyaci * aktiviteFaktoru;
 
-			gunlukKaloriIhtiyaci = Math.Round(gunlukKaloriIhtiyaci, 2);
+			gunlukKaloriIhtiyaci = (float)Math.Round(gunlukKaloriIhtiyaci, 1);
 			return gunlukKaloriIhtiyaci;
 		}
 
-		public static double HesaplaGunlukSuIhtiyaci(double kilo)
+		public static float HesaplaGunlukSuIhtiyaci(float kilo)
 		{
 			return kilo * 30;
 		}

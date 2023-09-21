@@ -1,5 +1,8 @@
-﻿using KaloriTakipProgramı.Business.Concrete;
+﻿using Kalori_Takip___Diyet__Programı.Extensions;
+using Kalori_Takip___Diyet__Programı.Properties;
+using KaloriTakipProgramı.Business.Concrete;
 using KaloriTakipProgramı.Entity.Entities;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,6 +36,7 @@ namespace Kalori_Takip___Diyet__Programı
 		{
 			lstKaydedilenUrunler.Items.Clear();
 			var tuketilenUrunler = _foodService.TGetConsumeFood(_result.MealID, _date);
+			var tuketilenUrun = _foodService.TGetConsumeFood2(_result.MealID, _date);
 			foreach (ConsumeFood food in tuketilenUrunler)
 			{
 
@@ -62,26 +66,25 @@ namespace Kalori_Takip___Diyet__Programı
 			{
 				lblGosterBaslik.Text = $"{_date.Date.Date} Tarihinde Aperatif Olarak Tüketilen Yiyecek Listesi";
 			}
+
+			Image ımage = LoadImages.LoadFoodImage(tuketilenUrun.ImagePath);
+			pbxYemekResmi.Image = ımage;
 		}
 
 		private void btnSil_Click(object sender, EventArgs e)
-		//{
-		//	if (lstKaydedilenUrunler.SelectedItems.Count == 0)
-		//	{
-		//		MessageBox.Show("Lütfen silmek istediğiniz ürünü seçiniz");
-		//	}
-		//	else
-		//	{
-		//		int silinecekConsumeFoodID = Convert.ToInt32(lstKaydedilenUrunler.SelectedItems[0].Text);
-		//		var silinecekConsumeFood = context.ConsumeFoods.FirstOrDefault(x => x.ConsumeFoodID == silinecekConsumeFoodID);
-		//		context.ConsumeFoods.Remove(silinecekConsumeFood);
-		//		context.SaveChanges();
-		//		int index = lstKaydedilenUrunler.SelectedIndices[0];
-		//		ListViewItem selectedItem = lstKaydedilenUrunler.SelectedItems[0];
-		//		lstKaydedilenUrunler.Items.RemoveAt(index);
-		//		lstKaydedilenUrunler.Refresh();
-		//		MessageBox.Show("Ürün veritabanından başarıyla silindi");
-		//	}
+		{
+			if (lstKaydedilenUrunler.SelectedItems.Count == 0)
+			{
+				MessageBox.Show("Lütfen silmek istediğiniz ürünü seçiniz");
+			}
+			else
+			{
+				var result = (ConsumeFood)lstKaydedilenUrunler.SelectedItems[0].Tag;
+				_foodService.TDelete(result);
+				lstKaydedilenUrunler.Items.Remove(lstKaydedilenUrunler.SelectedItems[0]);
+				lstKaydedilenUrunler.Refresh();
+				MessageBox.Show("Ürün veritabanından başarıyla silindi");
+			}
 		}
 	}
 }

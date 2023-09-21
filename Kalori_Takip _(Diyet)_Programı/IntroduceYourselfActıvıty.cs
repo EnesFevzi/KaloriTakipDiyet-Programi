@@ -27,27 +27,27 @@ namespace Kalori_Takip___Diyet__Programı
 
 		private void rdbHareketsiz_CheckedChanged(object sender, EventArgs e)
 		{
-			_user.ActivityValue = 1.2;
+			_user.ActivityValue = 1.2f;
 		}
 
 		private void rdbHafifEgzersiz_CheckedChanged(object sender, EventArgs e)
 		{
-			_user.ActivityValue = 1.375;
+			_user.ActivityValue = 1.375f;
 		}
 
 		private void rdbOrtaSeviyeEgzersiz_CheckedChanged(object sender, EventArgs e)
 		{
-			_user.ActivityValue = 1.55;
+			_user.ActivityValue = 1.55f;
 		}
 
 		private void rdbYogunEgzersiz_CheckedChanged(object sender, EventArgs e)
 		{
-			_user.ActivityValue = 1.725;
+			_user.ActivityValue = 1.725f;
 		}
 
 		private void rdbCokYogun_CheckedChanged(object sender, EventArgs e)
 		{
-			_user.ActivityValue = 1.9;
+			_user.ActivityValue = 1.9f;
 		}
 
 

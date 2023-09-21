@@ -20,6 +20,7 @@ namespace KaloriTakipProgramı.Entity.Entities
 		public float Carbohydrate { get; set; }
 		public float Protein { get; set; }
 		public float Fat { get; set; }
+		public string? ImagePath { get; set; } = "Atanmadı";
 		public int AppUserID { get; set; }
 		public AppUser AppUser { get; set; }
 		public List<Food> Foods { get; set; }

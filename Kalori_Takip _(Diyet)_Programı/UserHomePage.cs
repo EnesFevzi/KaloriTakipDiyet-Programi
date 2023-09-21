@@ -1,4 +1,6 @@
-﻿using KaloriTakipProgramı.Business.Formules;
+﻿using Kalori_Takip___Diyet__Programı.Extensions;
+using Kalori_Takip___Diyet__Programı.Properties;
+using KaloriTakipProgramı.Business.Formules;
 using KaloriTakipProgramı.Entity.Entities;
 using System;
 using System.Collections.Generic;
@@ -27,6 +29,7 @@ namespace Kalori_Takip___Diyet__Programı
 			MealTable mealTable = new MealTable(_user);
 			this.Hide();
 			mealTable.ShowDialog();
+			this.Show();
 		}
 		string cinsiyet;
 		double kilo;
@@ -42,19 +45,12 @@ namespace Kalori_Takip___Diyet__Programı
 			activityValue = (double)_user.ActivityValue;
 			lblKisiAdi.Text = $"{_user.Name} {_user.Surname}";
 
-			string imagePath = Path.Combine(Application.StartupPath, "UserImage", _user.ImagePath);
+			Image userImage = LoadImages.LoadUserImage(_user.ImagePath);
+			if (userImage != null)
+			{
+				pbxUserImage.Image = userImage;
+			}
 
-			if (File.Exists(imagePath))
-			{
-				using (FileStream stream = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
-				{
-					pbxUserImage.Image = Image.FromStream(stream);
-				}
-			}
-			else
-			{
-				MessageBox.Show("Resim bulunamadı.");
-			}
 
 		}
 

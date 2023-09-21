@@ -65,6 +65,10 @@ namespace KaloriTakipProgramı.Business.Concrete
 		{
 			return _consumeFoodRepository.GetConsumeFood(id, tarih);
 		}
+		public ConsumeFood TGetConsumeFood2(int id, DateTime tarih)
+		{
+			return _consumeFoodRepository.GetConsumeFood2(id, tarih);
+		}
 
 
 

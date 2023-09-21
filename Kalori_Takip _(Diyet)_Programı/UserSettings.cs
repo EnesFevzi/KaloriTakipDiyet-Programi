@@ -37,6 +37,12 @@ namespace Kalori_Takip___Diyet__Programı
 			nmrBasenCevresi.Value = (decimal)_user.BasinCircle.Value;
 			nmrBelCevresi.Value = (decimal)_user.WaistCircle.Value;
 			nmrBoyunCevresi.Value = (decimal)_user.NeckCircle.Value;
+
+			Image userImage = LoadImages.LoadUserImage(_user.ImagePath);
+			if (userImage != null)
+			{
+				pbxImage.Image = userImage;
+			}
 		}
 
 
@@ -52,12 +58,13 @@ namespace Kalori_Takip___Diyet__Programı
 					kullanici.Name = txtAd.Text;
 					kullanici.Surname = txtSoyad.Text;
 					kullanici.Age = (int)nmrYas.Value;
-					kullanici.Height = (double)nmrBoy.Value;
+					kullanici.Height = (float)nmrBoy.Value;
 					kullanici.Weight = (int)nmrKilo.Value;
-					kullanici.BasinCircle = (double)nmrBasenCevresi.Value;
-					kullanici.WaistCircle = (double)nmrBelCevresi.Value;
-					kullanici.NeckCircle = (double)nmrBoyunCevresi.Value;
+					kullanici.BasinCircle = (float)nmrBasenCevresi.Value;
+					kullanici.WaistCircle = (float)nmrBelCevresi.Value;
+					kullanici.NeckCircle = (float)nmrBoyunCevresi.Value;
 					kullanici.Password = txtSifre.Text;
+					kullanici.ImagePath = imageName;
 					kullanici.ConfirmPassword = txtSifreTekrar.Text;
 				}
 
@@ -70,7 +77,7 @@ namespace Kalori_Takip___Diyet__Programı
 					_userService.TUpdate(kullanici);
 					MessageBox.Show("Güncelleme İşlemi Başarılı");
 					Helper.Temizle(grpKisiselBilgiler.Controls);
-					this.Hide();
+					this.Close();
 				}
 				else
 				{
@@ -90,7 +97,27 @@ namespace Kalori_Takip___Diyet__Programı
 
 		private void btnGeriDon_Click(object sender, EventArgs e)
 		{
-			this.Hide();
+			this.Close();
+		}
+		string imageName;
+		private void btnResimEkle_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			openFileDialog.Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png;*.gif|Tüm Dosyalar|*.*";
+			if (openFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				string selectedImagePath = openFileDialog.FileName;
+				string fileExtension = Path.GetExtension(selectedImagePath);
+				imageName = Guid.NewGuid().ToString() + fileExtension;
+				string saveLocation = Path.Combine(Application.StartupPath, "UserImage", imageName);
+				File.Copy(selectedImagePath, saveLocation);
+				_user.ImagePath = imageName;
+			}
+			Image userImage = LoadImages.LoadUserImage(_user.ImagePath);
+			if (userImage != null)
+			{
+				pbxImage.Image = userImage;
+			}
 		}
 	}
 }

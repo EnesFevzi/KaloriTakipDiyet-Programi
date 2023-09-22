@@ -31,7 +31,7 @@ namespace Kalori_Takip___Diyet__Programı
 			_user = user;
 			InitializeComponent();
 			_db = new AppDbContext();
-			_mealService=new MealService();
+			_mealService = new MealService();
 			_consumeFood = new ConsumeFood();
 		}
 
@@ -62,7 +62,7 @@ namespace Kalori_Takip___Diyet__Programı
 			{
 				secilenUrunID = Convert.ToInt32(lstUrunler.SelectedItems[0].Text);
 				UrunBilgisiHesapla(secilenUrunID);
-				string[] arr = { 
+				string[] arr = {
 					secilenUrunID.ToString(),
 					_db.Foods.First(x => x.FoodID == secilenUrunID).FoodName,
 					txtMiktar.Text,

@@ -70,6 +70,7 @@
 			btnGeriDon.Size = new Size(30, 27);
 			btnGeriDon.TabIndex = 27;
 			btnGeriDon.UseVisualStyleBackColor = false;
+			btnGeriDon.Click += btnGeriDon_Click;
 			// 
 			// btnKaydet
 			// 

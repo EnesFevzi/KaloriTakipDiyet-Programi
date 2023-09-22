@@ -86,7 +86,7 @@
 			grpKahvaltiEkle.Controls.Add(lstEklenenUrunler);
 			grpKahvaltiEkle.Location = new Point(3, 12);
 			grpKahvaltiEkle.Name = "grpKahvaltiEkle";
-			grpKahvaltiEkle.Size = new Size(791, 524);
+			grpKahvaltiEkle.Size = new Size(791, 516);
 			grpKahvaltiEkle.TabIndex = 15;
 			grpKahvaltiEkle.TabStop = false;
 			grpKahvaltiEkle.Text = "KAHVALTI EKLE";
@@ -292,7 +292,7 @@
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(796, 542);
+			ClientSize = new Size(796, 540);
 			Controls.Add(grpKahvaltiEkle);
 			Name = "AddBreakfast";
 			Text = "AddBreakfast";

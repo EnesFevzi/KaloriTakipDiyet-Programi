@@ -108,5 +108,10 @@ namespace Kalori_Takip___Diyet__Programı
 				_user.ImagePath = imageName;
 			}
 		}
+
+		private void btnGeriDon_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

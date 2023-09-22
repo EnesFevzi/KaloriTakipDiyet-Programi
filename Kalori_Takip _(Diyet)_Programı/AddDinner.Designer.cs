@@ -32,16 +32,6 @@
 			btnSil = new Button();
 			btnEkle = new Button();
 			grpAksamYemegiEkle = new GroupBox();
-			pbxYemekResmi = new PictureBox();
-			label3 = new Label();
-			btnResimEkle = new Button();
-			label2 = new Label();
-			label5 = new Label();
-			label6 = new Label();
-			btnKaydet = new Button();
-			label1 = new Label();
-			txtUrunAra = new TextBox();
-			txtMiktar = new TextBox();
 			lstUrunler = new ListView();
 			columnHeader9 = new ColumnHeader();
 			columnHeader1 = new ColumnHeader();
@@ -53,6 +43,16 @@
 			columnHeader5 = new ColumnHeader();
 			columnHeader6 = new ColumnHeader();
 			columnHeader7 = new ColumnHeader();
+			pbxYemekResmi = new PictureBox();
+			label3 = new Label();
+			btnResimEkle = new Button();
+			label2 = new Label();
+			label5 = new Label();
+			label6 = new Label();
+			btnKaydet = new Button();
+			label1 = new Label();
+			txtUrunAra = new TextBox();
+			txtMiktar = new TextBox();
 			grpAksamYemegiEkle.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pbxYemekResmi).BeginInit();
 			SuspendLayout();
@@ -101,12 +101,81 @@
 			grpAksamYemegiEkle.Controls.Add(btnEkle);
 			grpAksamYemegiEkle.Controls.Add(txtUrunAra);
 			grpAksamYemegiEkle.Controls.Add(txtMiktar);
-			grpAksamYemegiEkle.Location = new Point(-8, 68);
+			grpAksamYemegiEkle.Location = new Point(12, 12);
 			grpAksamYemegiEkle.Name = "grpAksamYemegiEkle";
 			grpAksamYemegiEkle.Size = new Size(787, 504);
 			grpAksamYemegiEkle.TabIndex = 19;
 			grpAksamYemegiEkle.TabStop = false;
 			grpAksamYemegiEkle.Text = "AKŞAM YEMEĞİ";
+			// 
+			// lstUrunler
+			// 
+			lstUrunler.BackColor = Color.PaleGoldenrod;
+			lstUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader9, columnHeader1 });
+			lstUrunler.FullRowSelect = true;
+			lstUrunler.GridLines = true;
+			lstUrunler.Location = new Point(6, 130);
+			lstUrunler.Name = "lstUrunler";
+			lstUrunler.Size = new Size(271, 164);
+			lstUrunler.TabIndex = 29;
+			lstUrunler.UseCompatibleStateImageBehavior = false;
+			lstUrunler.View = View.Details;
+			// 
+			// columnHeader9
+			// 
+			columnHeader9.Text = "ID";
+			// 
+			// columnHeader1
+			// 
+			columnHeader1.Text = "Ürün Adı";
+			columnHeader1.Width = 260;
+			// 
+			// lstEklenenUrunler
+			// 
+			lstEklenenUrunler.BackColor = Color.PaleGoldenrod;
+			lstEklenenUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader8, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
+			lstEklenenUrunler.FullRowSelect = true;
+			lstEklenenUrunler.GridLines = true;
+			lstEklenenUrunler.Location = new Point(3, 300);
+			lstEklenenUrunler.Name = "lstEklenenUrunler";
+			lstEklenenUrunler.Size = new Size(775, 198);
+			lstEklenenUrunler.TabIndex = 28;
+			lstEklenenUrunler.UseCompatibleStateImageBehavior = false;
+			lstEklenenUrunler.View = View.Details;
+			// 
+			// columnHeader8
+			// 
+			columnHeader8.Text = "ID";
+			// 
+			// columnHeader2
+			// 
+			columnHeader2.Text = "Ürün Adı";
+			columnHeader2.Width = 125;
+			// 
+			// columnHeader3
+			// 
+			columnHeader3.Text = "Miktar";
+			columnHeader3.Width = 125;
+			// 
+			// columnHeader4
+			// 
+			columnHeader4.Text = "Kalori";
+			columnHeader4.Width = 125;
+			// 
+			// columnHeader5
+			// 
+			columnHeader5.Text = "Protein";
+			columnHeader5.Width = 125;
+			// 
+			// columnHeader6
+			// 
+			columnHeader6.Text = "Yağ";
+			columnHeader6.Width = 125;
+			// 
+			// columnHeader7
+			// 
+			columnHeader7.Text = "Karbonhidrat";
+			columnHeader7.Width = 125;
 			// 
 			// pbxYemekResmi
 			// 
@@ -218,81 +287,12 @@
 			txtMiktar.Size = new Size(118, 23);
 			txtMiktar.TabIndex = 12;
 			// 
-			// lstUrunler
-			// 
-			lstUrunler.BackColor = Color.PaleGoldenrod;
-			lstUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader9, columnHeader1 });
-			lstUrunler.FullRowSelect = true;
-			lstUrunler.GridLines = true;
-			lstUrunler.Location = new Point(6, 130);
-			lstUrunler.Name = "lstUrunler";
-			lstUrunler.Size = new Size(271, 164);
-			lstUrunler.TabIndex = 29;
-			lstUrunler.UseCompatibleStateImageBehavior = false;
-			lstUrunler.View = View.Details;
-			// 
-			// columnHeader9
-			// 
-			columnHeader9.Text = "ID";
-			// 
-			// columnHeader1
-			// 
-			columnHeader1.Text = "Ürün Adı";
-			columnHeader1.Width = 260;
-			// 
-			// lstEklenenUrunler
-			// 
-			lstEklenenUrunler.BackColor = Color.PaleGoldenrod;
-			lstEklenenUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader8, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
-			lstEklenenUrunler.FullRowSelect = true;
-			lstEklenenUrunler.GridLines = true;
-			lstEklenenUrunler.Location = new Point(3, 300);
-			lstEklenenUrunler.Name = "lstEklenenUrunler";
-			lstEklenenUrunler.Size = new Size(775, 198);
-			lstEklenenUrunler.TabIndex = 28;
-			lstEklenenUrunler.UseCompatibleStateImageBehavior = false;
-			lstEklenenUrunler.View = View.Details;
-			// 
-			// columnHeader8
-			// 
-			columnHeader8.Text = "ID";
-			// 
-			// columnHeader2
-			// 
-			columnHeader2.Text = "Ürün Adı";
-			columnHeader2.Width = 125;
-			// 
-			// columnHeader3
-			// 
-			columnHeader3.Text = "Miktar";
-			columnHeader3.Width = 125;
-			// 
-			// columnHeader4
-			// 
-			columnHeader4.Text = "Kalori";
-			columnHeader4.Width = 125;
-			// 
-			// columnHeader5
-			// 
-			columnHeader5.Text = "Protein";
-			columnHeader5.Width = 125;
-			// 
-			// columnHeader6
-			// 
-			columnHeader6.Text = "Yağ";
-			columnHeader6.Width = 125;
-			// 
-			// columnHeader7
-			// 
-			columnHeader7.Text = "Karbonhidrat";
-			columnHeader7.Width = 125;
-			// 
 			// AddDinner
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(783, 580);
+			ClientSize = new Size(803, 527);
 			Controls.Add(grpAksamYemegiEkle);
 			Name = "AddDinner";
 			Text = "AddDinner";

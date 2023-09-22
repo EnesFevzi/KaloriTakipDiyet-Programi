@@ -63,9 +63,12 @@ namespace Kalori_Takip___Diyet__Programı
 
 					if (user.ModifiedDate == null)
 					{
-						IntroduceYourself introduce = new IntroduceYourself(user);
+						IntroductıonTable introductıonTable= new IntroductıonTable(user);
 						this.Hide();
-						introduce.ShowDialog();
+						introductıonTable.ShowDialog();
+						this.Show();
+
+						
 
 					}
 					if (user.ModifiedDate2 == null)

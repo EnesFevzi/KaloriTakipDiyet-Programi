@@ -30,7 +30,7 @@ namespace KaloriTakipProgramı.Data.Concrete.EntityFramework
 		}
 		public Meal GetByMealIDSnack()
 		{
-			var meal = _context.Meals.FirstOrDefault(x => x.MealName == "Snack");
+			var meal = _context.Meals.FirstOrDefault(x => x.MealName == "Aperatif");
 			return meal;
 
 		}

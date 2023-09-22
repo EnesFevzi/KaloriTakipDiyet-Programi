@@ -30,6 +30,9 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddLunch));
 			grpOgleYemegiEkle = new GroupBox();
+			pbxYemekResmi = new PictureBox();
+			label3 = new Label();
+			btnResimEkle = new Button();
 			label2 = new Label();
 			label5 = new Label();
 			label6 = new Label();
@@ -37,26 +40,27 @@
 			btnKaydet = new Button();
 			txtUrunAra = new TextBox();
 			btnSil = new Button();
-			lstUrunler = new ListView();
-			columnHeader1 = new ColumnHeader();
 			btnEkle = new Button();
+			label1 = new Label();
+			lstUrunler = new ListView();
+			columnHeader9 = new ColumnHeader();
+			columnHeader1 = new ColumnHeader();
 			lstEklenenUrunler = new ListView();
+			columnHeader8 = new ColumnHeader();
 			columnHeader2 = new ColumnHeader();
 			columnHeader3 = new ColumnHeader();
 			columnHeader4 = new ColumnHeader();
 			columnHeader5 = new ColumnHeader();
 			columnHeader6 = new ColumnHeader();
 			columnHeader7 = new ColumnHeader();
-			label1 = new Label();
-			pbxYemekResmi = new PictureBox();
-			label3 = new Label();
-			btnResimEkle = new Button();
 			grpOgleYemegiEkle.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pbxYemekResmi).BeginInit();
 			SuspendLayout();
 			// 
 			// grpOgleYemegiEkle
 			// 
+			grpOgleYemegiEkle.Controls.Add(lstUrunler);
+			grpOgleYemegiEkle.Controls.Add(lstEklenenUrunler);
 			grpOgleYemegiEkle.Controls.Add(pbxYemekResmi);
 			grpOgleYemegiEkle.Controls.Add(label3);
 			grpOgleYemegiEkle.Controls.Add(btnResimEkle);
@@ -67,9 +71,7 @@
 			grpOgleYemegiEkle.Controls.Add(btnKaydet);
 			grpOgleYemegiEkle.Controls.Add(txtUrunAra);
 			grpOgleYemegiEkle.Controls.Add(btnSil);
-			grpOgleYemegiEkle.Controls.Add(lstUrunler);
 			grpOgleYemegiEkle.Controls.Add(btnEkle);
-			grpOgleYemegiEkle.Controls.Add(lstEklenenUrunler);
 			grpOgleYemegiEkle.Controls.Add(label1);
 			grpOgleYemegiEkle.Location = new Point(0, 33);
 			grpOgleYemegiEkle.Name = "grpOgleYemegiEkle";
@@ -77,6 +79,41 @@
 			grpOgleYemegiEkle.TabIndex = 16;
 			grpOgleYemegiEkle.TabStop = false;
 			grpOgleYemegiEkle.Text = "ÖĞLE YEMEĞİ EKLE";
+			// 
+			// pbxYemekResmi
+			// 
+			pbxYemekResmi.BorderStyle = BorderStyle.FixedSingle;
+			pbxYemekResmi.Location = new Point(651, 19);
+			pbxYemekResmi.Name = "pbxYemekResmi";
+			pbxYemekResmi.Size = new Size(117, 134);
+			pbxYemekResmi.SizeMode = PictureBoxSizeMode.StretchImage;
+			pbxYemekResmi.TabIndex = 46;
+			pbxYemekResmi.TabStop = false;
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.BackColor = Color.Transparent;
+			label3.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+			label3.Location = new Point(496, 16);
+			label3.Name = "label3";
+			label3.Size = new Size(149, 19);
+			label3.TabIndex = 45;
+			label3.Text = "Resim Ekleyebilirsiniz";
+			// 
+			// btnResimEkle
+			// 
+			btnResimEkle.BackColor = Color.DarkSeaGreen;
+			btnResimEkle.BackgroundImage = (Image)resources.GetObject("btnResimEkle.BackgroundImage");
+			btnResimEkle.BackgroundImageLayout = ImageLayout.Stretch;
+			btnResimEkle.FlatAppearance.BorderSize = 0;
+			btnResimEkle.FlatStyle = FlatStyle.Popup;
+			btnResimEkle.Location = new Point(735, 159);
+			btnResimEkle.Name = "btnResimEkle";
+			btnResimEkle.Size = new Size(33, 30);
+			btnResimEkle.TabIndex = 44;
+			btnResimEkle.UseVisualStyleBackColor = false;
+			btnResimEkle.Click += btnResimEkle_Click;
 			// 
 			// label2
 			// 
@@ -156,24 +193,6 @@
 			btnSil.UseVisualStyleBackColor = false;
 			btnSil.Click += btnSil_Click;
 			// 
-			// lstUrunler
-			// 
-			lstUrunler.BackColor = Color.PaleGoldenrod;
-			lstUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
-			lstUrunler.FullRowSelect = true;
-			lstUrunler.GridLines = true;
-			lstUrunler.Location = new Point(0, 100);
-			lstUrunler.Name = "lstUrunler";
-			lstUrunler.Size = new Size(271, 164);
-			lstUrunler.TabIndex = 37;
-			lstUrunler.UseCompatibleStateImageBehavior = false;
-			lstUrunler.View = View.Details;
-			// 
-			// columnHeader1
-			// 
-			columnHeader1.Text = "Ürün Adı";
-			columnHeader1.Width = 260;
-			// 
 			// btnEkle
 			// 
 			btnEkle.BackColor = Color.DarkSeaGreen;
@@ -188,18 +207,55 @@
 			btnEkle.UseVisualStyleBackColor = false;
 			btnEkle.Click += btnEkle_Click;
 			// 
+			// label1
+			// 
+			label1.AutoSize = true;
+			label1.BackColor = Color.Transparent;
+			label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+			label1.Location = new Point(6, 19);
+			label1.Name = "label1";
+			label1.Size = new Size(162, 23);
+			label1.TabIndex = 2;
+			label1.Text = "ÖĞLE YEMEĞİ  EKLE";
+			// 
+			// lstUrunler
+			// 
+			lstUrunler.BackColor = Color.PaleGoldenrod;
+			lstUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader9, columnHeader1 });
+			lstUrunler.FullRowSelect = true;
+			lstUrunler.GridLines = true;
+			lstUrunler.Location = new Point(0, 100);
+			lstUrunler.Name = "lstUrunler";
+			lstUrunler.Size = new Size(271, 164);
+			lstUrunler.TabIndex = 48;
+			lstUrunler.UseCompatibleStateImageBehavior = false;
+			lstUrunler.View = View.Details;
+			// 
+			// columnHeader9
+			// 
+			columnHeader9.Text = "ID";
+			// 
+			// columnHeader1
+			// 
+			columnHeader1.Text = "Ürün Adı";
+			columnHeader1.Width = 260;
+			// 
 			// lstEklenenUrunler
 			// 
 			lstEklenenUrunler.BackColor = Color.PaleGoldenrod;
-			lstEklenenUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
+			lstEklenenUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader8, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
 			lstEklenenUrunler.FullRowSelect = true;
 			lstEklenenUrunler.GridLines = true;
-			lstEklenenUrunler.Location = new Point(0, 270);
+			lstEklenenUrunler.Location = new Point(-3, 270);
 			lstEklenenUrunler.Name = "lstEklenenUrunler";
 			lstEklenenUrunler.Size = new Size(775, 198);
-			lstEklenenUrunler.TabIndex = 36;
+			lstEklenenUrunler.TabIndex = 47;
 			lstEklenenUrunler.UseCompatibleStateImageBehavior = false;
 			lstEklenenUrunler.View = View.Details;
+			// 
+			// columnHeader8
+			// 
+			columnHeader8.Text = "ID";
 			// 
 			// columnHeader2
 			// 
@@ -231,52 +287,6 @@
 			columnHeader7.Text = "Karbonhidrat";
 			columnHeader7.Width = 125;
 			// 
-			// label1
-			// 
-			label1.AutoSize = true;
-			label1.BackColor = Color.Transparent;
-			label1.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-			label1.Location = new Point(6, 19);
-			label1.Name = "label1";
-			label1.Size = new Size(162, 23);
-			label1.TabIndex = 2;
-			label1.Text = "ÖĞLE YEMEĞİ  EKLE";
-			// 
-			// pbxYemekResmi
-			// 
-			pbxYemekResmi.BorderStyle = BorderStyle.FixedSingle;
-			pbxYemekResmi.Location = new Point(651, 19);
-			pbxYemekResmi.Name = "pbxYemekResmi";
-			pbxYemekResmi.Size = new Size(117, 134);
-			pbxYemekResmi.SizeMode = PictureBoxSizeMode.StretchImage;
-			pbxYemekResmi.TabIndex = 46;
-			pbxYemekResmi.TabStop = false;
-			// 
-			// label3
-			// 
-			label3.AutoSize = true;
-			label3.BackColor = Color.Transparent;
-			label3.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
-			label3.Location = new Point(496, 16);
-			label3.Name = "label3";
-			label3.Size = new Size(149, 19);
-			label3.TabIndex = 45;
-			label3.Text = "Resim Ekleyebilirsiniz";
-			// 
-			// btnResimEkle
-			// 
-			btnResimEkle.BackColor = Color.DarkSeaGreen;
-			btnResimEkle.BackgroundImage = (Image)resources.GetObject("btnResimEkle.BackgroundImage");
-			btnResimEkle.BackgroundImageLayout = ImageLayout.Stretch;
-			btnResimEkle.FlatAppearance.BorderSize = 0;
-			btnResimEkle.FlatStyle = FlatStyle.Popup;
-			btnResimEkle.Location = new Point(735, 159);
-			btnResimEkle.Name = "btnResimEkle";
-			btnResimEkle.Size = new Size(33, 30);
-			btnResimEkle.TabIndex = 44;
-			btnResimEkle.UseVisualStyleBackColor = false;
-			btnResimEkle.Click += btnResimEkle_Click;
-			// 
 			// AddLunch
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -303,18 +313,20 @@
 		private Button btnKaydet;
 		private TextBox txtUrunAra;
 		private Button btnSil;
-		private ListView lstUrunler;
-		private ColumnHeader columnHeader1;
 		private Button btnEkle;
+		private PictureBox pbxYemekResmi;
+		private Label label3;
+		private Button btnResimEkle;
+		private ListView lstUrunler;
+		private ColumnHeader columnHeader9;
+		private ColumnHeader columnHeader1;
 		private ListView lstEklenenUrunler;
+		private ColumnHeader columnHeader8;
 		private ColumnHeader columnHeader2;
 		private ColumnHeader columnHeader3;
 		private ColumnHeader columnHeader4;
 		private ColumnHeader columnHeader5;
 		private ColumnHeader columnHeader6;
 		private ColumnHeader columnHeader7;
-		private PictureBox pbxYemekResmi;
-		private Label label3;
-		private Button btnResimEkle;
 	}
 }

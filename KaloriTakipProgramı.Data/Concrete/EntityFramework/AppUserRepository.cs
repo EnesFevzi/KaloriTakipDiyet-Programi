@@ -1,4 +1,5 @@
-﻿using KaloriTakipProgramı.Data.Repositories;
+﻿using KaloriTakipProgramı.Data.Context;
+using KaloriTakipProgramı.Data.Repositories;
 using KaloriTakipProgramı.Entity.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,6 +12,7 @@ namespace KaloriTakipProgramı.Data.Concrete.EF
 {
 	public class AppUserRepository : GenericRepository<AppUser>
 	{
+
 		public bool IsEmailExist(string email)
 		{
 			var user = _context.AppUsers.Any(x => x.Email == email);

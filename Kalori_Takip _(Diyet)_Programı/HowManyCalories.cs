@@ -62,7 +62,7 @@ namespace Kalori_Takip___Diyet__Programı
 
 		private void btnGeriDon_Click(object sender, EventArgs e)
 		{
-			this.Hide();
+			this.Close();
 		}
 
 		private void btnİncele_Click(object sender, EventArgs e)

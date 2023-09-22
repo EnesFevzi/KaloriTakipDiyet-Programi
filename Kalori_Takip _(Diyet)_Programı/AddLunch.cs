@@ -1,5 +1,6 @@
 ﻿using Kalori_Takip___Diyet__Programı.Extensions;
 using KaloriTakipProgramı.Business.Concrete;
+using KaloriTakipProgramı.Data.Context;
 using KaloriTakipProgramı.Entity.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,20 +16,19 @@ namespace Kalori_Takip___Diyet__Programı
 {
 	public partial class AddLunch : Form
 	{
-		private readonly FoodService _foodService;
-		private readonly ConsumeFoodService _consumeFoodService;
-		private readonly MealService _mealService;
+		private AppDbContext _db;
+		private MealService _mealService;
 		private AppUser _user;
-		private readonly ConsumeFood _consumeFood;
-		float girilenMiktar = 0;
+		private ConsumeFood _consumeFood;
+		private Food secilenUrun;
+		private int secilenUrunID = 0;
 
 
 
 		public AddLunch(AppUser user)
 		{
 			InitializeComponent();
-			_foodService = new FoodService();
-			_consumeFoodService = new ConsumeFoodService();
+			_db = new AppDbContext();
 			_mealService = new MealService();
 			_user = user;
 			_consumeFood = new ConsumeFood();
@@ -36,26 +36,19 @@ namespace Kalori_Takip___Diyet__Programı
 
 		private void txtUrunAra_TextChanged(object sender, EventArgs e)
 		{
-			string arananKelime = txtUrunAra.Text.ToLower();
-
-			AramaUrunlerıDoldur(_foodService.TGetAll(), arananKelime);
-		}
-		private void AramaUrunlerıDoldur(List<Food> foods, string arananKelime = "")
-		{
 			lstUrunler.Items.Clear();
+			string arananUrun = txtUrunAra.Text;
 
-			foreach (Food food in foods)
+			var Urunler = _db.Foods.Where(x => x.FoodName.Contains(arananUrun)).ToList();
+
+			foreach (Food item in Urunler)
 			{
-				if (food.FoodName.ToLower().Contains(arananKelime))
-				{
-					ListViewItem item = new ListViewItem(food.FoodName.ToString());
-					item.Tag = food;
-					lstUrunler.Items.Add(item);
-				}
+				string[] arr = { item.FoodID.ToString(), item.FoodName };
+				ListViewItem lvi = new ListViewItem(arr);
+				lstUrunler.Items.Add(lvi);
 			}
 		}
 
-		private Food secilenUrun;
 
 		private void btnEkle_Click(object sender, EventArgs e)
 		{
@@ -66,19 +59,36 @@ namespace Kalori_Takip___Diyet__Programı
 			}
 			else
 			{
-				secilenUrun = (Food)lstUrunler.SelectedItems[0].Tag;
-				secilenUrun = _foodService.CalculateFoodInfo(secilenUrun.FoodID, girilenMiktar);
-
-				ListViewItem item = new ListViewItem(secilenUrun.FoodName);
-				item.SubItems.Add(girilenMiktar.ToString("0.00"));
-				item.SubItems.Add(secilenUrun.Calories.ToString("0.00"));
-				item.SubItems.Add(secilenUrun.Protein.ToString("0.00"));
-				item.SubItems.Add(secilenUrun.Fat.ToString("0.00"));
-				item.SubItems.Add(secilenUrun.Carbohydrate.ToString("0.00"));
-				item.Tag = item;
-				lstEklenenUrunler.Items.Add(item);
-
+				secilenUrunID = Convert.ToInt32(lstUrunler.SelectedItems[0].Text);
+				UrunBilgisiHesapla(secilenUrunID);
+				string[] arr = { secilenUrunID.ToString(),
+					_db.Foods.First(x => x.FoodID == secilenUrunID).FoodName,
+					txtMiktar.Text,
+					hesaplananKalori.ToString("0.00"),
+					hesaplananKarbonhidrat.ToString("0.00"),
+					hesaplananProtein.ToString("0.00"),
+					hesaplananYag.ToString("0.00") };
+				ListViewItem lvi = new ListViewItem(arr);
+				lstEklenenUrunler.Items.Add(lvi);
 			}
+		}
+		float oran = 0;
+		float hesaplananKalori = 0;
+		float hesaplananKarbonhidrat = 0;
+		float hesaplananYag = 0;
+		float hesaplananProtein = 0;
+		float girilenMiktar = 0;
+		private void UrunBilgisiHesapla(int secilenUrunID)
+		{
+
+			secilenUrun = _db.Foods.First(x => x.FoodID == secilenUrunID);
+			girilenMiktar = Convert.ToSingle(txtMiktar.Text);
+			oran = girilenMiktar / (secilenUrun.GramCompensation);
+			hesaplananKalori = secilenUrun.Calories * oran;
+			hesaplananKarbonhidrat = secilenUrun.Carbohydrate * oran;
+			hesaplananYag = secilenUrun.Fat * oran;
+			hesaplananProtein = secilenUrun.Protein * oran;
+
 		}
 
 		private void btnKaydet_Click(object sender, EventArgs e)
@@ -92,26 +102,29 @@ namespace Kalori_Takip___Diyet__Programı
 			{
 				foreach (ListViewItem item in lstEklenenUrunler.Items)
 				{
-					var consumeFood = new ConsumeFood()
+					ConsumeFood consumeFood = new ConsumeFood()
 					{
-						ConsumeFoodName = item.SubItems[0].Text,
-						GramCompensation = Convert.ToSingle(item.SubItems[1].Text),
-						Calories = Convert.ToSingle(item.SubItems[2].Text),
-						Carbohydrate = Convert.ToSingle(item.SubItems[3].Text),
+
+						GramCompensation = Convert.ToSingle(item.SubItems[2].Text),
+						Calories = Convert.ToSingle(item.SubItems[3].Text),
 						Protein = Convert.ToSingle(item.SubItems[4].Text),
 						Fat = Convert.ToSingle(item.SubItems[5].Text),
+						Carbohydrate = Convert.ToSingle(item.SubItems[6].Text),
 						CreatedDate = DateTime.Now,
 						ImagePath = imageName,
 						AppUserID = _user.AppUserID,
 						MealID = result.MealID,
-
+						Foods = new List<Food>() { secilenUrun },
+						ConsumeFoodName = secilenUrun.FoodName,
 					};
-
-					_consumeFoodService.TAdd(consumeFood);
+					_db.ConsumeFoods.Add(consumeFood);
+					_db.SaveChanges();
 				}
+
+				MessageBox.Show("Başarılı bir şekilde kaydedildi");
+				Helper.Temizle(grpOgleYemegiEkle.Controls);
 			}
-			Helper.Temizle(grpOgleYemegiEkle.Controls);
-			MessageBox.Show("Başarılı bir şekilde kaydedildi");
+
 		}
 
 		private void btnSil_Click(object sender, EventArgs e)

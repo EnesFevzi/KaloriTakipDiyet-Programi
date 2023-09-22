@@ -37,38 +37,56 @@ namespace Kalori_Takip___Diyet__Programı
 			lstKaydedilenUrunler.Items.Clear();
 			var tuketilenUrunler = _foodService.TGetConsumeFood(_result.MealID, _date);
 			var tuketilenUrun = _foodService.TGetConsumeFood2(_result.MealID, _date);
-			foreach (ConsumeFood food in tuketilenUrunler)
+			if (tuketilenUrun != null)
 			{
+				foreach (ConsumeFood food in tuketilenUrunler)
+				{
 
-				ListViewItem item = new ListViewItem(food.ConsumeFoodName.ToString());
-				item.SubItems.Add(food.GramCompensation.ToString());
-				item.SubItems.Add(food.Calories.ToString());
-				item.SubItems.Add(food.Protein.ToString());
-				item.SubItems.Add(food.Fat.ToString());
-				item.SubItems.Add(food.Carbohydrate.ToString());
-				item.Tag = food;
-				lstKaydedilenUrunler.Items.Add(item);
+					ListViewItem item = new ListViewItem(food.ConsumeFoodName.ToString());
+					item.SubItems.Add(food.GramCompensation.ToString());
+					item.SubItems.Add(food.Calories.ToString());
+					item.SubItems.Add(food.Protein.ToString());
+					item.SubItems.Add(food.Fat.ToString());
+					item.SubItems.Add(food.Carbohydrate.ToString());
+					item.Tag = food;
+					lstKaydedilenUrunler.Items.Add(item);
 
-			}
-			if (_result.MealID == 1)
-			{
-				lblGosterBaslik.Text = $"{_date.Date} Tarihinde Sabah Öğününde Tüketilen Yiyecek Listesi";
-			}
-			else if (_result.MealID == 2)
-			{
-				lblGosterBaslik.Text = $"{_date.Date} Tarihinde Öğle Öğününde Tüketilen Yiyecek Listesi";
-			}
-			else if (_result.MealID == 3)
-			{
-				lblGosterBaslik.Text = $"{_date.Date.Date} Tarihinde Akşam Öğününde Tüketilen Yiyecek Listesi";
+				}
+				if (_result.MealID == 1)
+				{
+					lblGosterBaslik.Text = $"{_date.Date} Tarihinde Sabah Öğününde Tüketilen Yiyecek Listesi";
+				}
+				else if (_result.MealID == 2)
+				{
+					lblGosterBaslik.Text = $"{_date.Date} Tarihinde Öğle Öğününde Tüketilen Yiyecek Listesi";
+				}
+				else if (_result.MealID == 3)
+				{
+					lblGosterBaslik.Text = $"{_date.Date.Date} Tarihinde Akşam Öğününde Tüketilen Yiyecek Listesi";
+				}
+				else
+				{
+					lblGosterBaslik.Text = $"{_date.Date.Date} Tarihinde Aperatif Olarak Tüketilen Yiyecek Listesi";
+				}
+
+				Image ımage = LoadImages.LoadFoodImage(tuketilenUrun.ImagePath);
+				if (ımage != null)
+				{
+					pbxYemekResmi.Image = Resources.defaultyemek;
+				}
+				pbxYemekResmi.Image = ımage;
 			}
 			else
 			{
-				lblGosterBaslik.Text = $"{_date.Date.Date} Tarihinde Aperatif Olarak Tüketilen Yiyecek Listesi";
-			}
+				DialogResult dr = MessageBox.Show("Henüz tüketilen yiyecek bilgisi bulunmamaktadır.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-			Image ımage = LoadImages.LoadFoodImage(tuketilenUrun.ImagePath);
-			pbxYemekResmi.Image = ımage;
+				if (dr == DialogResult.OK)
+				{
+					this.Close();
+				}
+			}
+		
+			
 		}
 
 		private void btnSil_Click(object sender, EventArgs e)

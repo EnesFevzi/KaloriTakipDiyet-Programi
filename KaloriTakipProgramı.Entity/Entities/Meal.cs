@@ -18,7 +18,7 @@ namespace KaloriTakipProgramı.Entity.Entities
         //Sabah Öğle Akşam Aperatif
         public int MealID { get; set; }
 		public string MealName { get; set; }
-		public ICollection<ConsumeFood> ConsumeFoods { get; set; }
+		public List<ConsumeFood> ConsumeFoods { get; set; }
 
 
 		public override string ToString()

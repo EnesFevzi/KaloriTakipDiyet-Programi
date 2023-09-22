@@ -9,11 +9,13 @@ namespace KaloriTakipProgramı.Entity.Entities
 {
 	public class Food : BaseEntity
 	{
-        public Food()
-        {
+		public Food()
+		{
 			ConsumeFoods = new List<ConsumeFood>();
+
 		}
-        public int FoodID { get; set; }
+
+		public int FoodID { get; set; }
 		public string FoodName { get; set; }
 		public float GramCompensation { get; set; }
 		public float Calories { get; set; }
@@ -27,6 +29,6 @@ namespace KaloriTakipProgramı.Entity.Entities
 
 		public int? CategoryID { get; set; }
 		public Category? Category { get; set; }
-		public ICollection<ConsumeFood> ConsumeFoods { get; set; }
+		public List<ConsumeFood> ConsumeFoods { get; set; }
 	}
 }

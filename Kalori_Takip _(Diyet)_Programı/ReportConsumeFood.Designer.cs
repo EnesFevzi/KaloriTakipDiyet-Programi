@@ -78,7 +78,7 @@
 			rdbHaftalik.TabStop = true;
 			rdbHaftalik.Text = "Haftalık";
 			rdbHaftalik.UseVisualStyleBackColor = true;
-			rdbHaftalik.CheckedChanged += rdbHaftalik_CheckedChanged;
+
 			// 
 			// rdbAylik
 			// 

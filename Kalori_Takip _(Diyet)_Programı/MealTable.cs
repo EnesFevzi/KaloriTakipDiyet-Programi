@@ -36,7 +36,7 @@ namespace Kalori_Takip___Diyet__Programı
 			brekfast = _mealService.TGetByMealIDBreakfast();
 			dinner = _mealService.TGetByMealIDDinner();
 			brunch = _mealService.TGetByMealIDBrunch();
-			snack = _mealService.TGetByMealIDSnack();
+			Aperatif = _mealService.TGetByMealIDSnack();
 
 
 
@@ -47,7 +47,7 @@ namespace Kalori_Takip___Diyet__Programı
 			}
 			else
 			{
-				secilenTarih = DateTime.UtcNow;
+				secilenTarih = DateTime.Now;
 			}
 			BesinDegeriTopla(brekfast.MealName, secilenTarih);
 
@@ -55,7 +55,7 @@ namespace Kalori_Takip___Diyet__Programı
 
 			BesinDegeriTopla(dinner.MealName, secilenTarih);
 
-			BesinDegeriTopla(snack.MealName, secilenTarih);
+			BesinDegeriTopla(Aperatif.MealName, secilenTarih);
 			TotalBesinDegeri(secilenTarih);
 		}
 		Meal brekfast;
@@ -71,9 +71,9 @@ namespace Kalori_Takip___Diyet__Programı
 			}
 			else
 			{
-				FoodShow foodShow = new FoodShow(brekfast, DateTime.UtcNow.Date);
+				FoodShow foodShow = new FoodShow(brekfast, DateTime.Now.Date);
 				foodShow.ShowDialog();
-				BesinDegeriTopla(brekfast.MealName, DateTime.UtcNow.Date);
+				BesinDegeriTopla(brekfast.MealName, DateTime.Now.Date);
 				TotalBesinDegeri(dtpMealDate.Value.Date);
 			}
 		}
@@ -85,14 +85,14 @@ namespace Kalori_Takip___Diyet__Programı
 			{
 				FoodShow foodShow = new FoodShow(dinner, dtpMealDate.Value.Date);
 				foodShow.ShowDialog();
-				BesinDegeriTopla(dinner.MealName, DateTime.UtcNow.Date);
+				BesinDegeriTopla(dinner.MealName, DateTime.Now.Date);
 				TotalBesinDegeri(dtpMealDate.Value.Date);
 			}
 			else
 			{
-				FoodShow foodShow = new FoodShow(dinner, DateTime.UtcNow.Date);
+				FoodShow foodShow = new FoodShow(dinner, DateTime.Now.Date);
 				foodShow.ShowDialog();
-				BesinDegeriTopla(dinner.MealName, DateTime.UtcNow.Date);
+				BesinDegeriTopla(dinner.MealName, DateTime.Now.Date);
 				TotalBesinDegeri(dtpMealDate.Value.Date);
 			}
 		}
@@ -104,32 +104,32 @@ namespace Kalori_Takip___Diyet__Programı
 			{
 				FoodShow foodShow = new FoodShow(brunch, dtpMealDate.Value.Date);
 				foodShow.ShowDialog();
-				BesinDegeriTopla(brunch.MealName, DateTime.UtcNow.Date);
+				BesinDegeriTopla(brunch.MealName, DateTime.Now.Date);
 				TotalBesinDegeri(dtpMealDate.Value.Date);
 			}
 			else
 			{
-				FoodShow foodShow = new FoodShow(brunch, DateTime.UtcNow.Date);
+				FoodShow foodShow = new FoodShow(brunch, DateTime.Now.Date);
 				foodShow.ShowDialog();
-				BesinDegeriTopla(brunch.MealName, DateTime.UtcNow.Date);
+				BesinDegeriTopla(brunch.MealName, DateTime.Now.Date);
 				TotalBesinDegeri(dtpMealDate.Value.Date);
 			}
 		}
-		Meal snack;
+		Meal Aperatif;
 		private void btnAperatifGoster_Click(object sender, EventArgs e)
 		{
 			if (dateTimePickerIsAktif == true)
 			{
-				FoodShow foodShow = new FoodShow(snack, dtpMealDate.Value.Date);
+				FoodShow foodShow = new FoodShow(Aperatif, dtpMealDate.Value.Date);
 				foodShow.ShowDialog();
-				BesinDegeriTopla(snack.MealName, DateTime.UtcNow.Date);
+				BesinDegeriTopla(Aperatif.MealName, DateTime.Now.Date);
 				TotalBesinDegeri(dtpMealDate.Value.Date);
 			}
 			else
 			{
-				FoodShow foodShow = new FoodShow(snack, DateTime.UtcNow.Date);
+				FoodShow foodShow = new FoodShow(Aperatif, DateTime.Now.Date);
 				foodShow.ShowDialog();
-				BesinDegeriTopla(snack.MealName, DateTime.UtcNow.Date);
+				BesinDegeriTopla(Aperatif.MealName, DateTime.Now.Date);
 				TotalBesinDegeri(dtpMealDate.Value.Date);
 
 			}
@@ -139,7 +139,7 @@ namespace Kalori_Takip___Diyet__Programı
 		{
 			dateTimePickerIsAktif = true;
 			DateTime secilenTarih = dtpMealDate.Value.Date;
-			if (secilenTarih.Date != DateTime.UtcNow.Date)
+			if (secilenTarih.Date != DateTime.Now.Date)
 			{
 				btnKahvaltiEkle.Enabled = false;
 				btnAksamYemegi.Enabled = false;
@@ -157,7 +157,7 @@ namespace Kalori_Takip___Diyet__Programı
 			BesinDegeriTopla(brekfast.MealName, secilenTarih);
 			BesinDegeriTopla(brunch.MealName, secilenTarih);
 			BesinDegeriTopla(dinner.MealName, secilenTarih);
-			BesinDegeriTopla(snack.MealName, secilenTarih);
+			BesinDegeriTopla(Aperatif.MealName, secilenTarih);
 			TotalBesinDegeri(secilenTarih);
 		}
 
@@ -166,7 +166,7 @@ namespace Kalori_Takip___Diyet__Programı
 			AddBreakfast addBreakfast = new AddBreakfast(_user);
 			this.Hide();
 			addBreakfast.ShowDialog();
-			BesinDegeriTopla("Sabah", DateTime.Now);
+			BesinDegeriTopla(brekfast.MealName, DateTime.Now);
 			TotalBesinDegeri(DateTime.Now);
 			this.Show();
 		}
@@ -175,8 +175,8 @@ namespace Kalori_Takip___Diyet__Programı
 			AddLunch addLunch = new AddLunch(_user);
 			this.Hide();
 			addLunch.ShowDialog();
-			BesinDegeriTopla(brunch.MealName, DateTime.UtcNow);
-			TotalBesinDegeri(DateTime.UtcNow);
+			BesinDegeriTopla(brunch.MealName, DateTime.Now);
+			TotalBesinDegeri(DateTime.Now);
 			this.Show();
 		}
 		private void btnAksamYemegi_Click(object sender, EventArgs e)
@@ -185,8 +185,8 @@ namespace Kalori_Takip___Diyet__Programı
 			AddDinner addDinner = new AddDinner(_user);
 			this.Hide();
 			addDinner.ShowDialog();
-			BesinDegeriTopla(dinner.MealName, DateTime.UtcNow);
-			TotalBesinDegeri(DateTime.UtcNow);
+			BesinDegeriTopla(dinner.MealName, DateTime.Now);
+			TotalBesinDegeri(DateTime.Now);
 			this.Show();
 		}
 
@@ -195,8 +195,8 @@ namespace Kalori_Takip___Diyet__Programı
 			AddSnack addSnack = new AddSnack(_user);
 			this.Show();
 			addSnack.ShowDialog();
-			BesinDegeriTopla(snack.MealName, DateTime.UtcNow);
-			TotalBesinDegeri(DateTime.UtcNow);
+			BesinDegeriTopla(Aperatif.MealName, DateTime.Now);
+			TotalBesinDegeri(DateTime.Now);
 			this.Show();
 		}
 
@@ -258,7 +258,7 @@ namespace Kalori_Takip___Diyet__Programı
 				lblAksamFat.Text = totFat.ToString("0.00");
 				lblAksamProtein.Text = totProtein.ToString("0.00");
 			}
-			if (mealName == "Snack")
+			if (mealName == "Aperatif")
 			{
 				lblAperatifCalory.Text = totCal.ToString("0.00");
 				lblAperatifCarb.Text = totCarb.ToString("0.00");

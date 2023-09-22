@@ -1,4 +1,6 @@
-﻿using KaloriTakipProgramı.Data.Repositories;
+﻿using KaloriTakipProgramı.Data.Abstract;
+using KaloriTakipProgramı.Data.Context;
+using KaloriTakipProgramı.Data.Repositories;
 using KaloriTakipProgramı.Entity.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,8 +11,10 @@ using System.Threading.Tasks;
 
 namespace KaloriTakipProgramı.Data.Concrete.EntityFramework
 {
-	public class ConsumeFoodRepository:GenericRepository<ConsumeFood>
+	public class ConsumeFoodRepository : GenericRepository<ConsumeFood> 
 	{
+
+
 		public List<ConsumeFood> GetConsumeFoodByValue(DateTime secilenTarih)
 		{
 			return _context.ConsumeFoods.Where(x => x.CreatedDate.Date == secilenTarih.Date).ToList();
@@ -25,8 +29,19 @@ namespace KaloriTakipProgramı.Data.Concrete.EntityFramework
 		}
 		public ConsumeFood GetConsumeFood2(int id, DateTime tarih)
 		{
-			return _context.ConsumeFoods.OrderBy(x=>x.CreatedDate).LastOrDefault(x => x.Meal.MealID == id && x.CreatedDate.Date == tarih.Date);
+			return _context.ConsumeFoods.OrderBy(x => x.CreatedDate).LastOrDefault(x => x.Meal.MealID == id && x.CreatedDate.Date == tarih.Date);
 		}
+
+
+
+
+
+
+
+
+
+
+
 
 
 		#region Haftalık Ogun İçin
@@ -89,66 +104,94 @@ namespace KaloriTakipProgramı.Data.Concrete.EntityFramework
 		#endregion
 
 		#region Haftalık Kategori İçin
-		public List<Category> HaftalıkBazdaKategoriRaporuİle(DateTime dateTime)
+		public List<CategoryReport> HaftalıkBazdaKategoriRaporuKullaniciİle(int userId, DateTime dateTime)
 		{
 			DateTime startTime = dateTime.AddDays(-7).Date;
 			DateTime endTime = dateTime.Date;
-			return _context.ConsumeFoods.Where(x => x.CreatedDate >= startTime && x.CreatedDate <= endTime)
-						.SelectMany(x => x.Foods)
-						.GroupBy(cf => cf.Category.CategoryName)
-						.Select(g => new Category
-						{
-							CategoryName = g.Key,
-							Value = g.Sum(cf => cf.Value)
-						})
-						.OrderByDescending(cf => cf.Value)
-						.ToList();
+			List<CategoryReport> categoryReports = _context.ConsumeFoods
+				.Where(cf => cf.AppUserID == userId && cf.CreatedDate >= startTime && cf.CreatedDate <= endTime)
+				.Join(_context.Foods, cf => cf.ConsumeFoodID, f => f.FoodID, (cf, f) => new { ConsumeFood = cf, Food = f })
+				.Join(_context.Categories, joined => joined.Food.CategoryID, c => c.CategoryID, (joined, c) => new { Category = c, Joined = joined })
+				.GroupBy(joined => joined.Category.CategoryName)
+				.Select(group => new CategoryReport
+				{
+					CategoryName = group.Key,
+					TotalCalories = group.Sum(joined => joined.Joined.ConsumeFood.Calories),
+					TotalProtein = group.Sum(joined => joined.Joined.ConsumeFood.Protein),
+					TotalCarbohydrate = group.Sum(joined => joined.Joined.ConsumeFood.Carbohydrate),
+					TotalFat = group.Sum(joined => joined.Joined.ConsumeFood.Fat)
+				})
+				.ToList();
+
+			return categoryReports;
 		}
-		public List<Category> HaftalıkBazdaKategoriRaporuKullanıcıİle(int id, DateTime dateTime)
+
+		public List<CategoryReport> HaftalıkBazdaKategoriRaporu( DateTime dateTime)
 		{
 			DateTime startTime = dateTime.AddDays(-7).Date;
 			DateTime endTime = dateTime.Date;
-			return _context.ConsumeFoods.Where(x => x.AppUserID == id && x.CreatedDate >= startTime && x.CreatedDate <= endTime)
-						.SelectMany(x => x.Foods)
-						.GroupBy(cf => cf.Category.CategoryName)
-						.Select(g => new Category
-						{
-							CategoryName = g.Key,
-							Value = g.Sum(cf => cf.Value)
-						})
-						.OrderByDescending(cf => cf.Value)
-						.ToList();
+			List<CategoryReport> categoryReports = _context.ConsumeFoods
+				.Where(cf => cf.CreatedDate >= startTime && cf.CreatedDate <= endTime)
+				.Join(_context.Foods, cf => cf.ConsumeFoodID, f => f.FoodID, (cf, f) => new { ConsumeFood = cf, Food = f })
+				.Join(_context.Categories, joined => joined.Food.CategoryID, c => c.CategoryID, (joined, c) => new { Category = c, Joined = joined })
+				.GroupBy(joined => joined.Category.CategoryName)
+				.Select(group => new CategoryReport
+				{
+					CategoryName = group.Key,
+					TotalCalories = group.Sum(joined => joined.Joined.ConsumeFood.Calories),
+					TotalProtein = group.Sum(joined => joined.Joined.ConsumeFood.Protein),
+					TotalCarbohydrate = group.Sum(joined => joined.Joined.ConsumeFood.Carbohydrate),
+					TotalFat = group.Sum(joined => joined.Joined.ConsumeFood.Fat)
+				})
+				.ToList();
+
+			return categoryReports;
 		}
 		#endregion
 
+
+
+
 		#region Aylık Kategori
-		public List<Category> AylıkBazdaKategoriRaporu(DateTime dateTime)
+		public List<CategoryReport> AylıkBazdaKategoriRaporu(DateTime dateTime)
 		{
 			DateTime endTime = dateTime.Date;
-			return _context.ConsumeFoods.Where(x => x.CreatedDate.Month == endTime.Month)
-						.SelectMany(x => x.Foods)
-						.GroupBy(cf => cf.Category.CategoryName)
-						.Select(g => new Category
-						{
-							CategoryName = g.Key,
-							Value = g.Sum(cf => cf.Value)
-						})
-						.OrderByDescending(cf => cf.Value)
-						.ToList();
+			List<CategoryReport> categoryReports = _context.ConsumeFoods
+				.Where(cf => cf.CreatedDate.Month == endTime.Month)
+				.Join(_context.Foods, cf => cf.ConsumeFoodID, f => f.FoodID, (cf, f) => new { ConsumeFood = cf, Food = f })
+				.Join(_context.Categories, joined => joined.Food.CategoryID, c => c.CategoryID, (joined, c) => new { Category = c, Joined = joined })
+				.GroupBy(joined => joined.Category.CategoryName)
+				.Select(group => new CategoryReport
+				{
+					CategoryName = group.Key,
+					TotalCalories = group.Sum(joined => joined.Joined.ConsumeFood.Calories),
+					TotalProtein = group.Sum(joined => joined.Joined.ConsumeFood.Protein),
+					TotalCarbohydrate = group.Sum(joined => joined.Joined.ConsumeFood.Carbohydrate),
+					TotalFat = group.Sum(joined => joined.Joined.ConsumeFood.Fat)
+				})
+				.ToList();
+
+			return categoryReports;
 		}
-		public List<Category> AylıkBazdaKategoriRaporuKullanıcıİle(int id, DateTime dateTime)
+		public List<CategoryReport> AylıkBazdaKategoriRaporuKullanıcıİle(int userId, DateTime dateTime)
 		{
 			DateTime endTime = dateTime.Date;
-			return _context.ConsumeFoods.Where(x => x.AppUserID == id && x.CreatedDate.Month == endTime.Month)
-						.SelectMany(x => x.Foods)
-						.GroupBy(cf => cf.Category.CategoryName)
-						.Select(g => new Category
-						{
-							CategoryName = g.Key,
-							Value = g.Sum(cf => cf.Value)
-						})
-						.OrderByDescending(cf => cf.Value)
-						.ToList();
+			List<CategoryReport> categoryReports = _context.ConsumeFoods
+				.Where(cf =>cf.AppUserID == userId && cf.CreatedDate.Month == endTime.Month)
+				.Join(_context.Foods, cf => cf.ConsumeFoodID, f => f.FoodID, (cf, f) => new { ConsumeFood = cf, Food = f })
+				.Join(_context.Categories, joined => joined.Food.CategoryID, c => c.CategoryID, (joined, c) => new { Category = c, Joined = joined })
+				.GroupBy(joined => joined.Category.CategoryName)
+				.Select(group => new CategoryReport
+				{
+					CategoryName = group.Key,
+					TotalCalories = group.Sum(joined => joined.Joined.ConsumeFood.Calories),
+					TotalProtein = group.Sum(joined => joined.Joined.ConsumeFood.Protein),
+					TotalCarbohydrate = group.Sum(joined => joined.Joined.ConsumeFood.Carbohydrate),
+					TotalFat = group.Sum(joined => joined.Joined.ConsumeFood.Fat)
+				})
+				.ToList();
+
+			return categoryReports;
 		}
 		#endregion
 

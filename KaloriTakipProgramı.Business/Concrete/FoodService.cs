@@ -70,11 +70,16 @@ namespace KaloriTakipProgramı.Business.Concrete
 				selectedFood.Carbohydrate *= ratio;
 				selectedFood.Fat *= ratio;
 				selectedFood.Protein *= ratio;
-				
+
 				return selectedFood;
 			}
 
 			return null;
+		}
+
+		public Food TGetFoodWithConsumeFoods(int id)
+		{
+			return _foodRepository.GetFoodWithConsumeFoods(id);
 		}
 	}
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KaloriTakipProgramı.Business.Concrete
 {
-    public class CategoryService : ICategoryService
+    public class CategoryService
 	{
 		private readonly CategoryRepository _categoryRepository;
 
@@ -18,40 +18,9 @@ namespace KaloriTakipProgramı.Business.Concrete
         {
             _categoryRepository = new CategoryRepository();
         }
-        public void TAdd(Category t)
-		{
-			throw new NotImplementedException();
-		}
 
-		public void TDelete(Category t)
-		{
-			throw new NotImplementedException();
-		}
 
-		public List<Category> TGetAll()
-		{
-			throw new NotImplementedException();
-		}
 
-		public Category TGetByFilter(Expression<Func<Category, bool>> filter)
-		{
-			throw new NotImplementedException();
-		}
-
-		public List<Category> TGetByFilterList(Expression<Func<Category, bool>> filter)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Category TGetByID(int id)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void TUpdate(Category t)
-		{
-			throw new NotImplementedException();
-		}
 		public List<Category> GetMostConsumedFoodsByCategoryWeek(DateTime dateTime)
 		{
 			DateTime startTime = dateTime.AddDays(-7).Date;

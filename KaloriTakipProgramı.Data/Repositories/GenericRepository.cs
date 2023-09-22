@@ -13,6 +13,7 @@ namespace KaloriTakipProgramı.Data.Repositories
 	public class GenericRepository<T> : IGenericRepository<T> where T : class
 	{
 		protected readonly AppDbContext _context;
+
 		public GenericRepository()
 		{
 			_context = new AppDbContext();
@@ -32,7 +33,7 @@ namespace KaloriTakipProgramı.Data.Repositories
 
 		public T GetByFilter(Expression<Func<T, bool>> filter)
 		{
-			return _context.Set<T>().FirstOrDefault(filter);
+			return _context.Set<T>().First(filter);
 
 		}
 

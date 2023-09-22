@@ -30,6 +30,20 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSnack));
 			grpAraOguniEkle = new GroupBox();
+			lstUrunler = new ListView();
+			columnHeader9 = new ColumnHeader();
+			columnHeader1 = new ColumnHeader();
+			lstEklenenUrunler = new ListView();
+			columnHeader8 = new ColumnHeader();
+			columnHeader2 = new ColumnHeader();
+			columnHeader3 = new ColumnHeader();
+			columnHeader4 = new ColumnHeader();
+			columnHeader5 = new ColumnHeader();
+			columnHeader6 = new ColumnHeader();
+			columnHeader7 = new ColumnHeader();
+			pbxYemekResmi = new PictureBox();
+			label3 = new Label();
+			btnResimEkle = new Button();
 			label2 = new Label();
 			label5 = new Label();
 			label6 = new Label();
@@ -37,26 +51,16 @@
 			btnKaydet = new Button();
 			txtUrunAra = new TextBox();
 			btnSil = new Button();
-			lstUrunler = new ListView();
-			columnHeader1 = new ColumnHeader();
 			btnEkle = new Button();
-			lstEklenenUrunler = new ListView();
-			columnHeader2 = new ColumnHeader();
-			columnHeader3 = new ColumnHeader();
-			columnHeader4 = new ColumnHeader();
-			columnHeader5 = new ColumnHeader();
-			columnHeader6 = new ColumnHeader();
-			columnHeader7 = new ColumnHeader();
 			label1 = new Label();
-			pbxYemekResmi = new PictureBox();
-			label3 = new Label();
-			btnResimEkle = new Button();
 			grpAraOguniEkle.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pbxYemekResmi).BeginInit();
 			SuspendLayout();
 			// 
 			// grpAraOguniEkle
 			// 
+			grpAraOguniEkle.Controls.Add(lstUrunler);
+			grpAraOguniEkle.Controls.Add(lstEklenenUrunler);
 			grpAraOguniEkle.Controls.Add(pbxYemekResmi);
 			grpAraOguniEkle.Controls.Add(label3);
 			grpAraOguniEkle.Controls.Add(btnResimEkle);
@@ -67,16 +71,119 @@
 			grpAraOguniEkle.Controls.Add(btnKaydet);
 			grpAraOguniEkle.Controls.Add(txtUrunAra);
 			grpAraOguniEkle.Controls.Add(btnSil);
-			grpAraOguniEkle.Controls.Add(lstUrunler);
 			grpAraOguniEkle.Controls.Add(btnEkle);
-			grpAraOguniEkle.Controls.Add(lstEklenenUrunler);
 			grpAraOguniEkle.Controls.Add(label1);
 			grpAraOguniEkle.Location = new Point(2, 36);
 			grpAraOguniEkle.Name = "grpAraOguniEkle";
-			grpAraOguniEkle.Size = new Size(780, 478);
+			grpAraOguniEkle.Size = new Size(782, 478);
 			grpAraOguniEkle.TabIndex = 22;
 			grpAraOguniEkle.TabStop = false;
 			grpAraOguniEkle.Text = "ARA ÖĞÜN EKLE";
+			grpAraOguniEkle.Enter += grpAraOguniEkle_Enter;
+			// 
+			// lstUrunler
+			// 
+			lstUrunler.BackColor = Color.PaleGoldenrod;
+			lstUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader9, columnHeader1 });
+			lstUrunler.FullRowSelect = true;
+			lstUrunler.GridLines = true;
+			lstUrunler.Location = new Point(6, 112);
+			lstUrunler.Name = "lstUrunler";
+			lstUrunler.Size = new Size(271, 164);
+			lstUrunler.TabIndex = 31;
+			lstUrunler.UseCompatibleStateImageBehavior = false;
+			lstUrunler.View = View.Details;
+			// 
+			// columnHeader9
+			// 
+			columnHeader9.Text = "ID";
+			// 
+			// columnHeader1
+			// 
+			columnHeader1.Text = "Ürün Adı";
+			columnHeader1.Width = 260;
+			// 
+			// lstEklenenUrunler
+			// 
+			lstEklenenUrunler.BackColor = Color.PaleGoldenrod;
+			lstEklenenUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader8, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
+			lstEklenenUrunler.FullRowSelect = true;
+			lstEklenenUrunler.GridLines = true;
+			lstEklenenUrunler.Location = new Point(3, 282);
+			lstEklenenUrunler.Name = "lstEklenenUrunler";
+			lstEklenenUrunler.Size = new Size(775, 198);
+			lstEklenenUrunler.TabIndex = 30;
+			lstEklenenUrunler.UseCompatibleStateImageBehavior = false;
+			lstEklenenUrunler.View = View.Details;
+			// 
+			// columnHeader8
+			// 
+			columnHeader8.Text = "ID";
+			// 
+			// columnHeader2
+			// 
+			columnHeader2.Text = "Ürün Adı";
+			columnHeader2.Width = 125;
+			// 
+			// columnHeader3
+			// 
+			columnHeader3.Text = "Miktar";
+			columnHeader3.Width = 125;
+			// 
+			// columnHeader4
+			// 
+			columnHeader4.Text = "Kalori";
+			columnHeader4.Width = 125;
+			// 
+			// columnHeader5
+			// 
+			columnHeader5.Text = "Protein";
+			columnHeader5.Width = 125;
+			// 
+			// columnHeader6
+			// 
+			columnHeader6.Text = "Yağ";
+			columnHeader6.Width = 125;
+			// 
+			// columnHeader7
+			// 
+			columnHeader7.Text = "Karbonhidrat";
+			columnHeader7.Width = 125;
+			// 
+			// pbxYemekResmi
+			// 
+			pbxYemekResmi.BorderStyle = BorderStyle.FixedSingle;
+			pbxYemekResmi.Location = new Point(657, 19);
+			pbxYemekResmi.Name = "pbxYemekResmi";
+			pbxYemekResmi.Size = new Size(117, 134);
+			pbxYemekResmi.SizeMode = PictureBoxSizeMode.StretchImage;
+			pbxYemekResmi.TabIndex = 56;
+			pbxYemekResmi.TabStop = false;
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.BackColor = Color.Transparent;
+			label3.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
+			label3.Location = new Point(502, 16);
+			label3.Name = "label3";
+			label3.Size = new Size(149, 19);
+			label3.TabIndex = 55;
+			label3.Text = "Resim Ekleyebilirsiniz";
+			// 
+			// btnResimEkle
+			// 
+			btnResimEkle.BackColor = Color.DarkSeaGreen;
+			btnResimEkle.BackgroundImage = (Image)resources.GetObject("btnResimEkle.BackgroundImage");
+			btnResimEkle.BackgroundImageLayout = ImageLayout.Stretch;
+			btnResimEkle.FlatAppearance.BorderSize = 0;
+			btnResimEkle.FlatStyle = FlatStyle.Popup;
+			btnResimEkle.Location = new Point(741, 159);
+			btnResimEkle.Name = "btnResimEkle";
+			btnResimEkle.Size = new Size(33, 30);
+			btnResimEkle.TabIndex = 54;
+			btnResimEkle.UseVisualStyleBackColor = false;
+			btnResimEkle.Click += btnResimEkle_Click;
 			// 
 			// label2
 			// 
@@ -156,24 +263,6 @@
 			btnSil.UseVisualStyleBackColor = false;
 			btnSil.Click += btnSil_Click;
 			// 
-			// lstUrunler
-			// 
-			lstUrunler.BackColor = Color.PaleGoldenrod;
-			lstUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
-			lstUrunler.FullRowSelect = true;
-			lstUrunler.GridLines = true;
-			lstUrunler.Location = new Point(6, 103);
-			lstUrunler.Name = "lstUrunler";
-			lstUrunler.Size = new Size(271, 164);
-			lstUrunler.TabIndex = 47;
-			lstUrunler.UseCompatibleStateImageBehavior = false;
-			lstUrunler.View = View.Details;
-			// 
-			// columnHeader1
-			// 
-			columnHeader1.Text = "Ürün Adı";
-			columnHeader1.Width = 260;
-			// 
 			// btnEkle
 			// 
 			btnEkle.BackColor = Color.DarkSeaGreen;
@@ -188,49 +277,6 @@
 			btnEkle.UseVisualStyleBackColor = false;
 			btnEkle.Click += btnEkle_Click;
 			// 
-			// lstEklenenUrunler
-			// 
-			lstEklenenUrunler.BackColor = Color.PaleGoldenrod;
-			lstEklenenUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
-			lstEklenenUrunler.FullRowSelect = true;
-			lstEklenenUrunler.GridLines = true;
-			lstEklenenUrunler.Location = new Point(6, 273);
-			lstEklenenUrunler.Name = "lstEklenenUrunler";
-			lstEklenenUrunler.Size = new Size(775, 198);
-			lstEklenenUrunler.TabIndex = 46;
-			lstEklenenUrunler.UseCompatibleStateImageBehavior = false;
-			lstEklenenUrunler.View = View.Details;
-			// 
-			// columnHeader2
-			// 
-			columnHeader2.Text = "Ürün Adı";
-			columnHeader2.Width = 125;
-			// 
-			// columnHeader3
-			// 
-			columnHeader3.Text = "Miktar";
-			columnHeader3.Width = 125;
-			// 
-			// columnHeader4
-			// 
-			columnHeader4.Text = "Kalori";
-			columnHeader4.Width = 125;
-			// 
-			// columnHeader5
-			// 
-			columnHeader5.Text = "Protein";
-			columnHeader5.Width = 125;
-			// 
-			// columnHeader6
-			// 
-			columnHeader6.Text = "Yağ";
-			columnHeader6.Width = 125;
-			// 
-			// columnHeader7
-			// 
-			columnHeader7.Text = "Karbonhidrat";
-			columnHeader7.Width = 125;
-			// 
 			// label1
 			// 
 			label1.AutoSize = true;
@@ -242,47 +288,12 @@
 			label1.TabIndex = 2;
 			label1.Text = "ARA ÖĞÜN EKLE";
 			// 
-			// pbxYemekResmi
-			// 
-			pbxYemekResmi.BorderStyle = BorderStyle.FixedSingle;
-			pbxYemekResmi.Location = new Point(657, 19);
-			pbxYemekResmi.Name = "pbxYemekResmi";
-			pbxYemekResmi.Size = new Size(117, 134);
-			pbxYemekResmi.SizeMode = PictureBoxSizeMode.StretchImage;
-			pbxYemekResmi.TabIndex = 56;
-			pbxYemekResmi.TabStop = false;
-			// 
-			// label3
-			// 
-			label3.AutoSize = true;
-			label3.BackColor = Color.Transparent;
-			label3.Font = new Font("Calibri", 12F, FontStyle.Regular, GraphicsUnit.Point);
-			label3.Location = new Point(502, 16);
-			label3.Name = "label3";
-			label3.Size = new Size(149, 19);
-			label3.TabIndex = 55;
-			label3.Text = "Resim Ekleyebilirsiniz";
-			// 
-			// btnResimEkle
-			// 
-			btnResimEkle.BackColor = Color.DarkSeaGreen;
-			btnResimEkle.BackgroundImage = (Image)resources.GetObject("btnResimEkle.BackgroundImage");
-			btnResimEkle.BackgroundImageLayout = ImageLayout.Stretch;
-			btnResimEkle.FlatAppearance.BorderSize = 0;
-			btnResimEkle.FlatStyle = FlatStyle.Popup;
-			btnResimEkle.Location = new Point(741, 159);
-			btnResimEkle.Name = "btnResimEkle";
-			btnResimEkle.Size = new Size(33, 30);
-			btnResimEkle.TabIndex = 54;
-			btnResimEkle.UseVisualStyleBackColor = false;
-			btnResimEkle.Click += btnResimEkle_Click;
-			// 
 			// AddSnack
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(782, 526);
+			ClientSize = new Size(796, 526);
 			Controls.Add(grpAraOguniEkle);
 			Name = "AddSnack";
 			Text = "AddSnack";
@@ -302,18 +313,20 @@
 		private Button btnKaydet;
 		private TextBox txtUrunAra;
 		private Button btnSil;
-		private ListView lstUrunler;
-		private ColumnHeader columnHeader1;
 		private Button btnEkle;
+		private PictureBox pbxYemekResmi;
+		private Label label3;
+		private Button btnResimEkle;
+		private ListView lstUrunler;
+		private ColumnHeader columnHeader9;
+		private ColumnHeader columnHeader1;
 		private ListView lstEklenenUrunler;
+		private ColumnHeader columnHeader8;
 		private ColumnHeader columnHeader2;
 		private ColumnHeader columnHeader3;
 		private ColumnHeader columnHeader4;
 		private ColumnHeader columnHeader5;
 		private ColumnHeader columnHeader6;
 		private ColumnHeader columnHeader7;
-		private PictureBox pbxYemekResmi;
-		private Label label3;
-		private Button btnResimEkle;
 	}
 }

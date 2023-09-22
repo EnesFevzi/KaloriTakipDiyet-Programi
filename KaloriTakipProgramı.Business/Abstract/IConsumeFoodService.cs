@@ -9,6 +9,5 @@ namespace KaloriTakipProgramı.Business.Abstract
 {
 	public interface IConsumeFoodService:IGenericService<ConsumeFood>
 	{
-
 	}
 }

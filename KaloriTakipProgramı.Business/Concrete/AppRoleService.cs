@@ -11,46 +11,16 @@ using System.Threading.Tasks;
 
 namespace KaloriTakipProgramı.Business.Concrete
 {
-	public class AppRoleService : IAppRoleService
+	public class AppRoleService
 	{
 		private readonly AppRoleRepository _repository;
         public AppRoleService()
         {
             _repository = new AppRoleRepository();
         }
-        public void TAdd(AppRole t)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void TDelete(AppRole t)
-		{
-			throw new NotImplementedException();
-		}
-
-		public List<AppRole> TGetAll()
-		{
-			throw new NotImplementedException();
-		}
-
 		public AppRole TGetByFilter(Expression<Func<AppRole, bool>> filter)
 		{
 			return _repository.GetByFilter(filter);
-		}
-
-		public List<AppRole> TGetByFilterList(Expression<Func<AppRole, bool>> filter)
-		{
-			throw new NotImplementedException();
-		}
-
-		public AppRole TGetByID(int id)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void TUpdate(AppRole t)
-		{
-			throw new NotImplementedException();
 		}
 		public int TGetRoleIDByName(string roleName)
 		{

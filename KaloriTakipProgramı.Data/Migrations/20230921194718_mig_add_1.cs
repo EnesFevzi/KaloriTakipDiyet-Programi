@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KaloriTakipProgramı.Data.Migrations
 {
-    public partial class mig_1 : Migration
+    public partial class mig_add_1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,6 +39,25 @@ namespace KaloriTakipProgramı.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.CategoryID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Meals",
+                columns: table => new
+                {
+                    MealID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MealName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedDate2 = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Value = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Meals", x => x.MealID);
                 });
 
             migrationBuilder.CreateTable(
@@ -85,6 +104,45 @@ namespace KaloriTakipProgramı.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ConsumeFoods",
+                columns: table => new
+                {
+                    ConsumeFoodID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ConsumeFoodName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GramCompensation = table.Column<float>(type: "real", nullable: false),
+                    Calories = table.Column<float>(type: "real", nullable: false),
+                    Carbohydrate = table.Column<float>(type: "real", nullable: false),
+                    Protein = table.Column<float>(type: "real", nullable: false),
+                    Fat = table.Column<float>(type: "real", nullable: false),
+                    ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AppUserID = table.Column<int>(type: "int", nullable: false),
+                    MealID = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedDate2 = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Value = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ConsumeFoods", x => x.ConsumeFoodID);
+                    table.ForeignKey(
+                        name: "FK_ConsumeFoods_AppUsers_AppUserID",
+                        column: x => x.AppUserID,
+                        principalTable: "AppUsers",
+                        principalColumn: "AppUserID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ConsumeFoods_Meals_MealID",
+                        column: x => x.MealID,
+                        principalTable: "Meals",
+                        principalColumn: "MealID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MacroFoodReports",
                 columns: table => new
                 {
@@ -106,31 +164,6 @@ namespace KaloriTakipProgramı.Data.Migrations
                         principalTable: "AppUsers",
                         principalColumn: "AppUserID",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Meals",
-                columns: table => new
-                {
-                    MealID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MealName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AppUserID = table.Column<int>(type: "int", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ModifiedDate2 = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Value = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Meals", x => x.MealID);
-                    table.ForeignKey(
-                        name: "FK_Meals_AppUsers_AppUserID",
-                        column: x => x.AppUserID,
-                        principalTable: "AppUsers",
-                        principalColumn: "AppUserID");
                 });
 
             migrationBuilder.CreateTable(
@@ -198,45 +231,6 @@ namespace KaloriTakipProgramı.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ConsumeFoods",
-                columns: table => new
-                {
-                    ConsumeFoodID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ConsumeFoodName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GramCompensation = table.Column<float>(type: "real", nullable: false),
-                    Calories = table.Column<float>(type: "real", nullable: false),
-                    Carbohydrate = table.Column<float>(type: "real", nullable: false),
-                    Protein = table.Column<float>(type: "real", nullable: false),
-                    Fat = table.Column<float>(type: "real", nullable: false),
-                    ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AppUserID = table.Column<int>(type: "int", nullable: false),
-                    MealID = table.Column<int>(type: "int", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    ModifiedDate2 = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Value = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ConsumeFoods", x => x.ConsumeFoodID);
-                    table.ForeignKey(
-                        name: "FK_ConsumeFoods_AppUsers_AppUserID",
-                        column: x => x.AppUserID,
-                        principalTable: "AppUsers",
-                        principalColumn: "AppUserID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ConsumeFoods_Meals_MealID",
-                        column: x => x.MealID,
-                        principalTable: "Meals",
-                        principalColumn: "MealID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ConsumeFoodFood",
                 columns: table => new
                 {
@@ -263,22 +257,26 @@ namespace KaloriTakipProgramı.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AppRoles",
                 columns: new[] { "RoleID", "RoleName" },
-                values: new object[] { 1, "Admin" });
+                values: new object[,]
+                {
+                    { 1, "Admin" },
+                    { 2, "Member" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "CategoryID", "CategoryName", "CreatedDate", "DeletedDate", "ModifiedDate", "ModifiedDate2", "Status", "Value" },
-                values: new object[] { 1, "Deniz Ürünleri", new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6753), null, null, null, false, 1 });
+                values: new object[] { 1, "Deniz Ürünleri", new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2365), null, null, null, false, 1 });
 
             migrationBuilder.InsertData(
                 table: "Meals",
-                columns: new[] { "MealID", "AppUserID", "CreatedDate", "DeletedDate", "MealName", "ModifiedDate", "ModifiedDate2", "Status", "Value" },
+                columns: new[] { "MealID", "CreatedDate", "DeletedDate", "MealName", "ModifiedDate", "ModifiedDate2", "Status", "Value" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6797), null, "Sabah", null, null, false, 1 },
-                    { 2, null, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6806), null, "Öğle", null, null, false, 1 },
-                    { 3, null, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6811), null, "Akşam", null, null, false, 1 },
-                    { 4, null, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6815), null, "Snack", null, null, false, 1 }
+                    { 1, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2408), null, "Sabah", null, null, false, 1 },
+                    { 2, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2416), null, "Öğle", null, null, false, 1 },
+                    { 3, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2421), null, "Akşam", null, null, false, 1 },
+                    { 4, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2425), null, "Snack", null, null, false, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -286,16 +284,16 @@ namespace KaloriTakipProgramı.Data.Migrations
                 columns: new[] { "FoodID", "Calories", "Carbohydrate", "CategoryID", "CreatedDate", "DeletedDate", "Fat", "FoodName", "GramCompensation", "MacroFoodReportReportID", "ModifiedDate", "ModifiedDate2", "Protein", "Status", "TotalCalories", "Value" },
                 values: new object[,]
                 {
-                    { 1, 2.08f, 0f, 1, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6769), null, 0.13f, "Somon", 100f, null, null, null, 0.19f, false, 2.08f, 1 },
-                    { 2, 0.73f, 0.01f, 1, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6772), null, 0.08f, "Ahtapot", 100f, null, null, null, 0.15f, false, 0.73f, 1 },
-                    { 3, 1.01f, 0f, 1, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6774), null, 0.02f, "Alabalık", 100f, null, null, null, 0.19f, false, 1.01f, 1 },
-                    { 4, 1.2f, 0f, 1, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6775), null, 0.06f, "Barbun", 100f, null, null, null, 0.16f, false, 1.2f, 1 },
-                    { 5, 1.2f, 0f, 1, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6776), null, 0.06f, "Çipura", 100f, null, null, null, 0.16f, false, 1.2f, 1 },
-                    { 6, 0.79f, 0f, 1, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6777), null, 0f, "Dil Balığı", 100f, null, null, null, 0.19f, false, 0.79f, 1 },
-                    { 7, 2f, 0.05f, 1, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6778), null, 0.1f, "Izgara Hamsi", 100f, null, null, null, 0.19f, false, 2f, 1 },
-                    { 8, 1.15f, 0f, 1, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6779), null, 0.05f, "Kızartma Hamsi", 100f, null, null, null, 0.17f, false, 1.15f, 1 },
-                    { 9, 2.62f, 0.03f, 1, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6780), null, 0.15f, "Havyar", 100f, null, null, null, 0.26f, false, 2.62f, 1 },
-                    { 10, 0.91f, 0f, 1, new DateTime(2023, 9, 21, 15, 32, 49, 216, DateTimeKind.Local).AddTicks(6781), null, 0.02f, "Istakoz", 100f, null, null, null, 0.17f, false, 0.91f, 1 }
+                    { 1, 2.08f, 0f, 1, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2386), null, 0.13f, "Somon", 100f, null, null, null, 0.19f, false, 2.08f, 1 },
+                    { 2, 0.73f, 0.01f, 1, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2389), null, 0.08f, "Ahtapot", 100f, null, null, null, 0.15f, false, 0.73f, 1 },
+                    { 3, 1.01f, 0f, 1, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2390), null, 0.02f, "Alabalık", 100f, null, null, null, 0.19f, false, 1.01f, 1 },
+                    { 4, 1.2f, 0f, 1, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2391), null, 0.06f, "Barbun", 100f, null, null, null, 0.16f, false, 1.2f, 1 },
+                    { 5, 1.2f, 0f, 1, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2392), null, 0.06f, "Çipura", 100f, null, null, null, 0.16f, false, 1.2f, 1 },
+                    { 6, 0.79f, 0f, 1, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2393), null, 0f, "Dil Balığı", 100f, null, null, null, 0.19f, false, 0.79f, 1 },
+                    { 7, 2f, 0.05f, 1, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2394), null, 0.1f, "Izgara Hamsi", 100f, null, null, null, 0.19f, false, 2f, 1 },
+                    { 8, 1.15f, 0f, 1, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2395), null, 0.05f, "Kızartma Hamsi", 100f, null, null, null, 0.17f, false, 1.15f, 1 },
+                    { 9, 2.62f, 0.03f, 1, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2396), null, 0.15f, "Havyar", 100f, null, null, null, 0.26f, false, 2.62f, 1 },
+                    { 10, 0.91f, 0f, 1, new DateTime(2023, 9, 21, 22, 47, 18, 739, DateTimeKind.Local).AddTicks(2397), null, 0.02f, "Istakoz", 100f, null, null, null, 0.17f, false, 0.91f, 1 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -331,11 +329,6 @@ namespace KaloriTakipProgramı.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_MacroFoodReports_AppUserID",
                 table: "MacroFoodReports",
-                column: "AppUserID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Meals_AppUserID",
-                table: "Meals",
                 column: "AppUserID");
 
             migrationBuilder.CreateIndex(

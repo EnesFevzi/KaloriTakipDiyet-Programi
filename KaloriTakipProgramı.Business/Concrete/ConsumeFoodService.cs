@@ -14,7 +14,7 @@ namespace KaloriTakipProgramı.Business.Concrete
 {
 	public class ConsumeFoodService : IConsumeFoodService
 	{
-		private readonly ConsumeFoodRepository _consumeFoodRepository;
+		private ConsumeFoodRepository _consumeFoodRepository;
         public ConsumeFoodService()
         {
             _consumeFoodRepository = new ConsumeFoodRepository();
@@ -69,11 +69,6 @@ namespace KaloriTakipProgramı.Business.Concrete
 		{
 			return _consumeFoodRepository.GetConsumeFood2(id, tarih);
 		}
-
-
-
-
-
 
 		//2 tarih arasında yenen en çok yiyecekler
 		public List<ConsumeFood> GetMostConsumedFoodsByDateWeek(DateTime dateTime)
@@ -157,8 +152,10 @@ namespace KaloriTakipProgramı.Business.Concrete
 
 
 
+
+
 		//2 tarih arasında yenen en çok yiyeceğin kategorileri
-		
+
 
 
 

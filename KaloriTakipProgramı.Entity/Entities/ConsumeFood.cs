@@ -23,7 +23,7 @@ namespace KaloriTakipProgramı.Entity.Entities
 		public string? ImagePath { get; set; } = "Atanmadı";
 		public int AppUserID { get; set; }
 		public AppUser AppUser { get; set; }
-		public List<Food> Foods { get; set; }
+		public  List<Food> Foods { get; set; }
 
 		public int MealID { get; set; }
 		public Meal Meal { get; set; }

@@ -41,10 +41,12 @@
 			txtUrunAra = new TextBox();
 			btnSil = new Button();
 			lstUrunler = new ListView();
+			columnHeader9 = new ColumnHeader();
 			columnHeader1 = new ColumnHeader();
 			btnResimEkle = new Button();
 			btnEkle = new Button();
 			lstEklenenUrunler = new ListView();
+			columnHeader8 = new ColumnHeader();
 			columnHeader2 = new ColumnHeader();
 			columnHeader3 = new ColumnHeader();
 			columnHeader4 = new ColumnHeader();
@@ -98,7 +100,6 @@
 			pbxYemekResmi.SizeMode = PictureBoxSizeMode.StretchImage;
 			pbxYemekResmi.TabIndex = 34;
 			pbxYemekResmi.TabStop = false;
-			pbxYemekResmi.Click += pbxYemekResmi_Click;
 			// 
 			// label2
 			// 
@@ -132,7 +133,6 @@
 			label3.Size = new Size(149, 19);
 			label3.TabIndex = 33;
 			label3.Text = "Resim Ekleyebilirsiniz";
-			label3.Click += label3_Click;
 			// 
 			// label6
 			// 
@@ -193,7 +193,7 @@
 			// lstUrunler
 			// 
 			lstUrunler.BackColor = Color.PaleGoldenrod;
-			lstUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader1 });
+			lstUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader9, columnHeader1 });
 			lstUrunler.FullRowSelect = true;
 			lstUrunler.GridLines = true;
 			lstUrunler.Location = new Point(9, 139);
@@ -202,6 +202,10 @@
 			lstUrunler.TabIndex = 27;
 			lstUrunler.UseCompatibleStateImageBehavior = false;
 			lstUrunler.View = View.Details;
+			// 
+			// columnHeader9
+			// 
+			columnHeader9.Text = "ID";
 			// 
 			// columnHeader1
 			// 
@@ -239,15 +243,19 @@
 			// lstEklenenUrunler
 			// 
 			lstEklenenUrunler.BackColor = Color.PaleGoldenrod;
-			lstEklenenUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
+			lstEklenenUrunler.Columns.AddRange(new ColumnHeader[] { columnHeader8, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
 			lstEklenenUrunler.FullRowSelect = true;
 			lstEklenenUrunler.GridLines = true;
-			lstEklenenUrunler.Location = new Point(9, 309);
+			lstEklenenUrunler.Location = new Point(6, 309);
 			lstEklenenUrunler.Name = "lstEklenenUrunler";
 			lstEklenenUrunler.Size = new Size(775, 198);
 			lstEklenenUrunler.TabIndex = 26;
 			lstEklenenUrunler.UseCompatibleStateImageBehavior = false;
 			lstEklenenUrunler.View = View.Details;
+			// 
+			// columnHeader8
+			// 
+			columnHeader8.Text = "ID";
 			// 
 			// columnHeader2
 			// 
@@ -318,5 +326,7 @@
 		private PictureBox pbxYemekResmi;
 		private Button btnResimEkle;
 		private Label label3;
+		private ColumnHeader columnHeader8;
+		private ColumnHeader columnHeader9;
 	}
 }

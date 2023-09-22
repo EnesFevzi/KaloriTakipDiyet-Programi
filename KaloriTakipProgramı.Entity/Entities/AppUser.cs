@@ -14,7 +14,7 @@ namespace KaloriTakipProgramı.Entity.Entities
 
         public AppUser()
         {
-			Meals = new List<Meal>();
+		
 			MacroFoodReports= new List<MacroFoodReport>();
 			Waters = new List<Water>();
 			ConsumeFoods = new List<ConsumeFood>();
@@ -50,11 +50,9 @@ namespace KaloriTakipProgramı.Entity.Entities
         public virtual int? RoleID { get; set; }
         public AppRole AppRole  { get; set; }
 
-		public virtual ICollection<Meal>? Meals { get; set; }
+		public  ICollection<Water> Waters { get; set; }
 
-		public virtual ICollection<Water> Waters { get; set; }
-
-		public virtual ICollection<MacroFoodReport>? MacroFoodReports { get; set; }
-		public virtual ICollection<ConsumeFood> ConsumeFoods { get; set; }
+		public  ICollection<MacroFoodReport>? MacroFoodReports { get; set; }
+		public  ICollection<ConsumeFood> ConsumeFoods { get; set; }
 	}
 }

@@ -53,6 +53,7 @@
 			label4 = new Label();
 			btnGeriDon = new Button();
 			btnİncele = new Button();
+			label14 = new Label();
 			grpBesinDegerleri.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -297,13 +298,23 @@
 			// 
 			// btnİncele
 			// 
-			btnİncele.Location = new Point(412, 262);
+			btnİncele.Location = new Point(696, 261);
 			btnİncele.Name = "btnİncele";
 			btnİncele.Size = new Size(75, 23);
 			btnİncele.TabIndex = 25;
 			btnİncele.Text = "İncele";
 			btnİncele.UseVisualStyleBackColor = true;
 			btnİncele.Click += btnİncele_Click;
+			// 
+			// label14
+			// 
+			label14.AutoSize = true;
+			label14.Font = new Font("Calibri", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+			label14.Location = new Point(412, 266);
+			label14.Name = "label14";
+			label14.Size = new Size(39, 18);
+			label14.TabIndex = 15;
+			label14.Text = "gram";
 			// 
 			// HowManyCalories
 			// 
@@ -316,6 +327,7 @@
 			Controls.Add(grpBesinDegerleri);
 			Controls.Add(txtMiktar);
 			Controls.Add(txtAra);
+			Controls.Add(label14);
 			Controls.Add(lstFoods);
 			Controls.Add(label4);
 			Controls.Add(label3);
@@ -359,5 +371,6 @@
 		private Button btnGeriDon;
 		private Button btnİncele;
 		private Label label13;
+		private Label label14;
 	}
 }

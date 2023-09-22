@@ -29,12 +29,14 @@ namespace Kalori_Takip___Diyet__Programı
 		float boy;
 		int yas;
 		float activityValue;
+		float yagorani;
 		private void UserInformatıons_Load(object sender, EventArgs e)
 		{
 			kilo = (float)_user.Weight;
 			boy = (float)_user.Height;
 			activityValue = (float)_user.ActivityValue;
-
+			yagorani = (float)_user.VYO;
+			yagorani = (float)Math.Round(yagorani,2);
 
 			lblAd.Text = $"{_user.Name} {_user.Surname}";
 			cinsiyet = _user.Gender;
@@ -43,7 +45,7 @@ namespace Kalori_Takip___Diyet__Programı
 			lblKilo.Text = kilo.ToString();
 			lblVki.Text = _user.VKI.ToString();
 			lblBazalMetabolizma.Text = _user.BMH.ToString();
-			lblYagOrani.Text = _user.VYO.ToString();
+			lblYagOrani.Text = yagorani.ToString();
 			lblAktiviteDuzeyi.Text = _user.ActivityValue.ToString();
 			lblAlinmasiGerekenKalori.Text = Formul.HesaplaGunlukKaloriIhtiyaci(cinsiyet, kilo, boy, yas, activityValue).ToString("0.00");
 			lblSuMiktari.Text = Formul.HesaplaGunlukSuIhtiyaci(kilo).ToString();

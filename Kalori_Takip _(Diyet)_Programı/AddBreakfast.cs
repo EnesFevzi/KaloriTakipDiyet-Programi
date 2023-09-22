@@ -62,7 +62,8 @@ namespace Kalori_Takip___Diyet__Programı
 			{
 				secilenUrunID = Convert.ToInt32(lstUrunler.SelectedItems[0].Text);
 				UrunBilgisiHesapla(secilenUrunID);
-				string[] arr = { secilenUrunID.ToString(),
+				string[] arr = { 
+					secilenUrunID.ToString(),
 					_db.Foods.First(x => x.FoodID == secilenUrunID).FoodName,
 					txtMiktar.Text,
 					hesaplananKalori.ToString("0.00"),
@@ -116,12 +117,13 @@ namespace Kalori_Takip___Diyet__Programı
 						AppUserID = _user.AppUserID,
 						MealID = result.MealID,
 						Foods = new List<Food>() { secilenUrun },
-						ConsumeFoodName = secilenUrun.FoodName,
+						ConsumeFoodName = item.SubItems[1].Text,
 					};
 					_db.ConsumeFoods.Add(consumeFood);
 					_db.SaveChanges();
 				}
 
+				lstEklenenUrunler.Items.Clear();
 				MessageBox.Show("Başarılı bir şekilde kaydedildi");
 				Helper.Temizle(grpKahvaltiEkle.Controls);
 			}

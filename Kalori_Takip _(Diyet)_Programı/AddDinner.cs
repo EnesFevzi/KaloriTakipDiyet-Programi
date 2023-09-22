@@ -115,7 +115,7 @@ namespace Kalori_Takip___Diyet__Programı
 						AppUserID = _user.AppUserID,
 						MealID = result.MealID,
 						Foods = new List<Food>() { secilenUrun },
-						ConsumeFoodName = secilenUrun.FoodName,
+						ConsumeFoodName = item.SubItems[1].Text,
 					};
 					_db.ConsumeFoods.Add(consumeFood);
 					_db.SaveChanges();

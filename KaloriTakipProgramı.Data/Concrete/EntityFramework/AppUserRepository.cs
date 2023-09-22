@@ -28,7 +28,7 @@ namespace KaloriTakipProgramı.Data.Concrete.EF
 		}
 		public string UserAuthenticationResult(string username, string password)
 		{
-			var userExists = _context.AppUsers.First(u => u.Username == username);
+			var userExists = _context.AppUsers.FirstOrDefault(u => u.Username == username);
 
 			if (userExists != null)
 			{

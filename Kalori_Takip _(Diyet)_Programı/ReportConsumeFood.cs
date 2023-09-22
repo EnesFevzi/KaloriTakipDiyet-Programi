@@ -44,7 +44,7 @@ namespace Kalori_Takip___Diyet__Programı
 				if (rdbOgun.Checked)
 				{
 					chart1.Series.Clear();
-					var consumedFoodsuser = _service2.HaftalıkBazdaOgunRaporuKullanıcıİle(1, dtTarih.Value);
+					var consumedFoodsuser = _service2.HaftalıkBazdaOgunRaporuKullanıcıİle(_user.AppUserID, dtTarih.Value);
 					chart1.Series.Add("Siz");
 					chart1.Series["Siz"].Points.DataBind(consumedFoodsuser, "MealName", "Value", "");
 					chart1.Series["Siz"].ChartType = SeriesChartType.Column;
@@ -58,14 +58,14 @@ namespace Kalori_Takip___Diyet__Programı
 				else
 				{
 
-					chart1.Series.Clear(); 
-					var consumedFoodsuser = _service2.HaftalıkBazdaKategoriRaporu( dtTarih.Value);
+					chart1.Series.Clear();
+					var consumedFoodsuser = _service2.HaftalıkBazdaKategoriRaporu(dtTarih.Value);
 					chart1.Series.Add("Siz");
 					chart1.Series["Siz"].Points.DataBind(consumedFoodsuser, "CategoryName", "TotalCalories", "");
 					chart1.Series["Siz"].ChartType = SeriesChartType.Column;
 
 					//İkinci sütun için verileri ayarla
-				    var consumedFood = _service2.AylıkBazdaKategoriRaporu(dtTarih.Value);
+					var consumedFood = _service2.AylıkBazdaKategoriRaporu(dtTarih.Value);
 					chart1.Series.Add("Diğer Kullanıcılar");
 					chart1.Series["Diğer Kullanıcılar"].Points.DataBind(consumedFood, "CategoryName", "TotalCalories", "");
 					chart1.Series["Diğer Kullanıcılar"].ChartType = SeriesChartType.Column;
@@ -73,9 +73,9 @@ namespace Kalori_Takip___Diyet__Programı
 
 
 				}
-				
+
 			}
-			
+
 			else
 			{
 				if (rdbOgun.Checked)
@@ -94,9 +94,9 @@ namespace Kalori_Takip___Diyet__Programı
 				}
 				else
 				{
-					
+
 					chart1.Series.Clear();
-					var consumedFoodsuser = _service2.AylıkBazdaKategoriRaporuKullanıcıİle(1, dtTarih.Value);
+					var consumedFoodsuser = _service2.AylıkBazdaKategoriRaporuKullanıcıİle(_user.AppUserID, dtTarih.Value);
 					chart1.Series.Add("Siz");
 					chart1.Series["Siz"].Points.DataBind(consumedFoodsuser, "CategoryName", "TotalCalories", "");
 					chart1.Series["Siz"].ChartType = SeriesChartType.Column;
@@ -107,7 +107,7 @@ namespace Kalori_Takip___Diyet__Programı
 					chart1.Series["Diğer Kullanıcılar"].ChartType = SeriesChartType.Column;
 
 				}
-		
+
 			}
 		}
 

@@ -42,7 +42,8 @@ namespace Kalori_Takip___Diyet__Programı
 				foreach (ConsumeFood food in tuketilenUrunler)
 				{
 
-					ListViewItem item = new ListViewItem(food.ConsumeFoodName.ToString());
+					ListViewItem item = new ListViewItem();
+					item.Text = food.ConsumeFoodName;
 					item.SubItems.Add(food.GramCompensation.ToString());
 					item.SubItems.Add(food.Calories.ToString());
 					item.SubItems.Add(food.Protein.ToString());

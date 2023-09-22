@@ -14,7 +14,6 @@ namespace KaloriTakipProgramı.Data.Concrete.EntityFramework
 	public class ConsumeFoodRepository : GenericRepository<ConsumeFood> 
 	{
 
-
 		public List<ConsumeFood> GetConsumeFoodByValue(DateTime secilenTarih)
 		{
 			return _context.ConsumeFoods.Where(x => x.CreatedDate.Date == secilenTarih.Date).ToList();
@@ -29,20 +28,8 @@ namespace KaloriTakipProgramı.Data.Concrete.EntityFramework
 		}
 		public ConsumeFood GetConsumeFood2(int id, DateTime tarih)
 		{
-			return _context.ConsumeFoods.OrderBy(x => x.CreatedDate).LastOrDefault(x => x.Meal.MealID == id && x.CreatedDate.Date == tarih.Date);
+			return _context.ConsumeFoods.OrderBy(x => x.CreatedDate).Last(x => x.Meal.MealID == id && x.CreatedDate.Date == tarih.Date);
 		}
-
-
-
-
-
-
-
-
-
-
-
-
 
 		#region Haftalık Ogun İçin
 		public List<Meal> HaftalıkBazdaOgunRaporu(DateTime dateTime)
@@ -148,9 +135,6 @@ namespace KaloriTakipProgramı.Data.Concrete.EntityFramework
 			return categoryReports;
 		}
 		#endregion
-
-
-
 
 		#region Aylık Kategori
 		public List<CategoryReport> AylıkBazdaKategoriRaporu(DateTime dateTime)

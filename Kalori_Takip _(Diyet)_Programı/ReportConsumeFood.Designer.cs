@@ -28,10 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			rdbHaftalik = new RadioButton();
 			rdbAylik = new RadioButton();
@@ -49,21 +49,22 @@
 			// 
 			// chart1
 			// 
-			chartArea2.Name = "ChartArea1";
-			chart1.ChartAreas.Add(chartArea2);
-			legend2.Name = "Legend1";
-			chart1.Legends.Add(legend2);
+			chart1.BackColor = Color.DarkSeaGreen;
+			chartArea1.Name = "ChartArea1";
+			chart1.ChartAreas.Add(chartArea1);
+			legend1.Name = "Legend1";
+			chart1.Legends.Add(legend1);
 			chart1.Location = new Point(12, 12);
 			chart1.Name = "chart1";
 			chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-			series3.ChartArea = "ChartArea1";
-			series3.Legend = "Legend1";
-			series3.Name = "Siz";
-			series4.ChartArea = "ChartArea1";
-			series4.Legend = "Legend1";
-			series4.Name = "Diğer Kullanıcılar";
-			chart1.Series.Add(series3);
-			chart1.Series.Add(series4);
+			series1.ChartArea = "ChartArea1";
+			series1.Legend = "Legend1";
+			series1.Name = "Siz";
+			series2.ChartArea = "ChartArea1";
+			series2.Legend = "Legend1";
+			series2.Name = "Diğer Kullanıcılar";
+			chart1.Series.Add(series1);
+			chart1.Series.Add(series2);
 			chart1.Size = new Size(520, 380);
 			chart1.TabIndex = 0;
 			chart1.Text = "chart1";
@@ -78,7 +79,6 @@
 			rdbHaftalik.TabStop = true;
 			rdbHaftalik.Text = "Haftalık";
 			rdbHaftalik.UseVisualStyleBackColor = true;
-
 			// 
 			// rdbAylik
 			// 
@@ -167,7 +167,8 @@
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(850, 533);
+			BackColor = Color.DarkSeaGreen;
+			ClientSize = new Size(850, 567);
 			Controls.Add(btnRaporla);
 			Controls.Add(groupBox2);
 			Controls.Add(grpZamanAraligi);

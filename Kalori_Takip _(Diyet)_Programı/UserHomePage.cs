@@ -92,5 +92,7 @@ namespace Kalori_Takip___Diyet__Programı
 			reportConsumeFood.ShowDialog();
 			this.Show();
 		}
+
+
 	}
 }

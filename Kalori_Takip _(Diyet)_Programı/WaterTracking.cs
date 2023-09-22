@@ -38,12 +38,13 @@ namespace Kalori_Takip___Diyet__Programı
 			this.Close();
 		}
 		float kilo;
+		float sulitresi;
 		private void WaterTracking_Load(object sender, EventArgs e)
 		{
 			kilo = (float)_user.Weight;
 
 			lblKilo.Text = kilo.ToString();
-			float sulitresi = Formul.HesaplaGunlukSuIhtiyaci(kilo);
+			sulitresi = Formul.HesaplaGunlukSuIhtiyaci(kilo);
 			if (!_user.LastWaterAdditionDate.HasValue)
 			{
 				lblİcmenizGerekenSuMiktari.Text = $"Bugün İçmeniz Gereken Su Miktarı {(sulitresi / 1000)} Litredir.";
@@ -53,29 +54,34 @@ namespace Kalori_Takip___Diyet__Programı
 				SuMiktarıHesapla();
 			}
 
-
-
-
-
 		}
 		private void SuMiktarıHesapla()
 		{
 			flowLayoutPanel1.Controls.Clear();
 			suMiktari = _waterService.TGetWaterByUserIdAndDate(_user.AppUserID, dtSuTarih.Value.Date);
-			flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
-			float sulitresi = Formul.HesaplaGunlukSuIhtiyaci(kilo);
-			double suIhtiyaci = (sulitresi / 1000) - (suMiktari.WaterQuantity * 0.25);
-			string suIhtiyaciMetin = string.Format("Bugün İçmeniz Gereken Su Miktarı {0:F2} Litredir.", suIhtiyaci);
-			lblİcmenizGerekenSuMiktari.Text = suIhtiyaciMetin;
-			for (int i = 0; i < suMiktari.WaterQuantity; i++)
-			{
 
-				PictureBox bardakPictureBox = new PictureBox();
-				bardakPictureBox.Image = pbxSuBardagi.Image;
-				bardakPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-				bardakPictureBox.Size = new Size(45, 86);
-				flowLayoutPanel1.Controls.Add(bardakPictureBox);
+			if (suMiktari!=null)
+			{
+				flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+				float sulitresi = Formul.HesaplaGunlukSuIhtiyaci(kilo);
+				double suIhtiyaci = (sulitresi / 1000) - (suMiktari.WaterQuantity * 0.25);
+				string suIhtiyaciMetin = string.Format("Bugün İçmeniz Gereken Su Miktarı {0:F2} Litredir.", suIhtiyaci);
+				lblİcmenizGerekenSuMiktari.Text = suIhtiyaciMetin;
+				for (int i = 0; i < suMiktari.WaterQuantity; i++)
+				{
+
+					PictureBox bardakPictureBox = new PictureBox();
+					bardakPictureBox.Image = pbxSuBardagi.Image;
+					bardakPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+					bardakPictureBox.Size = new Size(45, 86);
+					flowLayoutPanel1.Controls.Add(bardakPictureBox);
+				}
 			}
+			else
+			{
+				lblİcmenizGerekenSuMiktari.Text = $"Bugün İçmeniz Gereken Su Miktarı {(sulitresi / 1000)} Litredir.";
+			}
+			
 		}
 
 
@@ -140,7 +146,17 @@ namespace Kalori_Takip___Diyet__Programı
 			}
 			if (dtSuTarih.Value.Date > DateTime.Now.Date)
 			{
-				btnSuEkle.Enabled = true;
+
+				btnSuEkle.Enabled = false;
+				suMiktari = _waterService.TGetWaterByUserIdAndDate(_user.AppUserID, dtSuTarih.Value.Date);
+				if (suMiktari == null)
+				{
+					MessageBox.Show("Bu tarihte bir veri bulunamadı");
+				}
+				else
+				{
+					lblGecmisİcilmisSu.Text = $"İçtiğiniz su {suMiktari.WaterQuantity} bardaktır";
+				}
 				lblGecmisİcilmisSu.Text = "";
 			}
 

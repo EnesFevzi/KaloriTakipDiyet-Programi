@@ -32,7 +32,6 @@
 			label1 = new Label();
 			lblKisiAdi = new Label();
 			btnYemekMiKacKolari = new Button();
-			btnHaydiVucutAnalizi = new Button();
 			btnSuTakibi = new Button();
 			btnKaloriTakibi = new Button();
 			btnRaporlar = new Button();
@@ -59,7 +58,7 @@
 			lblKisiAdi.AutoSize = true;
 			lblKisiAdi.BackColor = Color.Transparent;
 			lblKisiAdi.Font = new Font("Calibri", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-			lblKisiAdi.Location = new Point(167, 9);
+			lblKisiAdi.Location = new Point(145, 9);
 			lblKisiAdi.Name = "lblKisiAdi";
 			lblKisiAdi.Size = new Size(0, 23);
 			lblKisiAdi.TabIndex = 0;
@@ -68,7 +67,7 @@
 			// 
 			btnYemekMiKacKolari.BackColor = Color.PaleGoldenrod;
 			btnYemekMiKacKolari.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnYemekMiKacKolari.Location = new Point(101, 224);
+			btnYemekMiKacKolari.Location = new Point(101, 239);
 			btnYemekMiKacKolari.Name = "btnYemekMiKacKolari";
 			btnYemekMiKacKolari.Size = new Size(174, 58);
 			btnYemekMiKacKolari.TabIndex = 2;
@@ -76,22 +75,11 @@
 			btnYemekMiKacKolari.UseVisualStyleBackColor = false;
 			btnYemekMiKacKolari.Click += btnYemekMiKacKolari_Click;
 			// 
-			// btnHaydiVucutAnalizi
-			// 
-			btnHaydiVucutAnalizi.BackColor = Color.PaleGoldenrod;
-			btnHaydiVucutAnalizi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnHaydiVucutAnalizi.Location = new Point(101, 288);
-			btnHaydiVucutAnalizi.Name = "btnHaydiVucutAnalizi";
-			btnHaydiVucutAnalizi.Size = new Size(174, 58);
-			btnHaydiVucutAnalizi.TabIndex = 3;
-			btnHaydiVucutAnalizi.Text = "Haydi Vucüt Analizi Yapalım";
-			btnHaydiVucutAnalizi.UseVisualStyleBackColor = false;
-			// 
 			// btnSuTakibi
 			// 
 			btnSuTakibi.BackColor = Color.PaleGoldenrod;
 			btnSuTakibi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnSuTakibi.Location = new Point(101, 352);
+			btnSuTakibi.Location = new Point(101, 303);
 			btnSuTakibi.Name = "btnSuTakibi";
 			btnSuTakibi.Size = new Size(174, 58);
 			btnSuTakibi.TabIndex = 2;
@@ -103,7 +91,7 @@
 			// 
 			btnKaloriTakibi.BackColor = Color.PaleGoldenrod;
 			btnKaloriTakibi.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnKaloriTakibi.Location = new Point(101, 416);
+			btnKaloriTakibi.Location = new Point(101, 367);
 			btnKaloriTakibi.Name = "btnKaloriTakibi";
 			btnKaloriTakibi.Size = new Size(174, 58);
 			btnKaloriTakibi.TabIndex = 3;
@@ -115,7 +103,7 @@
 			// 
 			btnRaporlar.BackColor = Color.PaleGoldenrod;
 			btnRaporlar.Font = new Font("Calibri", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
-			btnRaporlar.Location = new Point(101, 480);
+			btnRaporlar.Location = new Point(101, 431);
 			btnRaporlar.Name = "btnRaporlar";
 			btnRaporlar.Size = new Size(174, 58);
 			btnRaporlar.TabIndex = 2;
@@ -169,7 +157,6 @@
 			Controls.Add(btnRaporlar);
 			Controls.Add(btnKaloriTakibi);
 			Controls.Add(btnSuTakibi);
-			Controls.Add(btnHaydiVucutAnalizi);
 			Controls.Add(btnYemekMiKacKolari);
 			Controls.Add(label1);
 			Controls.Add(lblKisiAdi);
@@ -187,7 +174,6 @@
 		private Label label1;
 		private Label lblKisiAdi;
 		private Button btnYemekMiKacKolari;
-		private Button btnHaydiVucutAnalizi;
 		private Button btnSuTakibi;
 		private Button btnKaloriTakibi;
 		private Button btnRaporlar;

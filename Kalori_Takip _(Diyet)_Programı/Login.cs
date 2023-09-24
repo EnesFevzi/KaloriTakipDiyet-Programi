@@ -63,12 +63,12 @@ namespace Kalori_Takip___Diyet__Programı
 
 					if (user.ModifiedDate == null)
 					{
-						IntroductıonTable introductıonTable= new IntroductıonTable(user);
+						IntroductıonTable introductıonTable = new IntroductıonTable(user);
 						this.Hide();
 						introductıonTable.ShowDialog();
 						this.Show();
 
-						
+
 
 					}
 					if (user.ModifiedDate2 == null)
@@ -101,12 +101,6 @@ namespace Kalori_Takip___Diyet__Programı
 
 		}
 
-		private void button1_Click(object sender, EventArgs e)
-		{
-			txtKullaniciAdi.Text = "enesfevzi61";
-			txtSifre.Text = "*123456ASas*";
-
-		}
 	}
 }
 

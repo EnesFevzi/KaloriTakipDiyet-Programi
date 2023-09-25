@@ -98,7 +98,7 @@
 			grpKisiselBilgiler.TabIndex = 10;
 			grpKisiselBilgiler.TabStop = false;
 			grpKisiselBilgiler.Text = "Kişisel Bilgiler";
-			grpKisiselBilgiler.Enter += grpKisiselBilgiler_Enter;
+
 			// 
 			// label7
 			// 
@@ -343,7 +343,7 @@
 			grpSonuclar.TabIndex = 10;
 			grpSonuclar.TabStop = false;
 			grpSonuclar.Text = "Sonuçlar";
-			grpSonuclar.Enter += grpSonuclar_Enter;
+
 			// 
 			// label10
 			// 

@@ -52,6 +52,12 @@ namespace Kalori_Takip___Diyet__Programı
 			boyunCevresi = (double)nmrBoyunCevresi.Value;
 			basenCevresi = (double)nmrBasenCevresi.Value;
 
+			if (string.IsNullOrEmpty(ad) || string.IsNullOrEmpty(soyad) || string.IsNullOrEmpty(cinsiyet) || kilo == 0 || boy == 0 || yas == 0 || belcevresi == 0 || boyunCevresi == 0 || basenCevresi == 0)
+			{
+				MessageBox.Show("Lütfen tüm bilgileri eksiksiz girin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
 			lblVki.Text = Formul.HesaplaBMI(kilo, boy).ToString("0.00");
 			lblYagOrani.Text = Formul.HesaplaVucutYagOrani(cinsiyet, kilo, boy, yas, belcevresi, boyunCevresi, basenCevresi).ToString("0.00");
 			lblBazalMetabolizmaHizi.Text = Formul.HesaplaBMR(cinsiyet, kilo, boy, yas).ToString("0.00");
@@ -77,10 +83,10 @@ namespace Kalori_Takip___Diyet__Programı
 			doc.Add(new Paragraph("Cinsiyet: " + cinsiyet));
 			doc.Add(new Paragraph("Kilo: " + kilo.ToString()));
 			doc.Add(new Paragraph("Boy: " + boy.ToString()));
-			doc.Add(new Paragraph("Yaş: " + yas.ToString()));
+			doc.Add(new Paragraph("Yas: " + yas.ToString()));
 			doc.Add(new Paragraph("Vücut Kitle İndeksi: " + Formul.HesaplaBMI(kilo, boy).ToString("0.00")));
-			doc.Add(new Paragraph("Bazal Metabolizma Hızı: " + Formul.HesaplaBMR(cinsiyet, kilo, boy, yas).ToString("0.00")));
-			doc.Add(new Paragraph("Vücut Yağ Oranı: " + Formul.HesaplaVucutYagOrani(cinsiyet, kilo, boy, yas, belcevresi, boyunCevresi, basenCevresi).ToString("0.00")));
+			doc.Add(new Paragraph("Bazal Metabolizma Hizi: " + Formul.HesaplaBMR(cinsiyet, kilo, boy, yas).ToString("0.00")));
+			doc.Add(new Paragraph("Vücut Yag Orani: " + Formul.HesaplaVucutYagOrani(cinsiyet, kilo, boy, yas, belcevresi, boyunCevresi, basenCevresi).ToString("0.00")));
 
 			doc.Close();
 		}
@@ -92,13 +98,6 @@ namespace Kalori_Takip___Diyet__Programı
 			MessageBox.Show("Kullanıcı bilgileri PDF olarak kaydedildi.");
 		}
 
-		private void grpKisiselBilgiler_Enter(object sender, EventArgs e)
-		{
 
-		}
-
-		private void grpSonuclar_Enter(object sender, EventArgs e)
-		{
-		}
 	}
 }

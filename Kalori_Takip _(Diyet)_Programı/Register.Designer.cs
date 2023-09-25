@@ -30,6 +30,7 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
 			grpKayitOl = new GroupBox();
+			btnGoster = new Button();
 			btnKayitOl = new Button();
 			rdbKadin = new RadioButton();
 			rdbErkek = new RadioButton();
@@ -58,6 +59,7 @@
 			// grpKayitOl
 			// 
 			grpKayitOl.BackColor = Color.Transparent;
+			grpKayitOl.Controls.Add(btnGoster);
 			grpKayitOl.Controls.Add(btnKayitOl);
 			grpKayitOl.Controls.Add(rdbKadin);
 			grpKayitOl.Controls.Add(rdbErkek);
@@ -79,10 +81,27 @@
 			grpKayitOl.Controls.Add(label6);
 			grpKayitOl.Location = new Point(3, 142);
 			grpKayitOl.Name = "grpKayitOl";
-			grpKayitOl.Size = new Size(359, 454);
+			grpKayitOl.Size = new Size(386, 414);
 			grpKayitOl.TabIndex = 9;
 			grpKayitOl.TabStop = false;
 			grpKayitOl.Text = "Kayıt Ol";
+			// 
+			// btnGoster
+			// 
+			btnGoster.BackColor = Color.Transparent;
+			btnGoster.BackgroundImage = (Image)resources.GetObject("btnGoster.BackgroundImage");
+			btnGoster.BackgroundImageLayout = ImageLayout.Stretch;
+			btnGoster.FlatStyle = FlatStyle.Popup;
+			btnGoster.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
+			btnGoster.ForeColor = Color.AliceBlue;
+			btnGoster.Location = new Point(339, 201);
+			btnGoster.Name = "btnGoster";
+			btnGoster.Size = new Size(28, 25);
+			btnGoster.TabIndex = 21;
+			btnGoster.UseVisualStyleBackColor = false;
+			btnGoster.Click += btnGoster_Click;
+			btnGoster.MouseDown += btnGoster_MouseDown;
+			btnGoster.MouseUp += btnGoster_MouseUp;
 			// 
 			// btnKayitOl
 			// 
@@ -90,7 +109,7 @@
 			btnKayitOl.FlatStyle = FlatStyle.Popup;
 			btnKayitOl.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			btnKayitOl.ForeColor = Color.AliceBlue;
-			btnKayitOl.Location = new Point(66, 391);
+			btnKayitOl.Location = new Point(68, 358);
 			btnKayitOl.Name = "btnKayitOl";
 			btnKayitOl.Size = new Size(224, 32);
 			btnKayitOl.TabIndex = 21;
@@ -101,7 +120,7 @@
 			// rdbKadin
 			// 
 			rdbKadin.AutoSize = true;
-			rdbKadin.Location = new Point(219, 346);
+			rdbKadin.Location = new Point(219, 317);
 			rdbKadin.Name = "rdbKadin";
 			rdbKadin.Size = new Size(55, 19);
 			rdbKadin.TabIndex = 24;
@@ -112,7 +131,7 @@
 			// rdbErkek
 			// 
 			rdbErkek.AutoSize = true;
-			rdbErkek.Location = new Point(141, 346);
+			rdbErkek.Location = new Point(141, 317);
 			rdbErkek.Name = "rdbErkek";
 			rdbErkek.Size = new Size(53, 19);
 			rdbErkek.TabIndex = 23;
@@ -126,7 +145,7 @@
 			label10.BackColor = Color.Transparent;
 			label10.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			label10.ForeColor = Color.Transparent;
-			label10.Location = new Point(24, 341);
+			label10.Location = new Point(24, 312);
 			label10.Name = "label10";
 			label10.Size = new Size(60, 25);
 			label10.TabIndex = 22;
@@ -236,6 +255,7 @@
 			txtSifreTekrar.BorderStyle = BorderStyle.FixedSingle;
 			txtSifreTekrar.Location = new Point(114, 254);
 			txtSifreTekrar.Name = "txtSifreTekrar";
+			txtSifreTekrar.PasswordChar = '*';
 			txtSifreTekrar.Size = new Size(219, 23);
 			txtSifreTekrar.TabIndex = 16;
 			txtSifreTekrar.TextChanged += txtSifreTekrar_TextChanged;
@@ -246,6 +266,7 @@
 			txtSifre.BorderStyle = BorderStyle.FixedSingle;
 			txtSifre.Location = new Point(114, 201);
 			txtSifre.Name = "txtSifre";
+			txtSifre.PasswordChar = '*';
 			txtSifre.Size = new Size(219, 23);
 			txtSifre.TabIndex = 17;
 			txtSifre.TextChanged += txtSifre_TextChanged;
@@ -344,7 +365,7 @@
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.DarkSeaGreen;
-			ClientSize = new Size(374, 608);
+			ClientSize = new Size(412, 573);
 			Controls.Add(btnGeriDon);
 			Controls.Add(pictureBox1);
 			Controls.Add(grpKayitOl);
@@ -379,5 +400,6 @@
 		private Label lblGüvenlikSeviyesi;
 		private Label label4;
 		private Label lblSifreEslesmeDurumu;
+		private Button btnGoster;
 	}
 }

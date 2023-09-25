@@ -60,7 +60,7 @@ namespace Kalori_Takip___Diyet__Programı
 						Status = true,
 						CreatedDate = DateTime.Now,
 						RoleID = role.RoleID
-					};					
+					};
 					AppUserValidator _rules = new AppUserValidator();
 					ValidationResult result = _rules.Validate(user);
 					user.Password = _userService.SifreyiKodla(user.Password);
@@ -108,6 +108,23 @@ namespace Kalori_Takip___Diyet__Programı
 		private void txtSifre_TextChanged(object sender, EventArgs e)
 		{
 			lblGüvenlikSeviyesi.Text = _userService.CheckPasswordStrength(txtSifre.Text);
+		}
+
+		private void btnGoster_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnGoster_MouseDown(object sender, MouseEventArgs e)
+		{
+			txtSifre.PasswordChar = default;
+			txtSifreTekrar.PasswordChar = default;
+		}
+
+		private void btnGoster_MouseUp(object sender, MouseEventArgs e)
+		{
+			txtSifre.PasswordChar = '*';
+			txtSifreTekrar.PasswordChar = '*';
 		}
 	}
 }

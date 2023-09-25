@@ -101,6 +101,16 @@ namespace Kalori_Takip___Diyet__Programı
 
 		}
 
+		private void btnGoster_MouseDown(object sender, MouseEventArgs e)
+		{
+			txtSifre.PasswordChar = default;
+
+		}
+
+		private void btnGoster_MouseUp(object sender, MouseEventArgs e)
+		{
+			txtSifre.PasswordChar = '*';
+		}
 	}
 }
 

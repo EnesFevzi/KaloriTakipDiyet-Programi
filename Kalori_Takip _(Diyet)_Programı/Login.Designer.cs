@@ -39,6 +39,7 @@
 			btnHesapOlustur = new Button();
 			label4 = new Label();
 			btnGeriDon = new Button();
+			btnGoster = new Button();
 			grpGirisYap.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -81,6 +82,7 @@
 			// 
 			txtSifre.Location = new Point(73, 119);
 			txtSifre.Name = "txtSifre";
+			txtSifre.PasswordChar = '*';
 			txtSifre.Size = new Size(224, 23);
 			txtSifre.TabIndex = 5;
 			// 
@@ -101,6 +103,7 @@
 			// grpGirisYap
 			// 
 			grpGirisYap.BackColor = Color.Transparent;
+			grpGirisYap.Controls.Add(btnGoster);
 			grpGirisYap.Controls.Add(label3);
 			grpGirisYap.Controls.Add(label1);
 			grpGirisYap.Controls.Add(btnHesapOlustur);
@@ -121,7 +124,7 @@
 			label3.BackColor = Color.Transparent;
 			label3.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
 			label3.ForeColor = Color.Black;
-			label3.Location = new Point(56, 218);
+			label3.Location = new Point(55, 209);
 			label3.Name = "label3";
 			label3.Size = new Size(264, 25);
 			label3.TabIndex = 4;
@@ -172,6 +175,22 @@
 			btnGeriDon.UseVisualStyleBackColor = false;
 			btnGeriDon.Click += btnGeriDon_Click;
 			// 
+			// btnGoster
+			// 
+			btnGoster.BackColor = Color.Transparent;
+			btnGoster.BackgroundImage = (Image)resources.GetObject("btnGoster.BackgroundImage");
+			btnGoster.BackgroundImageLayout = ImageLayout.Stretch;
+			btnGoster.FlatStyle = FlatStyle.Popup;
+			btnGoster.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point);
+			btnGoster.ForeColor = Color.AliceBlue;
+			btnGoster.Location = new Point(303, 119);
+			btnGoster.Name = "btnGoster";
+			btnGoster.Size = new Size(28, 25);
+			btnGoster.TabIndex = 22;
+			btnGoster.UseVisualStyleBackColor = false;
+			btnGoster.MouseDown += btnGoster_MouseDown;
+			btnGoster.MouseUp += btnGoster_MouseUp;
+			// 
 			// Login
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -202,5 +221,6 @@
 		private Button btnHesapOlustur;
 		private Label label4;
 		private Button btnGeriDon;
+		private Button btnGoster;
 	}
 }

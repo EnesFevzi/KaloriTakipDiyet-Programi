@@ -28,7 +28,7 @@ namespace KaloriTakipProgramı.Data.Concrete.EntityFramework
 		}
 		public ConsumeFood GetConsumeFood2(int id, DateTime tarih)
 		{
-			return _context.ConsumeFoods.OrderBy(x => x.CreatedDate).Last(x => x.Meal.MealID == id && x.CreatedDate.Date == tarih.Date);
+			return _context.ConsumeFoods.OrderBy(x => x.CreatedDate).LastOrDefault(x => x.Meal.MealID == id && x.CreatedDate.Date == tarih.Date);
 		}
 
 		#region Haftalık Ogun İçin
